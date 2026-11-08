@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AI Video Editor: Edit Your Reels with Claude Code</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<section class="cover">
+  <div class="brand"><span class="brand-mark">N</span>@nour_abou_zour</div>
+
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>EDIT</b></span>
+    <h1>Build your own<br><span class="grad">AI video editor<br>with Claude Code</span></h1>
+    <p class="subtitle">A complete beginner's guide to turning raw footage into finished reels, with pauses cut, captions, music and motion graphics, just by chatting. Every prompt is included.</p>
+  </div>
+
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Setup time</span><strong>30–45 minutes, once</strong></div>
+      <div><span>Tools</span><strong>All free</strong></div>
+    </div>
+    <p class="cover-foot">You need a paid Claude plan for Claude Code. Every other tool in this guide is free and open source.</p>
+  </div>
+</section>
+
+<!-- ================= START HERE ================= -->
+<section>
+  <span class="eyebrow">Start here</span>
+  <h2>What this guide will help you do</h2>
+
+  <div class="summary">
+    <p>Editing a reel by hand means cutting every pause, typing every caption, finding music and animating text. That takes hours. With <strong>Claude Code</strong>, you set up an editing "studio" on your computer once. After that you drop in a video, send one prompt, and Claude edits it in <strong>your</strong> style.</p>
+    <p>Don't like something? You tell it, just like you'd tell a real editor: <em>"captions smaller"</em>, <em>"cut the part at 0:12"</em>, <em>"music quieter"</em>.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>The tools, explained simply</li>
+    <li>What you need</li>
+    <li>Install Claude Code and make your folders</li>
+    <li>Install the editing tools</li>
+    <li>Create your style sheet</li>
+    <li>Edit your first reel</li>
+    <li>Give feedback like a director</li>
+    <li>Export and post</li>
+    <li>Fixes, checklist and glossary</li>
+  </ol>
+
+  <div class="section keep">
+    <span class="eyebrow">The basics</span>
+    <h2>Your editing team</h2>
+    <p><strong>Claude Code</strong> is a version of Claude that can work directly with files and programs on your computer. It doesn't edit video by itself. Instead, it operates four free tools, like an editor using their software:</p>
+    <div class="cards">
+      <div class="card"><span class="tag">Cutting</span><h4>FFmpeg</h4><p>The world's most used video tool. It cuts, joins, resizes, adds audio and exports. Claude uses it for all the basic editing.</p></div>
+      <div class="card"><span class="tag">Listening</span><h4>Whisper</h4><p>Free speech-to-text from OpenAI that runs on your computer. It writes down every word with its exact timing, which is how Claude finds pauses and syncs captions.</p></div>
+      <div class="card"><span class="tag">Graphics</span><h4>Hyperframes</h4><p>Turns web-style designs into video. Claude uses it to build animated captions, titles, lists and number pop-ups.</p></div>
+      <div class="card"><span class="tag">Research</span><h4>yt-dlp</h4><p>Downloads a video from a link. You'll use it to give Claude reels whose style you like, so it can study them.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <span class="eyebrow">Before you start</span>
+  <h2>What you need</h2>
+  <table>
+    <tr><th style="width:32%">You need</th><th>Details</th></tr>
+    <tr><td>A computer</td><td>Windows or Mac. A laptop from the last few years is fine. Editing is slower on older machines, but it works.</td></tr>
+    <tr><td>Free disk space</td><td>About 10 GB for the tools, plus room for your videos.</td></tr>
+    <tr><td>A paid Claude plan</td><td>Claude Code is included in Claude's paid plans (Pro and above, at the time of writing).</td></tr>
+    <tr><td>Raw footage</td><td>A video you filmed, for example straight from your phone.</td></tr>
+    <tr><td>3–5 reference reels</td><td>Links to reels whose editing style you love.</td></tr>
+    <tr><td>Music <em>(optional)</em></td><td>Royalty-free tracks you have the right to use. You can also add music later inside Instagram.</td></tr>
+  </table>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Install Claude Code and make your folders</h3><small>About 10 minutes</small></div></div>
+
+    <h4>1a. Get the app</h4>
+    <ol>
+      <li>Download the <strong>Claude desktop app</strong> from <a href="https://claude.ai/download">claude.ai/download</a> and install it.</li>
+      <li>Open it and sign in with your Claude account.</li>
+      <li>Click the <strong>Code</strong> tab at the top. That's Claude Code.</li>
+    </ol>
+
+    <h4>1b. Make your editing folder</h4>
+    <p>In your <strong>Documents</strong>, create a folder called <code>AI Video Editor</code> with these folders inside it:</p>
+    <table>
+      <tr><th style="width:32%">Folder</th><th>What goes in it</th></tr>
+      <tr><td><code>raw-footage</code></td><td>The videos you filmed and want edited</td></tr>
+      <tr><td><code>references</code></td><td>Reels whose style you want to copy (Claude fills this for you)</td></tr>
+      <tr><td><code>exports</code></td><td>Your finished, ready-to-post reels</td></tr>
+      <tr><td><code>music</code> <em>(optional)</em></td><td>Songs you're allowed to use</td></tr>
+    </table>
+
+    <h4>1c. Open it in Claude Code</h4>
+    <ol>
+      <li>In the Code tab, start a <strong>new session</strong>.</li>
+      <li>When it asks where to work, choose <strong>Local</strong> (your own computer).</li>
+      <li>Select your <code>AI Video Editor</code> folder.</li>
+    </ol>
+    <div class="box tip">
+      <div class="box-title">Always open this folder</div>
+      <p>Every time you want to edit, start your session in the <code>AI Video Editor</code> folder. That's where Claude finds your footage, your style sheet and your tools.</p>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Install the editing tools</h3><small>15–30 minutes, mostly waiting</small></div></div>
+    <p>You don't install anything by hand. Claude does it. Paste this:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Install tools</span></div>
+<pre>I'm a complete beginner and I'm on <span class="fill">Windows / Mac</span>. Set up this folder as my video editing studio.
+
+Install these tools: Hyperframes, FFmpeg, Whisper and yt-dlp.
+- First check which ones are already installed
+- Install anything they need to work (for example Python or Node.js)
+- Before each step, explain in one simple sentence what you're doing
+- At the end, test each tool and show me a table: tool / installed? / version
+
+If you need me to click or approve something, tell me exactly what to do.</pre>
+    </div>
+    <p>Claude will ask permission to run commands. Read the one-line explanation and click <strong>Allow</strong>. Some downloads are large, so this can take a while.</p>
+    <div class="box note">
+      <div class="box-title">If something needs a restart</div>
+      <p>Sometimes a freshly installed tool isn't found until you start a new session. If Claude says a tool is "not found" right after installing it, close the session, open a new one in the same folder, and ask Claude to run the test again.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Create your style sheet</h3><small>About 10 minutes · you do this once</small></div></div>
+    <p>A <strong>style sheet</strong> is a written description of how your reels should look and feel: pacing, captions, zooms, music, graphics. Claude writes it by studying 3–5 reels you love. After this, every edit follows it automatically.</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Style sheet</span></div>
+<pre>Here are reels whose editing style I love:
+<span class="fill">LINK 1</span>
+<span class="fill">LINK 2</span>
+<span class="fill">LINK 3</span>
+
+1. Download them into the references folder with yt-dlp.
+2. For each one, grab a frame every second with FFmpeg and look at them, and use Whisper to get the transcript with timings.
+3. Study and measure:
+   - The hook: what happens in the first 3 seconds
+   - Pacing: average seconds between cuts, how pauses are removed
+   - Captions: font, size, colour, position, words per line, highlighted words, animation
+   - Zooms and punch-ins: how often and how strong
+   - Motion graphics and text pop-ups: when and what style
+   - Music: energy, and how loud compared to the voice
+   - Sound effects, transitions, colour look, how the video ends
+4. Write everything into style-sheet.md in this folder, as a style guide a professional editor could follow. Use exact numbers wherever possible.
+
+Then show me a short summary of my style.</pre>
+    </div>
+    <div class="box warn">
+      <div class="box-title">Reference only</div>
+      <p>Downloaded reels are only for Claude to study. Don't repost or reuse other creators' videos. If a download fails (Instagram sometimes blocks it), save the reel some other way, put the file in <code>references</code> yourself, and tell Claude <em>"the reels are already in the references folder"</em>.</p>
+    </div>
+    <p>Open <code>style-sheet.md</code> and read it. Want to change something? Just say: <em>"Update the style sheet: captions should always be yellow."</em></p>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Edit your first reel</h3><small>About 10–20 minutes, depending on your computer</small></div></div>
+    <ol>
+      <li>Put your video in <code>raw-footage</code>. Give it a simple name like <code>reel-01.mp4</code>.</li>
+      <li>Send this prompt:</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Edit a reel</span></div>
+<pre>Edit raw-footage/<span class="fill">reel-01.mp4</span> into an Instagram Reel that follows style-sheet.md.
+
+1. Transcribe it with Whisper (with word timings).
+2. Cut pauses longer than 0.3 seconds, "umm"s, false starts and repeated takes (keep the best take).
+3. Make the first 3 seconds a strong hook, following my style sheet.
+4. Add captions in my style, synced word by word.
+5. Add punch-in zooms on key moments.
+6. Use Hyperframes for motion graphics on key points, numbers and lists.
+7. Add music from the music folder under my voice, quieter whenever I speak. Skip this if the folder is empty.
+8. Export as a vertical 1080x1920 MP4 at 30fps to exports/<span class="fill">reel-01</span>-v1.mp4.
+
+Before you render anything, show me your plan (what you'll cut, and where captions, zooms and graphics go) and wait for my OK.</pre>
+    </div>
+    <p>Check the plan, reply <strong>OK</strong> (or change something), and Claude will build the video. When it's done, open the file in <code>exports</code> and watch it.</p>
+  </div>
+</section>
+
+<section class="section">
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Give feedback like a director</h3><small>As many rounds as you want</small></div></div>
+    <p>This is where it feels like working with a real editor. Say what you don't like in plain words. The clearer you are, the better the result.</p>
+    <table>
+      <tr><th style="width:42%">Example feedback</th><th>Why it works</th></tr>
+      <tr><td>"Cut from 0:12 to 0:15, I stumble there."</td><td>Exact timestamps mean no guessing.</td></tr>
+      <tr><td>"Captions are too big. Make them 20% smaller and move them a bit higher."</td><td>Specific and measurable.</td></tr>
+      <tr><td>"The music is too loud, I can't hear myself."</td><td>Describes the problem you noticed.</td></tr>
+      <tr><td>"The first 5 seconds feel slow. Make the cuts faster."</td><td>Says where and what feeling you want.</td></tr>
+      <tr><td>"Add a pop-up with the number '3 steps' when I say it."</td><td>Says what to add and when.</td></tr>
+      <tr><td>"Save this as v2 and keep v1."</td><td>Lets you compare versions.</td></tr>
+    </table>
+    <div class="box tip">
+      <div class="box-title">Make it learn</div>
+      <p>When you correct the same thing twice, say: <em>"Add this to my style sheet so you always do it."</em> Your edits get better with every reel.</p>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step keep">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Export and post</h3><small>2 minutes</small></div></div>
+    <ul>
+      <li>Your final reel is in <code>exports</code>. Send it to your phone (AirDrop, Google Drive, WhatsApp to yourself, or a USB cable).</li>
+      <li>Upload it in Instagram as a Reel. If you didn't add music, you can pick a sound from Instagram's library at this point.</li>
+      <li>Want a thumbnail? Ask: <em>"Make a cover image from the best frame, with the title '<span class="fill">YOUR TITLE</span>' in my caption style."</em></li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <span class="eyebrow">Next time</span>
+    <h2>Your 3-step routine from now on</h2>
+    <div class="flow">
+      <div><b>1. Drop</b>Put the new video in <code>raw-footage</code>.</div>
+      <i>→</i>
+      <div><b>2. Prompt</b>Open a session in the folder and send the Step 4 prompt with the new file name.</div>
+      <i>→</i>
+      <div><b>3. Review</b>Give feedback, then post the final version from <code>exports</code>.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <span class="eyebrow">If something goes wrong</span>
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>"Command not found" after installing</td><td>Start a new session in the same folder (or restart the app), then ask Claude to test the tools again.</td></tr>
+      <tr><td>Whisper is very slow</td><td>Ask: "Use a smaller Whisper model, like 'small' or 'base'." It's a little less accurate but much faster.</td></tr>
+      <tr><td>Captions are out of sync</td><td>Ask: "Re-sync the captions using Whisper's word timings, and check them against the audio."</td></tr>
+      <tr><td>Words in the captions are wrong</td><td>Tell Claude the correct spelling once: "My name is spelled Nour, fix it everywhere and remember it in the style sheet."</td></tr>
+      <tr><td>The video is sideways or has black bars</td><td>Ask: "Make it a vertical 9:16 1080x1920 video that fills the screen, no black bars."</td></tr>
+      <tr><td>A reference reel won't download</td><td>Instagram sometimes blocks downloads. Put the video file in <code>references</code> yourself.</td></tr>
+      <tr><td>Rendering takes forever</td><td>Ask for a quick low-quality preview first, and only export full quality when you're happy.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <span class="eyebrow">Ready?</span>
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>Claude desktop app is installed and I can open the Code tab</li>
+      <li>My <code>AI Video Editor</code> folder has raw-footage, references and exports</li>
+      <li>Hyperframes, FFmpeg, Whisper and yt-dlp all passed Claude's test</li>
+      <li>I have a <code>style-sheet.md</code> made from 3–5 reels I love</li>
+      <li>I edited my first reel and approved the plan before it rendered</li>
+      <li>I gave feedback and saved the improvements to my style sheet</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <span class="eyebrow">Words you'll see</span>
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">Claude Code</td><td>The version of Claude that can work with files and programs on your computer.</td></tr>
+      <tr><td>Render / export</td><td>Turning your edit into a finished video file.</td></tr>
+      <tr><td>Transcript</td><td>Everything said in the video, written down with timings.</td></tr>
+      <tr><td>Punch-in</td><td>A quick zoom in on the speaker to add energy or emphasis.</td></tr>
+      <tr><td>Motion graphics</td><td>Animated text, shapes or numbers that appear on screen.</td></tr>
+      <tr><td>1080x1920 (9:16)</td><td>The size of a full-screen vertical reel.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>You just hired an editor who never sleeps.</h2>
+    <p>The more reels you make, the better your style sheet gets, and the less you'll need to correct.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Dual Skill: Make Claude and ChatGPT Debate</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<section class="cover">
+  <div class="brand"><span class="brand-mark">N</span>@nour_abou_zour</div>
+
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>FACE OFF</b></span>
+    <h1>Make Claude and<br><span class="grad">ChatGPT debate<br>for the best answer</span></h1>
+    <p class="subtitle">A complete beginner's guide to the free Dual Skill: bring ChatGPT into your Claude chat, make them challenge each other's answers, and keep only what survives.</p>
+  </div>
+
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Setup time</span><strong>About 15 minutes</strong></div>
+      <div><span>Skill cost</span><strong>Free</strong></div>
+    </div>
+    <p class="cover-foot">The skill is free. ChatGPT's side runs on an OpenAI account, which costs a few cents per debate (explained inside).</p>
+  </div>
+</section>
+
+<!-- ================= START HERE ================= -->
+<section>
+  <span class="eyebrow">Start here</span>
+  <h2>What this guide will help you do</h2>
+
+  <div class="summary">
+    <p>Every AI makes mistakes, and it usually sounds just as confident when it's wrong. The fix is the same one people use: <strong>get a second opinion and make them argue.</strong></p>
+    <p><strong>Dual Skill</strong> brings ChatGPT into your Claude conversation. When you don't trust an answer, the two AIs pick apart each other's arguments, expose each other's mistakes, and each one has to defend every word it said, until only the strongest answer is left.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>How the debate works</li>
+    <li>What you need</li>
+    <li>Get an OpenAI API key</li>
+    <li>Install the skill</li>
+    <li>Connect your key safely</li>
+    <li>Run your first face-off</li>
+    <li>Read the result</li>
+    <li>When to use it (and when not to)</li>
+    <li>Keep costs under control</li>
+    <li>Fixes, checklist and glossary</li>
+  </ol>
+
+  <div class="section keep">
+    <span class="eyebrow">The basics</span>
+    <h2>How the debate works</h2>
+    <p>You ask your question once. Behind the scenes, this happens:</p>
+    <div class="flow">
+      <div><b>1. Claude answers</b>You get Claude's first answer, as normal.</div>
+      <i>→</i>
+      <div><b>2. ChatGPT attacks</b>ChatGPT reads it and points out every weak spot.</div>
+      <i>→</i>
+      <div><b>3. Claude defends</b>Claude fixes real mistakes and pushes back on wrong criticism.</div>
+      <i>→</i>
+      <div><b>4. Repeat</b>They go back and forth until they stop finding problems.</div>
+      <i>→</i>
+      <div><b>5. Final answer</b>You get the answer both sides could defend.</div>
+    </div>
+    <p>Two different AIs, trained by two different companies, tend to make <strong>different</strong> mistakes. So when one checks the other, a lot of errors get caught that either one would miss alone.</p>
+  </div>
+</section>
+
+<section class="section">
+  <span class="eyebrow">Before you start</span>
+  <h2>What you need</h2>
+  <table>
+    <tr><th style="width:32%">You need</th><th>Why, and where to get it</th></tr>
+    <tr><td>A Claude account</td><td>Sign up at <a href="https://claude.ai">claude.ai</a>. Skills use Claude's ability to read files and run small tools, which may need a paid plan depending on your account.</td></tr>
+    <tr><td>The Claude desktop app <em>(recommended)</em></td><td>From <a href="https://claude.ai/download">claude.ai/download</a>. The skill has to contact ChatGPT over the internet, which works best from the app's <strong>Code</strong> tab.</td></tr>
+    <tr><td>An OpenAI API key</td><td>This is how the skill talks to ChatGPT. Step 1 shows you how to get one.</td></tr>
+    <tr><td>A few dollars of OpenAI credit</td><td>$5 is plenty to start. Each debate usually costs a few cents.</td></tr>
+    <tr><td>The Dual Skill link</td><td>The link from my reel.</td></tr>
+  </table>
+
+  <div class="box warn">
+    <div class="box-title">ChatGPT Plus is not the same as API credit</div>
+    <p>A ChatGPT Plus subscription only works on the ChatGPT website and app. Tools like this skill use the <strong>OpenAI API</strong>, which is a separate account with its own pay-as-you-go balance, even if you already pay for Plus.</p>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Get an OpenAI API key</h3><small>About 5 minutes</small></div></div>
+    <p>An <strong>API key</strong> is like a password that lets a program use your OpenAI account. Here's how to get one:</p>
+    <ol>
+      <li>Go to <a href="https://platform.openai.com">platform.openai.com</a> and sign up or log in. You can use the same login as ChatGPT.</li>
+      <li>Open <strong>Settings → Billing</strong> and add a payment method. Add a small amount of credit, for example <strong>$5</strong>.</li>
+      <li>Open the <strong>API keys</strong> page and click <strong>Create new secret key</strong>. Give it a name like <code>Dual Skill</code>.</li>
+      <li><strong>Copy the key straight away</strong> and keep it somewhere safe for the next few minutes. It starts with <code>sk-</code>. OpenAI shows it only once.</li>
+    </ol>
+
+    <div class="box warn">
+      <div class="box-title">Treat your key like a bank card</div>
+      <p>Anyone with your key can spend your OpenAI credit. Never post it online, never put it in a screenshot, and never send it in a DM. If you think it leaked, delete it on the API keys page and create a new one.</p>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Install the skill</h3><small>About 3 minutes</small></div></div>
+    <ol>
+      <li>Open the <strong>Claude desktop app</strong> and click the <strong>Code</strong> tab.</li>
+      <li>Start a new session. Choose <strong>Local</strong> and pick a folder, for example a new folder called <code>Face Off</code> in Documents.</li>
+      <li>Paste the prompt below with the Dual Skill link, and click <strong>Allow</strong> if Claude asks for permission to download files.</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Install</span></div>
+<pre>Install skill: <span class="fill">PASTE THE DUAL SKILL LINK HERE</span>
+
+Install it for my user account so it works in every project. Then explain in simple words:
+1. What the skill needs from me to work (for example an API key)
+2. Where it expects that key to be stored
+Don't ask me to paste the key into this chat.</pre>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Connect your key safely</h3><small>About 3 minutes</small></div></div>
+    <p>The skill needs your key, but it's safer <strong>not</strong> to paste it into the chat. Instead, ask Claude to prepare the place where the key goes, and paste the key in yourself.</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Set up the key</span></div>
+<pre>Set up my OpenAI API key for the Dual Skill the safe way:
+- Create the settings file (or environment variable) the skill reads from, with a placeholder where the key goes
+- Tell me exactly which file to open and which line to replace with my key
+- Make sure the file isn't shared or uploaded anywhere
+After I've pasted it, test the connection with one tiny request and tell me if it worked.</pre>
+    </div>
+    <p>Follow Claude's instructions, open the file it names, replace the placeholder with your <code>sk-…</code> key, save, and tell Claude <em>"Done, test it."</em></p>
+    <div class="box tip">
+      <div class="box-title">Using Claude on the website instead?</div>
+      <p>If you installed the skill in Claude's settings rather than the Code tab, read the skill's own setup instructions (the README on its link page). They explain where the key goes for that setup.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <span class="eyebrow">Using it</span>
+  <h2>Run your first face-off</h2>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Ask, then call in ChatGPT</h3><small>2 minutes</small></div></div>
+    <p>Start a <strong>new chat</strong> so the skill is loaded. Ask your question normally first. If you're not sure about Claude's answer, start the debate:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Start the debate</span></div>
+<pre>Use the Dual Skill. I'm not sure your last answer is right.
+Bring in ChatGPT and debate it:
+- ChatGPT should attack your answer and point out every weakness
+- You defend every point, admit real mistakes and fix them
+- Keep going until neither of you can find a real problem (max 4 rounds)
+
+Then give me:
+1. The final answer
+2. What changed from your first answer, and why
+3. Anything you two still disagree on</pre>
+    </div>
+    <p>Or do it all in one go with a new question:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>One-shot face-off</span></div>
+<pre>Use the Dual Skill for this question: <span class="fill">YOUR QUESTION HERE</span>
+
+Both of you answer, then challenge each other's answers until only the best answer is left. Show me a short summary of each round, then the final answer in simple words.</pre>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Read the result</h3><small>The part most people skip</small></div></div>
+    <ul>
+      <li><strong>Read "what changed".</strong> That's where the mistakes were. If nothing changed, that's a good sign the first answer was solid.</li>
+      <li><strong>Look at the disagreements.</strong> If they still disagree on something, that part is genuinely uncertain. Check it yourself or ask an expert.</li>
+      <li><strong>Agreement doesn't mean it's true.</strong> Two AIs can agree and both be wrong, especially about very recent events or exact numbers. For anything important (health, money, legal), check a trusted source too.</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <span class="eyebrow">Get the most out of it</span>
+    <h2>When to use it (and when not to)</h2>
+    <div class="cards">
+      <div class="card"><span class="tag">Great for</span><h4>Facts and explanations</h4><p>"Is this true?", "Explain how X works". The second AI catches made-up facts.</p></div>
+      <div class="card"><span class="tag">Great for</span><h4>Code</h4><p>One writes it, the other hunts for bugs and edge cases.</p></div>
+      <div class="card"><span class="tag">Great for</span><h4>Big decisions</h4><p>Business plans, pricing, strategy. You get the strongest arguments on both sides.</p></div>
+      <div class="card"><span class="tag">Great for</span><h4>Important writing</h4><p>Emails, proposals, captions. Each side critiques clarity and tone.</p></div>
+    </div>
+    <p><strong>Skip it</strong> for simple things like "translate this sentence" or "write a quick caption". A debate takes longer and costs a little each time, so save it for answers that matter.</p>
+  </div>
+
+  <div class="section keep">
+    <span class="eyebrow">Money</span>
+    <h2>Keep costs under control</h2>
+    <ul>
+      <li>OpenAI charges per <strong>token</strong> (roughly ¾ of a word). A normal debate usually costs <strong>a few cents</strong>. Very long documents cost more.</li>
+      <li>On OpenAI's <strong>Billing</strong> page you can set a <strong>monthly budget limit</strong> so you can never spend more than you planned.</li>
+      <li>Keep debates to <strong>3–4 rounds</strong>. After that, answers rarely improve.</li>
+      <li>Check your <strong>Usage</strong> page after your first few debates to see what they really cost.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <span class="eyebrow">If something goes wrong</span>
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">What you see</th><th>What it means and what to do</th></tr>
+      <tr><td>"401", "invalid API key" or "unauthorized"</td><td>The key is wrong or was pasted with extra spaces. Create a new key and paste it again carefully.</td></tr>
+      <tr><td>"429", "insufficient quota" or "rate limit"</td><td>Your OpenAI balance is empty, or you sent too many requests too fast. Add credit on the Billing page, or wait a minute.</td></tr>
+      <tr><td>"Model not found"</td><td>The skill asked for a ChatGPT model your account can't use. Ask Claude: "Switch the Dual Skill to a model my OpenAI account has access to."</td></tr>
+      <tr><td>Claude doesn't use the skill</td><td>Start a new chat and name it directly: "Use the Dual Skill to…". If it still isn't found, repeat Step 2.</td></tr>
+      <tr><td>The debate never ends or goes off topic</td><td>Set a limit in your prompt: "maximum 3 rounds", and restate the exact question.</td></tr>
+      <tr><td>Can't connect at all</td><td>Use the Code tab of the desktop app. The skill needs to reach OpenAI over the internet.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <span class="eyebrow">Ready?</span>
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>I have an OpenAI account with a payment method and a small amount of credit</li>
+      <li>I set a monthly budget limit on OpenAI</li>
+      <li>I created an API key and kept it private</li>
+      <li>The Dual Skill is installed</li>
+      <li>My key is saved in the settings file (not pasted in the chat) and the test worked</li>
+      <li>I ran my first face-off and read what changed and what they disagree on</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <span class="eyebrow">Words you'll see</span>
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">API</td><td>A way for one program to talk to another. Here, it's how Claude's skill talks to ChatGPT.</td></tr>
+      <tr><td>API key</td><td>A secret password that lets a program use your OpenAI account and credit.</td></tr>
+      <tr><td>Token</td><td>A small piece of text (about ¾ of a word). AI usage is priced per token.</td></tr>
+      <tr><td>Model</td><td>A specific version of an AI, like a specific ChatGPT model.</td></tr>
+      <tr><td>Skill</td><td>A set of expert instructions (and sometimes small tools) that Claude follows for a specific job.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Two brains are better than one.</h2>
+    <p>Next time an answer really matters, don't settle for the first one. Make them fight for it.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>
