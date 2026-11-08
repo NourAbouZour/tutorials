@@ -28,36 +28,16 @@ window.SITE = {
 };
 
 window.GUIDES = [
+  /* Copy this block for each new reel (and remove the slashes and stars around it):
+
   {
-    word: "START",
-    title: "The beginner's starter guide",
-    description: "Everything from the video in one place: the first steps, the mistakes to avoid, and a simple checklist to get going this week.",
-    pdf: "start.pdf",
-    video: "https://www.instagram.com/nour_abou_zour/",
-    date: "2026-11-06"
+    word: "WORD",
+    title: "Guide title",
+    description: "What's inside the PDF, in one or two sentences.",
+    pdf: "word.pdf",
+    video: "https://www.instagram.com/reel/XXXXXXXX/",
+    date: "2026-11-08"
   },
-  {
-    word: "PLAN",
-    title: "30-day plan",
-    description: "A day-by-day plan you can print and follow. Each week builds on the last, with space to track your progress.",
-    pdf: "plan.pdf",
-    video: "https://www.instagram.com/nour_abou_zour/",
-    date: "2026-10-28"
-  },
-  {
-    word: "TOOLS",
-    title: "My favourite tools and resources",
-    description: "The full list of apps, books and resources I mentioned, with a short note on what each one is best for.",
-    pdf: "tools.pdf",
-    video: "https://www.instagram.com/nour_abou_zour/",
-    date: "2026-09-14"
-  },
-  {
-    word: "HABITS",
-    title: "5 habits that changed everything",
-    description: "The five habits from the reel explained in more detail, plus how to start each one in under 10 minutes a day.",
-    pdf: "habits.pdf",
-    video: "https://www.instagram.com/nour_abou_zour/",
-    date: "2026-03-02"
-  }
+
+  */
 ];

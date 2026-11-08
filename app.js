@@ -191,6 +191,12 @@
     var exact = normalize(q);
     var n = results.length;
 
+    var none = guides.length === 0;
+    $("empty-title").textContent = none ? "Guides coming soon" : "No guide found";
+    $("empty-text").hidden = none;
+    $("empty-soon").hidden = !none;
+    document.querySelector(".filters").hidden = none;
+
     clearBtn.hidden = !raw;
     empty.hidden = n > 0;
     count.hidden = n === 0;
