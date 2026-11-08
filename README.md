@@ -1,0 +1,52 @@
+# Guides site
+
+A one-page site where people from your reels find the PDF guide for the word they commented.
+
+## Add a new guide (2 steps)
+
+1. Drop the PDF into the `pdfs` folder, e.g. `pdfs/budget.pdf`
+   (use simple file names: lowercase, no spaces).
+2. Open `guides.js` and add a block to `GUIDES`:
+
+```js
+{
+  word: "BUDGET",
+  title: "The simple budget guide",
+  description: "What's inside the PDF, in one or two sentences.",
+  pdf: "budget.pdf",
+  video: "https://www.instagram.com/reel/XXXXXXXX/",
+  date: "2026-11-08"
+},
+```
+
+- `video` is the link to the reel (Instagram app: ⋯ → Copy link). Leave it as `""` to hide the button.
+- `date` is the day you posted it, written YEAR-MONTH-DAY. It powers the date filters,
+  the Newest/Oldest sorting and the "New" tag (shown for 7 days).
+
+That's it. Refresh the page.
+
+Your name, @handle, Instagram link, intro text and (optional) profile photo are at the top of `guides.js` under `SITE`.
+
+## Sending someone straight to one guide
+
+Add `?word=` to the end of your site link:
+
+```
+https://your-site.com/?word=BUDGET
+```
+
+It opens with the search already filled in, so they see only that guide.
+You can also tap the small link icon on any card to copy that exact link.
+
+## Files
+
+- `index.html` – the page
+- `style.css` – the look
+- `app.js` – search and links (no need to touch)
+- `guides.js` – **your content, edit this one**
+- `pdfs/` – your PDF files
+
+## Putting it online
+
+It's plain HTML with no server code, so it works on any host: upload the whole folder
+to Hostinger, Netlify (drag and drop the folder at app.netlify.com/drop), GitHub Pages, etc.
