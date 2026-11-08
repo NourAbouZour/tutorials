@@ -32,7 +32,7 @@ Your name, @handle, Instagram link, intro text and (optional) profile photo are 
 Add `?word=` to the end of your site link:
 
 ```
-https://your-site.com/?word=BUDGET
+https://nourabouzour.github.io/tutorials/?word=BUDGET
 ```
 
 It opens with the search already filled in, so they see only that guide.
@@ -46,7 +46,9 @@ You can also tap the small link icon on any card to copy that exact link.
 - `guides.js` – **your content, edit this one**
 - `pdfs/` – your PDF files
 
-## Putting it online
+## Live site
 
-It's plain HTML with no server code, so it works on any host: upload the whole folder
-to Hostinger, Netlify (drag and drop the folder at app.netlify.com/drop), GitHub Pages, etc.
+**https://nourabouzour.github.io/tutorials/**
+
+It's hosted free on GitHub Pages from this repo's `main` branch. Every push to `main`
+updates the live site within about a minute.
