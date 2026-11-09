@@ -42,6 +42,14 @@ window.GUIDES = [
   */
 
   {
+    word: "WEBSITES",
+    title: "5 websites that level up what you build with Claude",
+    description: "Anime.js, Motion, Kokonut UI, Bklit UI and Manus: what each one does, when to use it, and the exact prompts to make Claude build animated, professional websites and dashboards.",
+    pdf: "websites.pdf",
+    video: "",
+    date: "2026-11-09"
+  },
+  {
     word: "FOUNDER",
     title: "Founder Skill: test your business before you spend a dollar",
     description: "Install the free Founder Skill in Claude and get an AI board of directors, marketing director and CFO. Then run your idea past 100 simulated customers to see who buys, who doesn't, and why.",

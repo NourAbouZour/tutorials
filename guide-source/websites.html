@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>5 Websites That Level Up What You Build with Claude</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<section class="cover">
+  <div class="brand"><span class="brand-mark">N</span>@nour_abou_zour</div>
+
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>WEBSITES</b></span>
+    <h1>5 websites that<br><span class="grad">level up what you<br>build with Claude</span></h1>
+    <p class="subtitle">Anime.js, Motion, Kokonut UI, Bklit UI and Manus: what each one does, when to use it, and the exact prompts to make Claude build animated, professional-looking websites and dashboards.</p>
+  </div>
+
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Reading time</span><strong>About 20 minutes</strong></div>
+      <div><span>Cost</span><strong>Mostly free</strong></div>
+    </div>
+    <p class="cover-foot">Anime.js, Motion, Kokonut UI and Bklit UI are free. Manus has free daily credits and paid plans.</p>
+  </div>
+</section>
+
+<!-- ================= START HERE ================= -->
+<section>
+  <h2>What this guide will help you do</h2>
+
+  <div class="summary">
+    <p>When you ask Claude to "make me a website", it usually works, but it often looks <strong>plain</strong>: no movement, basic buttons, flat charts. Professional sites feel alive because they're built with good <strong>animation libraries</strong> and <strong>ready-made components</strong>.</p>
+    <p>These five websites give Claude those building blocks. You don't need to learn to code. You need to know <strong>which one to use for what</strong>, and <strong>how to tell Claude to use it</strong>. That's what this guide covers.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>The five at a glance</li>
+    <li>Two ways to build with Claude</li>
+    <li>The one trick that makes it work</li>
+    <li>Anime.js: any animation you imagine</li>
+    <li>Motion: smooth transitions</li>
+    <li>Kokonut UI: ready animated components</li>
+    <li>Bklit UI: animated dashboard charts</li>
+    <li>Manus: an AI agent that builds the first draft</li>
+    <li>Put it all together: one project</li>
+    <li>Good-taste rules, fixes, checklist, glossary</li>
+  </ol>
+
+  <div class="section keep">
+    <h2>The five at a glance</h2>
+    <table>
+      <tr><th style="width:20%">Website</th><th style="width:38%">What it's for</th><th>Use it when you want…</th></tr>
+      <tr><td>Anime.js</td><td>A powerful animation library</td><td>Custom effects: text that types itself, shapes that draw, things that move on scroll</td></tr>
+      <tr><td>Motion</td><td>Smooth transitions and interactions</td><td>Pages, menus, cards and buttons that move smoothly and feel premium</td></tr>
+      <tr><td>Kokonut UI</td><td>Ready-made animated components</td><td>Beautiful buttons, cards, inputs and sections without designing them yourself</td></tr>
+      <tr><td>Bklit UI</td><td>Animated charts and graphs</td><td>Dashboards that look professional</td></tr>
+      <tr><td>Manus</td><td>An AI agent that builds for you</td><td>A whole first draft (design, dashboard or full website) from just your idea</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Before you start: two ways to build with Claude</h2>
+  <div class="cards">
+    <div class="card"><h3>Way A: a normal Claude chat</h3><p>At claude.ai or in the app. Best for <strong>one-page</strong> things like a landing page or a single animated section. Claude shows you a live preview. Works great with Anime.js and Motion.</p></div>
+    <div class="card"><h3>Way B: Claude Code</h3><p>The <strong>Code</strong> tab in the Claude desktop app (paid plans). Claude builds a real project in a folder on your computer. You need this for Kokonut UI and Bklit UI, which are made for React projects.</p></div>
+  </div>
+  <div class="box note">
+    <div class="box-title">Don't worry about the tech words</div>
+    <p>You'll see words like React, Tailwind and shadcn/ui on these websites. They're just the tools the components are built with. Claude knows all of them. When you use Way B, Claude installs and sets up everything for you. There's a mini glossary at the end if you're curious.</p>
+  </div>
+
+  <div class="keep">
+    <h3>The one trick that makes it work</h3>
+    <p>Claude knows a lot, but these libraries update often. So <strong>always give Claude the link</strong> to the exact page or component you want, and tell it to read that first. This one habit fixes most problems.</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>THE MAGIC SENTENCE</span><span>Add to any prompt</span></div>
+<pre>Before you start, read this page and follow its latest instructions exactly: <span class="fill">PASTE THE LINK</span>
+If you can't open the link, tell me, and I'll paste the code or instructions here.</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 1. ANIME.JS ================= -->
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Anime.js</h3><small>animejs.com · free and open source</small></div></div>
+    <p><a href="https://animejs.com">Anime.js</a> is a very powerful animation library. If you can imagine an animation, you can probably make it with Anime.js: text that appears letter by letter, shapes that draw themselves, grids of dots that ripple, numbers that count up, or elements that move as you scroll.</p>
+
+    <h4>How to use it</h4>
+    <ol>
+      <li>Open <a href="https://animejs.com">animejs.com</a> and browse the examples and documentation. Find an effect you like.</li>
+      <li>Copy the link to that example or docs page.</li>
+      <li>Ask Claude to use it in your page (Way A or B both work).</li>
+    </ol>
+
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Animated hero section</span></div>
+<pre>Build a hero section for my <span class="fill">website about ___</span> using Anime.js.
+- The headline "<span class="fill">YOUR HEADLINE</span>" appears letter by letter
+- A soft background of dots gently ripples in a wave
+- The button bounces in slightly after the text
+Keep the animations smooth and under 1.5 seconds in total, and make it look good on phones too.
+
+Before you start, read this page and follow its latest instructions: <span class="fill">ANIME.JS DOCS OR EXAMPLE LINK</span></pre>
+    </div>
+
+    <div class="box tip">
+      <div class="box-title">Ideas to try</div>
+      <p>"Draw my logo outline like it's being sketched", "count my stats up from 0 when they scroll into view", "make the cards fly in one after another (staggered)".</p>
+    </div>
+  </div>
+
+  <!-- ================= 2. MOTION ================= -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Motion</h3><small>motion.dev · formerly Framer Motion · free core library</small></div></div>
+    <p><a href="https://motion.dev">Motion</a> is the go-to library for <strong>smooth transitions</strong>: pages that slide in, menus that open softly, cards that lift when you hover, and lists that rearrange themselves without jumping. It's what makes a website feel <em>premium</em> instead of stiff. It works with plain JavaScript and with React.</p>
+
+    <h4>Anime.js or Motion?</h4>
+    <p>Use <strong>Motion</strong> for the everyday movement of your interface (opening, closing, hovering, switching pages). Use <strong>Anime.js</strong> for show-off moments (a special hero animation or a drawing effect). Many sites use both.</p>
+
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Smooth transitions</span></div>
+<pre>Use Motion (motion.dev) to make my website feel smooth and premium:
+- Sections fade and slide up gently as they scroll into view
+- Cards lift slightly with a soft shadow when I hover them
+- The mobile menu slides open and closed smoothly
+- Switching between pages or tabs cross-fades instead of jumping
+Use spring animations that feel natural, keep everything quick (under 0.4 seconds), and turn the animations off for people who've set "reduce motion" on their device.
+
+Before you start, read: <span class="fill">MOTION DOCS LINK</span></pre>
+    </div>
+
+    <div class="box note">
+      <div class="box-title">Free vs paid</div>
+      <p>The Motion library is free. The site also sells "Motion+" with extra examples and tools, but you don't need it for anything in this guide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. KOKONUT ================= -->
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Kokonut UI</h3><small>kokonutui.com · 100+ free animated components</small></div></div>
+    <p><a href="https://kokonutui.com">Kokonut UI</a> is a big collection of <strong>ready-made animated components</strong>: buttons with particle effects, animated AI chat inputs, smooth drawers, scrolling text, cards and more. Each one is already designed and animated, so you just copy it in. It's made for React projects (it uses Tailwind, shadcn/ui and Motion), so use <strong>Way B (Claude Code)</strong>.</p>
+
+    <h4>How to use it</h4>
+    <ol>
+      <li>Browse <a href="https://kokonutui.com">kokonutui.com</a> and open a component you like.</li>
+      <li>Copy either the <strong>component's page link</strong>, or its <strong>install command</strong> (it looks like <code>npx shadcn@latest add …</code>), or the <strong>code</strong> itself.</li>
+      <li>Paste it to Claude Code with the prompt below. Claude installs it and fits it into your page.</li>
+    </ol>
+
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Add a Kokonut component</span></div>
+<pre>Add this Kokonut UI component to my website: <span class="fill">COMPONENT LINK, INSTALL COMMAND OR CODE</span>
+
+- If my project isn't set up for it yet (React, Tailwind, shadcn/ui), set that up first and explain each step in one sentence
+- Use it for <span class="fill">my sign-up button / the hero section / the pricing cards</span>
+- Change the colours and text to match my brand: <span class="fill">YOUR COLOURS AND TEXT</span>
+- Make sure it still looks good on phones</pre>
+    </div>
+
+    <div class="box tip">
+      <div class="box-title">Using ChatGPT or a normal Claude chat?</div>
+      <p>You can paste a component's code into a chat and ask: <em>"Explain what this does and adapt it for my page."</em> But to actually run React components, Claude Code is the easiest path.</p>
+    </div>
+    <div class="box warn">
+      <div class="box-title">Check the licence for business use</div>
+      <p>Kokonut UI is open source, but the licence can differ from component to component. If you're building for a client or a business, check the licence shown for each component you use.</p>
+    </div>
+  </div>
+
+  <!-- ================= 4. BKLIT ================= -->
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Bklit UI</h3><small>ui.bklit.com · free animated chart components</small></div></div>
+    <p><a href="https://ui.bklit.com">Bklit UI</a> is the one to use for <strong>dashboards</strong>. It's a free, open-source collection of chart components where everything is animated: line charts that draw in, bars that grow, rings that fill up, live-updating charts, heatmaps and more. Like Kokonut UI, it's made for React projects, so use <strong>Way B (Claude Code)</strong>.</p>
+
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Animated dashboard</span></div>
+<pre>Build me a dashboard for <span class="fill">my online shop / my Instagram stats / my business</span> using Bklit UI charts.
+
+Read the docs first and follow its latest install instructions: https://ui.bklit.com
+
+Show:
+- 4 stat cards at the top (<span class="fill">e.g. revenue, orders, new followers, conversion rate</span>) with numbers that count up
+- A line chart of <span class="fill">sales over the last 30 days</span>
+- A bar chart of <span class="fill">sales by product</span>
+- A ring chart of <span class="fill">where my customers come from</span>
+
+Use realistic sample data for now, in one separate file, so I can swap in my real numbers later. Make it work on phones.</pre>
+    </div>
+
+    <div class="box tip">
+      <div class="box-title">Use your real data</div>
+      <p>Export your numbers from Instagram Insights, Shopify, Google Sheets or anywhere else as a CSV file, put it in your project folder, and tell Claude: <em>"Replace the sample data with the numbers in sales.csv."</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. MANUS ================= -->
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Manus</h3><small>manus.im · AI agent · free daily credits, paid plans available</small></div></div>
+    <p><a href="https://manus.im">Manus</a> is different from the other four. It isn't a library, it's an <strong>AI agent</strong>. You describe your idea, and it works on its own to research, design and build a first version: a design, a dashboard or a full website. <strong>Your job is the review and the finishing touches.</strong></p>
+
+    <h4>How to use it</h4>
+    <ol>
+      <li>Sign up at <a href="https://manus.im">manus.im</a>.</li>
+      <li>Describe what you want in detail (use the prompt below), then let it work. It can take several minutes.</li>
+      <li>Review the result: open it on your phone, click everything, read every word.</li>
+      <li>Ask Manus for changes, or download the files and finish it in Claude Code with the other four tools.</li>
+    </ol>
+
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>For Manus</span></div>
+<pre>Build a <span class="fill">landing page / dashboard / full website</span> for <span class="fill">MY BUSINESS OR IDEA</span>.
+
+Who it's for: <span class="fill">YOUR CUSTOMERS</span>
+What visitors should do: <span class="fill">e.g. book a call, buy, sign up</span>
+Pages or sections: <span class="fill">e.g. hero, features, testimonials, pricing, FAQ, contact</span>
+Style: <span class="fill">e.g. clean and bright, purple and blue, modern</span>
+Websites I like the style of: <span class="fill">LINKS</span>
+
+Make it work well on phones. Use placeholder text only where you must, and list everything I need to replace.</pre>
+    </div>
+
+    <div class="box warn">
+      <div class="box-title">Credits can run out mid-build</div>
+      <p>Manus runs on credits. The free plan gives a small daily amount, and a full website can use most of it. If a big task stops halfway, that's usually why. Paid plans start at around $20 a month (at the time of writing). Check the pricing page for the latest.</p>
+    </div>
+    <div class="box note">
+      <div class="box-title">Always review</div>
+      <p>An AI agent can get details wrong: fake phone numbers, broken links, made-up testimonials. Never publish its work without checking every page yourself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PUT IT TOGETHER ================= -->
+<section class="section">
+  <h2>Put it all together: one project</h2>
+  <p>Here's how the five work as a team to build a professional website in an afternoon:</p>
+  <div class="flow">
+    <div><b>1. Manus</b>Builds the first draft from your idea.</div>
+    <i>→</i>
+    <div><b>2. You</b>Review it and list what to fix.</div>
+    <i>→</i>
+    <div><b>3. Kokonut UI</b>Swap plain parts for animated components.</div>
+    <i>→</i>
+    <div><b>4. Motion + Anime.js</b>Add smooth transitions and one wow moment.</div>
+    <i>→</i>
+    <div><b>5. Bklit UI</b>Add a dashboard page if you need one.</div>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Claude Code, after Manus</span></div>
+<pre>The folder <span class="fill">my-website</span> has a website that an AI agent made for me. Help me finish it like a professional:
+
+1. Run it and show me how it looks. List anything broken or unprofessional.
+2. Replace the plain buttons and cards with these Kokonut UI components: <span class="fill">LINKS</span>
+3. Use Motion for smooth scroll-in animations, hovers and menu transitions.
+4. Use Anime.js for one special hero animation: <span class="fill">DESCRIBE IT</span>
+5. Check it on a phone-sized screen and fix anything that breaks.
+
+Do one step at a time and show me the result before moving on.</pre>
+  </div>
+
+  <div class="keep">
+    <h3>Good-taste rules for animation</h3>
+    <ul>
+      <li><strong>Less is more.</strong> One impressive moment beats twenty things moving at once.</li>
+      <li><strong>Keep it fast.</strong> Most interface animations should take 0.2–0.5 seconds. Slow animations feel laggy.</li>
+      <li><strong>Animation should help.</strong> Use it to show what changed or where to look, not just for decoration.</li>
+      <li><strong>Respect "reduce motion".</strong> Some people get dizzy from movement. Ask Claude to turn animations off for them.</li>
+      <li><strong>Test on a real phone.</strong> What's smooth on a laptop can be jumpy on a cheap phone.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>Claude uses an old version and it breaks</td><td>Give it the exact docs link and say: "Read this first and use the latest version."</td></tr>
+      <tr><td>A Kokonut or Bklit component won't work in a normal chat</td><td>They're made for React projects. Use Claude Code (Way B), or ask Claude to rebuild the effect in plain HTML.</td></tr>
+      <tr><td>The page feels slow or jumpy</td><td>Ask: "Reduce the number of animations, and only animate position and transparency, so it runs smoothly on phones."</td></tr>
+      <tr><td>The animations are too much</td><td>Ask: "Keep only the hero animation and the hover effects. Remove the rest."</td></tr>
+      <tr><td>Manus stopped halfway</td><td>You probably ran out of credits. Wait for tomorrow's credits, or ask it to continue with a smaller part.</td></tr>
+      <tr><td>Colours don't match my brand</td><td>Give Claude your exact colour codes (like <code>#6a4cf5</code>) and ask it to use them everywhere.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>I bookmarked all five websites</li>
+      <li>I know when to use a normal chat (Way A) and when to use Claude Code (Way B)</li>
+      <li>I added an Anime.js effect to a page using the docs link</li>
+      <li>I made my site's transitions smooth with Motion</li>
+      <li>I added at least one Kokonut UI component and matched it to my brand</li>
+      <li>I built (or tried) a dashboard with Bklit UI</li>
+      <li>I tried Manus for a first draft and reviewed every page</li>
+      <li>I tested the final result on my own phone</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:28%">Library</td><td>A ready-made toolbox of code that does one job well, like animation.</td></tr>
+      <tr><td>Component</td><td>A ready-made piece of a website, like a button, a card or a chart.</td></tr>
+      <tr><td>React</td><td>A very popular way to build websites out of components.</td></tr>
+      <tr><td>Tailwind / shadcn/ui</td><td>Popular tools for styling websites and adding components. Claude sets them up for you.</td></tr>
+      <tr><td>Transition</td><td>The movement between two states, like a menu opening or a page changing.</td></tr>
+      <tr><td>AI agent</td><td>An AI that works on a task by itself, step by step, instead of only answering one message.</td></tr>
+      <tr><td>Credits</td><td>The units some AI tools (like Manus) use to measure how much work you've used.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Plain websites are optional now.</h2>
+    <p>With these five in your toolbox, Claude can build things that look like a design agency made them. Start with one, and add the rest as you go.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>
