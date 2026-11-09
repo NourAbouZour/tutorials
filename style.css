@@ -395,3 +395,21 @@ mark { background: var(--mark); color: inherit; border-radius: 4px; padding: 0 2
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* Follow prompt under each guide */
+.follow-cta {
+  display: block;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--grad-soft);
+  border: 1px solid rgba(124, 92, 255, .18);
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color .15s ease;
+}
+.follow-cta strong { color: var(--ink-accent); font-weight: 600; }
+.follow-cta:hover { border-color: rgba(124, 92, 255, .45); }

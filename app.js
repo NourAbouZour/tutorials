@@ -180,6 +180,11 @@
         '<p dir="auto">' + highlight(g.description, q) + "</p>" +
         meta +
         '<div class="actions' + (videoBtn ? "" : " single") + '">' + pdfBtn + videoBtn + "</div>" +
+        (handle
+          ? '<a class="follow-cta" href="' + escapeHtml(ig) + '" target="_blank" rel="noopener">' +
+              "Found this useful? <strong>Follow " + escapeHtml(handle) + "</strong> for a new free guide every week" +
+            "</a>"
+          : "") +
       "</article>"
     );
   }
