@@ -8,36 +8,65 @@
   var REPO = "NourAbouZour/tutorials";
   var BRANCH = "main";
   var FILE = "guides.json";
-  var API = "https://api.github.com/repos/" + REPO + "/contents/" + FILE;
+  var LOCK_FILE = "admin-lock.json";       // the token, encrypted with your password
   var TOKEN_KEY = "guides-admin-token";
+  var ITERATIONS = 600000;                 // slows down password guessing
 
   var $ = function (id) { return document.getElementById(id); };
-  var state = { data: null, sha: null, show: "all", q: "", open: {} };
+  var state = { data: null, lock: null, show: "all", q: "", open: {} };
 
-  /* ---------- Token storage (wrapped: storage can be blocked) ---------- */
-  function getToken() { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; } }
-  function setToken(t) { try { t ? localStorage.setItem(TOKEN_KEY, t) : localStorage.removeItem(TOKEN_KEY); } catch (e) {} }
-
-  /* ---------- UTF-8 safe base64 ---------- */
-  function decode(b64) {
-    var bin = atob(b64.replace(/\s/g, ""));
-    var bytes = new Uint8Array(bin.length);
-    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-    return new TextDecoder().decode(bytes);
+  /* ---------- Where the unlocked token is kept ----------
+     "Stay unlocked" = localStorage (until you press Lock).
+     Otherwise sessionStorage (until the tab is closed). */
+  function getToken() {
+    try { return sessionStorage.getItem(TOKEN_KEY) || localStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; }
   }
-  function encode(str) {
-    var bytes = new TextEncoder().encode(str), bin = "";
-    for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
-    return btoa(bin);
+  function setToken(t, remember) {
+    try {
+      localStorage.removeItem(TOKEN_KEY); sessionStorage.removeItem(TOKEN_KEY);
+      if (t) (remember ? localStorage : sessionStorage).setItem(TOKEN_KEY, t);
+    } catch (e) {}
   }
 
-  function gh(method, body) {
-    return fetch(API + (method === "GET" ? "?ref=" + BRANCH + "&t=" + Date.now() : ""), {
+  /* ---------- Base64 helpers ---------- */
+  function bytesToB64(bytes) { var bin = ""; for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]); return btoa(bin); }
+  function b64ToBytes(b64) { var bin = atob(b64.replace(/\s/g, "")); var out = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i); return out; }
+  function decode(b64) { return new TextDecoder().decode(b64ToBytes(b64)); }
+  function encode(str) { return bytesToB64(new TextEncoder().encode(str)); }
+
+  /* ---------- Password encryption (PBKDF2 + AES-GCM, built into the browser) ---------- */
+  function keyFrom(password, salt, iterations) {
+    return crypto.subtle.importKey("raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveKey"])
+      .then(function (base) {
+        return crypto.subtle.deriveKey({ name: "PBKDF2", salt: salt, iterations: iterations, hash: "SHA-256" },
+          base, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
+      });
+  }
+  function lockToken(token, password) {
+    var salt = crypto.getRandomValues(new Uint8Array(16));
+    var iv = crypto.getRandomValues(new Uint8Array(12));
+    return keyFrom(password, salt, ITERATIONS).then(function (key) {
+      return crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, new TextEncoder().encode(token));
+    }).then(function (ct) {
+      return { v: 1, kdf: "PBKDF2-SHA256", iterations: ITERATIONS, salt: bytesToB64(salt), iv: bytesToB64(iv), data: bytesToB64(new Uint8Array(ct)) };
+    });
+  }
+  function unlockToken(lock, password) {
+    return keyFrom(password, b64ToBytes(lock.salt), lock.iterations).then(function (key) {
+      return crypto.subtle.decrypt({ name: "AES-GCM", iv: b64ToBytes(lock.iv) }, key, b64ToBytes(lock.data));
+    }).then(function (plain) { return new TextDecoder().decode(plain); });
+  }
+
+  /* ---------- GitHub API ---------- */
+  function gh(path, method, body, token) {
+    var url = "https://api.github.com/repos/" + REPO + "/contents/" + path +
+      (method === "GET" ? "?ref=" + BRANCH + "&t=" + Date.now() : "");
+    return fetch(url, {
       method: method,
       cache: "no-store",
       headers: {
         "Accept": "application/vnd.github+json",
-        "Authorization": "Bearer " + getToken(),
+        "Authorization": "Bearer " + (token || getToken()),
         "X-GitHub-Api-Version": "2022-11-28"
       },
       body: body ? JSON.stringify(body) : undefined
@@ -49,39 +78,117 @@
     });
   }
 
-  /* ---------- Load ---------- */
-  function load() {
-    $("loading").hidden = false;
-    var token = getToken();
-    var p = token
-      ? gh("GET").then(function (j) { state.sha = j.sha; return JSON.parse(decode(j.content)); })
-      : fetch(FILE, { cache: "no-cache" }).then(function (r) { return r.json(); });
+  /* Save the encrypted token to the repo (create or replace). */
+  function saveLock(lock, token) {
+    var body = { message: "Update admin lock (from admin)", content: encode(JSON.stringify(lock, null, 2) + "\n"), branch: BRANCH };
+    return gh(LOCK_FILE, "GET", null, token)
+      .then(function (j) { body.sha = j.sha; }, function (e) { if (e.status !== 404) throw e; })
+      .then(function () { return gh(LOCK_FILE, "PUT", body, token); });
+  }
 
-    return p.then(function (data) {
-      state.data = data;
-      $("loading").hidden = true;
-      setConnected(!!token);
+  /* ---------- Screens ---------- */
+  function show(screen) {
+    ["lock-panel", "setup-panel", "conn-panel"].forEach(function (id) { $(id).hidden = id !== screen; });
+    $("content").hidden = screen !== "conn-panel";
+    $("loading").hidden = true;
+  }
+  function err(id, msg) { var e = $(id); e.textContent = msg || ""; e.hidden = !msg; }
+  function busy(form, on) { form.querySelector("button[type=submit]").disabled = on; }
+
+  function start() {
+    if (!window.crypto || !crypto.subtle) {
+      $("loading").textContent = "This browser can't run the admin securely. Open it over https in an up-to-date browser.";
+      return;
+    }
+    if (getToken()) { openAdmin(); return; }
+    fetch(LOCK_FILE + "?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (lock) {
+        state.lock = lock;
+        show(lock ? "lock-panel" : "setup-panel");
+        if (lock) $("unlock-pw").focus();
+      })
+      .catch(function () { show("setup-panel"); });
+  }
+
+  function openAdmin() {
+    $("loading").hidden = false;
+    return gh(FILE, "GET").then(function (j) {
+      state.data = JSON.parse(decode(j.content));
+      show("conn-panel");
       render();
-    }).catch(function (err) {
+    }).catch(function (e) {
+      setToken("");
       $("loading").hidden = true;
-      if (token && (err.status === 401 || err.status === 403 || err.status === 404)) {
-        setToken("");
-        showConnError("That token didn't work (" + err.message + "). Check it has access to the tutorials repo with Contents: Read and write, then try again.");
-        return load();
+      if (e.status === 401 || e.status === 403 || e.status === 404) {
+        state.lock = null;
+        show("setup-panel");
+        err("setup-error", "Your GitHub token stopped working (it may have expired or been deleted). Paste a new token and set your password again.");
+      } else {
+        start();
       }
-      $("loading").hidden = false;
-      $("loading").textContent = "Couldn't load the guides: " + err.message;
     });
   }
 
-  function setConnected(on) {
-    $("connect-form").hidden = on;
-    $("disconnect").hidden = !on;
-    $("conn-status").textContent = on
-      ? "Connected to GitHub. Changes you save go live in about a minute."
-      : "Not connected. You can look around, but you can't save changes.";
-  }
-  function showConnError(msg) { var e = $("conn-error"); e.textContent = msg; e.hidden = !msg; }
+  /* Unlock with password */
+  $("unlock-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var form = this, pw = $("unlock-pw").value;
+    if (!pw || !state.lock) return;
+    err("unlock-error"); busy(form, true);
+    unlockToken(state.lock, pw).then(function (token) {
+      setToken(token, $("remember").checked);
+      $("unlock-pw").value = "";
+      return openAdmin();
+    }, function () {
+      err("unlock-error", "Wrong password. Try again.");
+    }).then(function () { busy(form, false); });
+  });
+
+  /* First-time setup: token + password */
+  $("setup-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var form = this;
+    var token = $("setup-token").value.trim(), pw = $("setup-pw").value, pw2 = $("setup-pw2").value;
+    err("setup-error");
+    if (pw.length < 10) { err("setup-error", "Please use a password with at least 10 characters."); return; }
+    if (pw !== pw2) { err("setup-error", "The two passwords don't match."); return; }
+    busy(form, true);
+    gh(FILE, "GET", null, token).catch(function (e2) {
+      throw new Error("That token didn't work (" + e2.message + "). Check it has access to the tutorials repo with Contents: Read and write.");
+    }).then(function () {
+      return lockToken(token, pw);
+    }).then(function (lock) {
+      return saveLock(lock, token).then(function () { state.lock = lock; });
+    }).then(function () {
+      setToken(token, true);
+      ["setup-token", "setup-pw", "setup-pw2"].forEach(function (id) { $(id).value = ""; });
+      toast("Password set. From now on, just use your password.", 4000);
+      return openAdmin();
+    }).catch(function (e3) {
+      err("setup-error", e3.message);
+    }).then(function () { busy(form, false); });
+  });
+
+  $("lock").addEventListener("click", function () {
+    setToken("");
+    state.data = null;
+    $("items").innerHTML = "";
+    start();
+  });
+
+  $("change-pw").addEventListener("click", function () {
+    var pw = prompt("New admin password (at least 10 characters):");
+    if (pw == null) return;
+    if (pw.length < 10) { toast("Password not changed: use at least 10 characters.", 4000); return; }
+    if (prompt("Type the new password again:") !== pw) { toast("Password not changed: they didn't match.", 4000); return; }
+    var token = getToken();
+    toast("Changing password…", 20000);
+    lockToken(token, pw)
+      .then(function (lock) { return saveLock(lock, token).then(function () { state.lock = lock; }); })
+      .then(function () { toast("Password changed.", 3000); })
+      .catch(function (e) { toast("Couldn't change password: " + e.message, 6000); });
+  });
 
   /* ---------- Helpers ---------- */
   function esc(s) {
@@ -130,7 +237,7 @@
       return String(b.g.date || "9999").localeCompare(String(a.g.date || "9999")) || a.i - b.i;
     });
 
-    var connected = !!getToken();
+    var connected = true;
     $("items").innerHTML = rows.length ? rows.map(function (r) { return itemHtml(r.g, r.i, connected); }).join("")
       : '<p class="muted center">Nothing here.</p>';
   }
@@ -189,15 +296,15 @@
     toast("Saving…", 20000);
 
     // Always start from the latest file on GitHub, so nothing saved elsewhere is lost.
-    return gh("GET").then(function (j) {
+    return gh(FILE, "GET").then(function (j) {
       var latest = JSON.parse(decode(j.content));
       var word = state.data.guides[index].word;
       var target = latest.guides.filter(function (g) { return g.word === word; })[0];
       if (!target) throw new Error("This guide no longer exists on GitHub. Refresh the page.");
       Object.assign(target, changes);
       var text = JSON.stringify(latest, null, 2) + "\n";
-      return gh("PUT", { message: message + " (from admin)", content: encode(text), sha: j.sha, branch: BRANCH })
-        .then(function (res) { state.sha = res.content && res.content.sha; state.data = latest; });
+      return gh(FILE, "PUT", { message: message + " (from admin)", content: encode(text), sha: j.sha, branch: BRANCH })
+        .then(function () { state.data = latest; });
     }).then(function () {
       render();
       toast(okMsg, 4500);
@@ -252,21 +359,7 @@
     }
   });
 
-  /* ---------- Connect / filters ---------- */
-  $("token-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    var t = $("token").value.trim();
-    if (!t) return;
-    showConnError("");
-    setToken(t);
-    $("token").value = "";
-    load().then(function () { if (getToken()) toast("Connected."); });
-  });
-
-  $("disconnect").addEventListener("click", function () {
-    setToken(""); state.sha = null; load();
-  });
-
+  /* ---------- Filters ---------- */
   document.querySelector(".admin-tools .chips").addEventListener("click", function (e) {
     var c = e.target.closest(".chip"); if (!c) return;
     state.show = c.getAttribute("data-show");
@@ -276,5 +369,5 @@
 
   $("q").addEventListener("input", function () { state.q = this.value.trim(); render(); });
 
-  load();
+  start();
 })();

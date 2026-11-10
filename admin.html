@@ -24,37 +24,58 @@
   </nav>
 
   <main class="admin">
-    <!-- Connection -->
-    <section class="panel" id="connect-panel">
+    <!-- Password screen -->
+    <section class="panel gate" id="lock-panel" hidden>
+      <h1 class="admin-title">Admin</h1>
+      <p>Enter your admin password to manage your guides.</p>
+      <form class="stack" id="unlock-form" autocomplete="on">
+        <input type="text" name="username" value="nour-guides-admin" autocomplete="username" hidden>
+        <input type="password" id="unlock-pw" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
+        <label class="check"><input type="checkbox" id="remember" checked> Stay unlocked on this device</label>
+        <button type="submit" class="btn btn-primary">Unlock</button>
+      </form>
+      <p class="error" id="unlock-error" hidden></p>
+    </section>
+
+    <!-- First-time setup -->
+    <section class="panel gate" id="setup-panel" hidden>
+      <h1 class="admin-title">Set up your admin</h1>
+      <p>You only do this once. Paste a <strong>GitHub token</strong> and choose a <strong>password</strong>. The token gets locked with your password, so from then on you only need the password, on any device.</p>
+      <details class="howto">
+        <summary>How to get your token (2 minutes)</summary>
+        <ol>
+          <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Fine-grained token</a> (signed in as NourAbouZour).</li>
+          <li><strong>Name:</strong> <code>Guides admin</code>. <strong>Expiration:</strong> for example 1 year.</li>
+          <li><strong>Repository access:</strong> <em>Only select repositories</em> → <code>tutorials</code>.</li>
+          <li><strong>Permissions → Repository permissions → Contents:</strong> <em>Read and write</em>.</li>
+          <li>Click <strong>Generate token</strong>, copy it, and paste it below. Never send it to anyone or paste it in a chat.</li>
+        </ol>
+      </details>
+      <form class="stack" id="setup-form" autocomplete="off">
+        <input type="password" id="setup-token" placeholder="Paste your GitHub token" aria-label="GitHub token" spellcheck="false" autocomplete="off" required>
+        <input type="password" id="setup-pw" placeholder="Choose a password (at least 10 characters)" aria-label="New password" autocomplete="new-password" required>
+        <input type="password" id="setup-pw2" placeholder="Type the password again" aria-label="Confirm password" autocomplete="new-password" required>
+        <button type="submit" class="btn btn-primary">Save and unlock</button>
+      </form>
+      <p class="muted">Use a long password you don't use anywhere else. If you forget it, just set things up again with a new token.</p>
+      <p class="error" id="setup-error" hidden></p>
+    </section>
+
+    <!-- Unlocked -->
+    <section class="panel" id="conn-panel" hidden>
       <div class="panel-head">
         <div>
           <h1 class="admin-title">Your guides</h1>
-          <p class="muted" id="conn-status">Not connected. You can look around, but you can't save changes.</p>
+          <p class="muted">Unlocked. Changes you save go live in about a minute.</p>
         </div>
-        <button type="button" class="btn-small" id="disconnect" hidden>Disconnect</button>
-      </div>
-
-      <div id="connect-form">
-        <p>To switch guides on and off, connect this page to your GitHub once. On each device you use, you'll need a <strong>GitHub token</strong>: a key that lets this page update only your <code>tutorials</code> repo.</p>
-        <details class="howto">
-          <summary>How to get your token (2 minutes)</summary>
-          <ol>
-            <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Fine-grained token</a> (signed in as NourAbouZour).</li>
-            <li><strong>Name:</strong> <code>Guides admin</code>. <strong>Expiration:</strong> choose how long you want (for example 1 year).</li>
-            <li><strong>Repository access:</strong> <em>Only select repositories</em> → <code>tutorials</code>.</li>
-            <li><strong>Permissions → Repository permissions → Contents:</strong> <em>Read and write</em>.</li>
-            <li>Click <strong>Generate token</strong>, copy it, and paste it below.</li>
-          </ol>
-          <p class="muted">The token is saved only in this browser on this device. It never goes on the website. Anyone who uses this device and browser can make changes, so only connect devices you trust.</p>
-        </details>
-        <form class="token-row" id="token-form" autocomplete="off">
-          <input type="password" id="token" placeholder="Paste your GitHub token" aria-label="GitHub token" spellcheck="false">
-          <button type="submit" class="btn btn-primary">Connect</button>
-        </form>
-        <p class="error" id="conn-error" hidden></p>
+        <div class="head-btns">
+          <button type="button" class="btn-small" id="change-pw">Change password</button>
+          <button type="button" class="btn-small" id="lock">Lock</button>
+        </div>
       </div>
     </section>
 
+    <div id="content" hidden>
     <!-- Filters -->
     <div class="admin-tools">
       <div class="chips" role="group" aria-label="Show">
@@ -69,6 +90,7 @@
     </div>
 
     <section id="items" class="items" aria-live="polite"></section>
+    </div>
     <p class="muted center" id="loading">Loading guides…</p>
   </main>
 
