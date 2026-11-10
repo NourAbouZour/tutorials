@@ -73,11 +73,7 @@ body {
 .cover > * { position: relative; }
 
 .brand { display: flex; align-items: center; gap: 10px; font: 600 11pt "Space Grotesk", sans-serif; color: var(--ink); }
-.brand-mark {
-  width: 30px; height: 30px; border-radius: 9px;
-  display: grid; place-items: center;
-  background: var(--grad); color: #fff; font-weight: 700; font-size: 14pt;
-}
+.brand-mark { display: block; width: 36px; height: 36px; flex: none; }
 
 .cover-main { margin-top: auto; margin-bottom: auto; }
 
