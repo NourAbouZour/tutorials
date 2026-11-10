@@ -2,30 +2,20 @@
 
 A one-page site where people from your reels find the PDF guide for the word they commented.
 
-## Add a new guide (2 steps)
+## Admin panel: switch guides on and off
 
-1. Drop the PDF into the `pdfs` folder, e.g. `pdfs/budget.pdf`
-   (use simple file names: lowercase, no spaces).
-2. Open `guides.js` and add a block to `GUIDES`:
+Open **https://nourabouzour.github.io/tutorials/admin.html** (it isn't linked from the site).
 
-```js
-{
-  word: "BUDGET",
-  title: "The simple budget guide",
-  description: "What's inside the PDF, in one or two sentences.",
-  pdf: "budget.pdf",
-  video: "https://www.instagram.com/reel/XXXXXXXX/",
-  date: "2026-11-08"
-},
-```
+- Every guide is listed with its status: **Draft** (not on the site) or **Live**.
+- Read the title, description and PDF (open it or preview it right there).
+- Paste the Instagram reel link and press **Activate** to put a guide live. It shows on the site about a minute later.
+- **Take off the site** hides a guide again. You can edit titles, descriptions and dates too.
 
-- `video` is the link to the reel (Instagram app: ⋯ → Copy link). Leave it as `""` to hide the button.
-- `date` is the day you posted it, written YEAR-MONTH-DAY. It powers the date filters,
-  the Newest/Oldest sorting and the "New" tag (shown for 7 days).
+The first time on each device, connect it with a GitHub fine-grained token
+(only the `tutorials` repo, permission **Contents: Read and write**). The page explains how.
+The token is stored only in that browser.
 
-That's it. Refresh the page.
-
-Your name, @handle, Instagram link, intro text and (optional) profile photo are at the top of `guides.js` under `SITE`.
+All content lives in `guides.json`. New guides are added there as drafts (`"active": false`).
 
 ## Sending someone straight to one guide
 
@@ -43,7 +33,8 @@ You can also tap the small link icon on any card to copy that exact link.
 - `index.html` – the page
 - `style.css` – the look
 - `app.js` – search and links (no need to touch)
-- `guides.js` – **your content, edit this one**
+- `guides.json` – all guides and their on/off status (the admin panel edits this)
+- `admin.html`, `admin.js`, `admin.css` – the admin panel
 - `pdfs/` – your PDF files
 
 ## Live site

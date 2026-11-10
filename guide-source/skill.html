@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Agent Reach: Give Claude Access to the Whole Internet</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><span class="brand-mark">N</span>@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>SKILL</b></span>
+    <h1>Give Claude access<br><span class="grad">to the whole internet</span></h1>
+    <p class="subtitle">A complete beginner's guide to Agent Reach: a free, open-source tool that lets Claude read YouTube, X, Reddit, LinkedIn, Instagram and more, without paying for API keys.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Setup time</span><strong>About 10 minutes</strong></div>
+      <div><span>Cost</span><strong>Free, open source</strong></div>
+    </div>
+    <p class="cover-foot">You need Claude Code (or another AI agent that runs in a terminal). One install command and you're done.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>Out of the box, Claude can't watch a YouTube video, scroll X, or read a LinkedIn company page. The official way to connect to those sites is through their <strong>APIs</strong>, which often cost money and take ages to set up.</p>
+    <p><strong>Agent Reach</strong> fixes that for free. It's an open-source tool on GitHub that gives AI agents like Claude Code the ability to read and search the big platforms. Install it once, and you can say things like <em>"analyse this YouTube video"</em> or <em>"see what's trending on Instagram in my niche"</em>.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>What Agent Reach is</li>
+    <li>What you need</li>
+    <li>Open Claude Code</li>
+    <li>Install Agent Reach</li>
+    <li>Check what's working</li>
+    <li>Logging in to LinkedIn and Instagram</li>
+    <li>10 things to ask Claude</li>
+    <li>The rules that keep your account safe</li>
+    <li>Fixes, checklist and glossary</li>
+  </ol>
+
+  <div class="section keep">
+    <h2>What Agent Reach is</h2>
+    <p>Agent Reach is a free tool (MIT licence) made by the developer <strong>Panniantong</strong>, and it's one of the most popular tools of its kind on GitHub. It isn't a new AI. It's like giving Claude a set of <strong>eyes for the internet</strong>: it installs and connects the tools Claude needs to read each platform, then tells Claude how to use them.</p>
+    <div class="cards">
+      <div class="card"><h3>YouTube</h3><p>Read a video's transcript and details, so Claude can summarise or analyse it.</p></div>
+      <div class="card"><h3>X (Twitter)</h3><p>Search posts and read threads to see what people are saying.</p></div>
+      <div class="card"><h3>Reddit</h3><p>Read discussions to find real questions, complaints and ideas.</p></div>
+      <div class="card"><h3>LinkedIn and Instagram</h3><p>Research companies, people and trends. These two need you to log in.</p></div>
+    </div>
+    <p class="muted">The list of supported platforms grows and changes. The project's README on GitHub always has the latest list.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+  <h2>What you need</h2>
+  <table>
+    <tr><th style="width:32%">You need</th><th>Details</th></tr>
+    <tr><td>Claude Code</td><td>The <strong>Code</strong> tab in the Claude desktop app (<a href="https://claude.ai/download">claude.ai/download</a>), included in Claude's paid plans. Any AI agent that runs in a terminal also works.</td></tr>
+    <tr><td>A computer</td><td>Windows, Mac or Linux.</td></tr>
+    <tr><td>The Agent Reach link</td><td><a href="https://github.com/Panniantong/Agent-Reach">github.com/Panniantong/Agent-Reach</a></td></tr>
+    <tr><td>Your logins <em>(optional)</em></td><td>Only for LinkedIn and Instagram, which don't show much to visitors who aren't logged in.</td></tr>
+  </table>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Open Claude Code</h3><small>1 minute</small></div></div>
+    <ol>
+      <li>Open the Claude desktop app and click the <strong>Code</strong> tab.</li>
+      <li>Start a new session, choose <strong>Local</strong>, and pick a folder, for example a new folder called <code>Research</code> in Documents.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Install Agent Reach</h3><small>About 5 minutes</small></div></div>
+    <p>One message, and Claude does the whole install:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Install</span></div>
+<pre>Install Agent Reach from https://github.com/Panniantong/Agent-Reach
+
+Read the README first and follow its install instructions exactly. I'm a beginner on <span class="fill">Windows / Mac</span>, so explain each step in one simple sentence before you do it.
+When you're done, run its check command and show me a table of every platform: working / needs login / not working.</pre>
+    </div>
+    <p>Claude will ask for permission to run commands. Read the explanation and click <strong>Allow</strong>.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Check what's working</h3><small>1 minute</small></div></div>
+    <p>Do a quick real test:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Test</span></div>
+<pre>Use Agent Reach to read this YouTube video and give me a 5-bullet summary: <span class="fill">ANY YOUTUBE LINK</span></pre>
+    </div>
+    <p>If you get a summary of the actual video, it works.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Logging in to LinkedIn and Instagram</h3><small>Only if you need them</small></div></div>
+    <p>LinkedIn and Instagram hide most things from people who aren't logged in, so for those two Agent Reach needs to use your login. Ask Claude to walk you through it:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Login setup</span></div>
+<pre>Walk me through connecting my <span class="fill">LinkedIn / Instagram</span> login to Agent Reach, the way its README recommends. Keep my login details stored only on this computer, and never print them in the chat.</pre>
+    </div>
+    <div class="box warn">
+      <div class="box-title">Your login is like your password</div>
+      <p>Never paste your password into a chat, and never share login files or "cookies" with anyone. They give full access to your account. Keep them on your own computer only.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>10 things to ask Claude</h2>
+  <p>Once Agent Reach is installed, just ask normally. Here are ideas to start with:</p>
+
+  <div class="prompt">
+    <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Analyse a YouTube video</span></div>
+<pre>Analyse this YouTube video: <span class="fill">LINK</span>
+Tell me: the hook in the first 10 seconds, the main points, how it keeps people watching, and 3 ideas I could use in my own content.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-label"><span>COPY THIS PROMPT</span><span>What's trending in my niche</span></div>
+<pre>Look at what's trending on Instagram in the <span class="fill">YOUR NICHE</span> niche this week. Find the topics, formats and hooks that are getting the most engagement, and give me 5 reel ideas based on them.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Competitor research</span></div>
+<pre>Research these companies on LinkedIn and their websites: <span class="fill">COMPANY 1, COMPANY 2, COMPANY 3</span>
+For each: what they sell, who they target, how big they are, what they post about, and one weakness I could compete on. Put it in a table.</pre>
+  </div>
+
+  <table>
+    <tr><th style="width:36%">More ideas</th><th>Ask Claude</th></tr>
+    <tr><td>Find content ideas</td><td>"Search Reddit for the questions beginners ask about <span class="fill">topic</span>. Group them and rank by how often they come up."</td></tr>
+    <tr><td>Know what people think</td><td>"What are people on X saying about <span class="fill">product or topic</span> this month? Summarise the positive and negative."</td></tr>
+    <tr><td>Study a creator</td><td>"Read the transcripts of the last 5 videos from <span class="fill">channel</span> and describe their style."</td></tr>
+    <tr><td>Validate a product idea</td><td>"Find complaints on Reddit about <span class="fill">existing products</span>. What do people wish existed?"</td></tr>
+    <tr><td>Prepare for a meeting</td><td>"Read <span class="fill">company</span>'s LinkedIn page and recent posts and give me a one-page brief."</td></tr>
+    <tr><td>Turn a video into a post</td><td>"Turn this YouTube video into a LinkedIn post in my own words: <span class="fill">link</span>"</td></tr>
+    <tr><td>Track a topic</td><td>"What's new about <span class="fill">topic</span> on X and Reddit in the last 7 days?"</td></tr>
+  </table>
+
+  <div class="box warn">
+    <div class="box-title">The rules that keep your account safe</div>
+    <ul>
+      <li><strong>Don't scrape in bulk.</strong> Reading a few pages for research is fine. Pulling thousands of profiles at once looks like a bot, and platforms ban accounts for it.</li>
+      <li><strong>Never use the data for spam.</strong> No mass messages, no bulk lists of people's details.</li>
+      <li><strong>Respect privacy.</strong> Research companies and public trends, not private individuals.</li>
+      <li><strong>Read each platform's rules.</strong> Free access works by reading the sites the way a browser does, not through their official paid APIs. Use it lightly, and the risk to your account is on you.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>Claude says it can't access a site</td><td>Ask: "Run the Agent Reach check again and tell me what's wrong with <span class="fill">platform</span>." Often it just needs an update or a login.</td></tr>
+      <tr><td>LinkedIn or Instagram shows nothing</td><td>You need to log in for those two (Step 4).</td></tr>
+      <tr><td>"Command not found" after installing</td><td>Start a new Claude Code session in the same folder, or restart the app.</td></tr>
+      <tr><td>A platform stopped working suddenly</td><td>Sites change all the time. Ask Claude: "Update Agent Reach to the latest version."</td></tr>
+      <tr><td>Got blocked or asked to verify you're human</td><td>Stop for a day and use it more lightly. You're making too many requests.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>Claude Code is open in a folder</li>
+      <li>Agent Reach is installed and the check shows which platforms work</li>
+      <li>The YouTube test gave me a real summary</li>
+      <li>I connected LinkedIn and Instagram (only if I need them) without pasting my password in the chat</li>
+      <li>I tried at least 3 prompts from this guide</li>
+      <li>I understand the rules: light use, no spam, no bulk scraping</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:28%">API</td><td>The official way for programs to get data from a site. Often paid.</td></tr>
+      <tr><td>API key</td><td>A secret password for using an API.</td></tr>
+      <tr><td>Open source</td><td>Free software whose code anyone can read and use.</td></tr>
+      <tr><td>GitHub stars</td><td>Like "likes" for code projects. Lots of stars means lots of people use it.</td></tr>
+      <tr><td>Scraping</td><td>Collecting information from websites automatically.</td></tr>
+      <tr><td>Terminal agent</td><td>An AI that works through commands on your computer, like Claude Code.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Claude can finally see the internet.</h2>
+    <p>Use it to research smarter, not to spam harder. Your account will thank you.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>

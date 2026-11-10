@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Harvey: The Open-Source AI Agent That Finds You Clients</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><span class="brand-mark">N</span>@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>HARVEY</b></span>
+    <h1>Harvey: the AI agent<br><span class="grad">that finds you<br>new clients</span></h1>
+    <p class="subtitle">A beginner's setup guide to Harvey, an open-source agent for Claude Code. It finds businesses that fit your offer, writes a personal cold email to each one, watches your inbox, and drafts your follow-ups, all on one dashboard.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Beginner, with patience</strong></div>
+      <div><span>Setup time</span><strong>1–2 hours</strong></div>
+      <div><span>Harvey cost</span><strong>Free, open source</strong></div>
+    </div>
+    <p class="cover-foot">It runs on your Claude subscription, with no separate AI bill. You'll also need an email-sending service (explained inside).</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>Finding clients usually means hours of searching for businesses, reading their websites, and writing emails one by one. <strong>Harvey</strong> is an open-source agent that does that work with Claude Code.</p>
+    <p>You tell it <strong>what you sell</strong> and <strong>who your ideal client is</strong>. It finds matching businesses, reads their websites, decides who's worth contacting, and has Claude write a <strong>personal</strong> cold email for each one. It then watches your inbox, spots who's interested, and drafts replies and follow-ups. <strong>You approve every email before it's sent.</strong></p>
+  </div>
+
+  <div class="box note">
+    <div class="box-title">Harvey has a new name</div>
+    <p>Harvey was made by <strong>ethanplusai</strong> on GitHub and has since been renamed <strong>Sellbird</strong>. The old link still works and takes you to the project: <a href="https://github.com/ethanplusai/harvey">github.com/ethanplusai/harvey</a>. Commands may use either name, so always follow the README.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>How Harvey works</li>
+    <li>What you need</li>
+    <li>Install Harvey</li>
+    <li>Describe your offer and ideal client</li>
+    <li>Set up email sending safely</li>
+    <li>Run your first small campaign</li>
+    <li>Your dashboard</li>
+    <li>Replies and follow-ups</li>
+    <li>The rules: no spam</li>
+    <li>Fixes, checklist and glossary</li>
+  </ol>
+
+  <div class="section keep">
+    <h2>How Harvey works</h2>
+    <div class="flow">
+      <div><b>1. Find</b>Searches for businesses that match your ideal client.</div>
+      <i>→</i>
+      <div><b>2. Research</b>Reads each business's website.</div>
+      <i>→</i>
+      <div><b>3. Decide</b>Picks who's worth contacting, and who to talk to.</div>
+      <i>→</i>
+      <div><b>4. Write</b>Claude writes a personal email for each one.</div>
+      <i>→</i>
+      <div><b>5. Follow up</b>Watches replies and drafts your answers.</div>
+    </div>
+    <p>It runs in the background and checks <strong>every 15 minutes</strong> what the next step is, so your computer needs to stay on while it works. It uses <strong>Claude Code</strong> with your existing Claude subscription, so there's no pay-per-use AI bill.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+  <h2>What you need</h2>
+  <table>
+    <tr><th style="width:32%">You need</th><th>Details</th></tr>
+    <tr><td>A Claude subscription with Claude Code</td><td>Harvey runs through Claude Code. Its README says which plan it's designed for (at the time of writing, Claude Max). Because it works all day, a bigger plan helps you avoid usage limits.</td></tr>
+    <tr><td>A computer that stays on</td><td>Harvey checks for work every 15 minutes while it runs.</td></tr>
+    <tr><td>An email-sending service</td><td>Harvey connects to a cold-email service to send and track emails. At the time of writing that's <strong>Instantly</strong>, which is a paid service. The README lists what's currently supported.</td></tr>
+    <tr><td>A separate domain for outreach <em>(strongly recommended)</em></td><td>For example <code>getyourbrand.com</code> instead of <code>yourbrand.com</code>. If something goes wrong, your main email stays safe.</td></tr>
+    <tr><td>LinkedIn <em>(optional)</em></td><td>For extra prospect research.</td></tr>
+  </table>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Install Harvey</h3><small>About 15 minutes</small></div></div>
+    <ol>
+      <li>Open the Claude desktop app, click the <strong>Code</strong> tab, start a new <strong>Local</strong> session, and choose a new folder called <code>Harvey</code>.</li>
+      <li>Paste this prompt:</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Install</span></div>
+<pre>Install Harvey (now called Sellbird) from https://github.com/ethanplusai/harvey
+
+Read the README first and follow its setup instructions exactly. I'm a beginner on <span class="fill">Windows / Mac</span>, so explain each step in one simple sentence before you do it.
+Tell me clearly whenever I need to create an account, connect a service, or paste a key myself. Never ask me to paste passwords or keys into this chat. Tell me which file or screen to put them in instead.</pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Describe your offer and ideal client</h3><small>15 minutes · the most important step</small></div></div>
+    <p>Harvey is only as good as what you tell it. Be specific: "small businesses" is too vague, while "dental clinics in Dubai with 2–10 dentists and an outdated website" is great.</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Your offer and ideal client</span></div>
+<pre>Set up my Harvey profile:
+
+What I sell: <span class="fill">e.g. websites for dental clinics</span>
+The result I get for clients: <span class="fill">e.g. more online bookings</span>
+Price range: <span class="fill">e.g. $1,500-$3,000</span>
+Ideal client: <span class="fill">industry, location, size</span>
+Signs they need me: <span class="fill">e.g. no online booking, old website, few reviews</span>
+Who to contact: <span class="fill">e.g. the owner or practice manager</span>
+Proof I can mention: <span class="fill">e.g. a past result or client (only real ones)</span>
+My name and how to reach me: <span class="fill">NAME, WEBSITE</span>
+
+Ask me anything that's missing, then save it as my profile.</pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Set up email sending safely</h3><small>30 minutes, then 2–3 weeks of warm-up</small></div></div>
+    <p>Cold emails can damage your email reputation if you set them up wrong. Do it properly once:</p>
+    <ol>
+      <li><strong>Buy a separate domain</strong> for outreach, and create an email address on it.</li>
+      <li><strong>Set up SPF, DKIM and DMARC.</strong> These are settings that prove your emails are really from you. Ask Claude: <em>"Explain SPF, DKIM and DMARC simply and walk me through setting them up for <span class="fill">my domain and email provider</span>."</em></li>
+      <li><strong>Connect the address to your sending service</strong> (such as Instantly), and turn on <strong>warm-up</strong>. It slowly builds your reputation over 2–3 weeks before real sending.</li>
+      <li><strong>Connect the sending service to Harvey</strong> by following the README. Paste any keys into the place Claude tells you, never into the chat.</li>
+    </ol>
+    <div class="box warn">
+      <div class="box-title">Don't skip the warm-up</div>
+      <p>A brand-new address that suddenly sends lots of emails goes straight to spam, and can get the domain blocked. Patience here saves you weeks of problems.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Run your first small campaign</h3><small>Start with 20 businesses</small></div></div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>First campaign</span></div>
+<pre>Start a small test campaign with Harvey: find 20 businesses that match my ideal client.
+For each one, show me: the business, why it's a good fit, who to contact, and the personal email you'd send.
+Don't send anything until I approve each email.</pre>
+    </div>
+    <h4>What a good email looks like</h4>
+    <ul>
+      <li><strong>Short:</strong> 4–6 sentences.</li>
+      <li><strong>Personal:</strong> mentions something real about <em>their</em> business, not a generic compliment.</li>
+      <li><strong>One clear question</strong> at the end, like "Worth a quick chat?", not a hard sell.</li>
+      <li><strong>Honest:</strong> says who you are, uses no fake familiarity, and offers an easy way to opt out.</li>
+    </ul>
+    <p>Read each draft. Edit, approve or reject it. Rejecting bad emails and explaining why ("too pushy", "wrong person") teaches it what you want.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Your dashboard</h3><small>Everything in one place</small></div></div>
+    <p>Harvey has a dashboard that shows every lead, every email and every conversation. Ask Claude to open it:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Open dashboard</span></div>
+<pre>Start the Harvey dashboard the way the README says, and give me the link to open it in my browser.</pre>
+    </div>
+    <p>It runs on your own computer (a link starting with <code>localhost</code>), so only you can see it.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Replies and follow-ups</h3><small>Where the clients come from</small></div></div>
+    <p>Harvey watches your inbox, works out who's interested, and drafts your replies and follow-ups. Check the dashboard once or twice a day:</p>
+    <ul>
+      <li><strong>Interested:</strong> review the drafted reply, make it personal, approve it, and book the call.</li>
+      <li><strong>Not now:</strong> a polite reply. Ask if you can follow up in a few months.</li>
+      <li><strong>Not interested or "remove me":</strong> stop immediately, and make sure they're never contacted again.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="box warn keep">
+    <div class="box-title">The rules: this is not a spam machine</div>
+    <ul>
+      <li><strong>Approve every email</strong> before it goes out. You're responsible for what's sent in your name.</li>
+      <li><strong>Only contact relevant businesses,</strong> ones with a real reason to care about your offer. Never blast everyone.</li>
+      <li><strong>Keep volume low,</strong> especially at the start, for example 20–30 emails a day per address.</li>
+      <li><strong>Follow the law where you and they are.</strong> Cold email rules (like CAN-SPAM in the US, and GDPR and PECR in Europe and the UK) require things like honest sender details, a way to opt out, and respecting "no". Check what applies to you.</li>
+      <li><strong>Never buy email lists</strong> or invent facts, results or reviews.</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>Emails land in spam</td><td>Check SPF, DKIM and DMARC, extend warm-up, send fewer emails, and remove links and images from the first email.</td></tr>
+      <tr><td>Leads don't fit</td><td>Make your ideal client more specific in Step 2, and reject bad leads with a reason.</td></tr>
+      <tr><td>Emails feel generic</td><td>Tell it: "Every email must mention one specific thing from their website, and stay under 80 words."</td></tr>
+      <tr><td>Harvey stopped working</td><td>Your computer may have slept, or you hit your Claude usage limit. Keep the computer awake and check your plan.</td></tr>
+      <tr><td>A command doesn't exist</td><td>The project was renamed to Sellbird. Ask Claude: "Check the README for the current command name."</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>Harvey is installed from the GitHub link, following the README</li>
+      <li>My offer and ideal client profile are specific</li>
+      <li>I use a separate outreach domain with SPF, DKIM and DMARC set up</li>
+      <li>My sending address finished warming up</li>
+      <li>I ran a 20-business test and approved each email myself</li>
+      <li>I can open the dashboard and see leads, emails and conversations</li>
+      <li>I stop instantly for anyone who says no</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">Ideal client profile</td><td>A clear description of the exact type of business that needs what you sell.</td></tr>
+      <tr><td>Lead / prospect</td><td>A business that might become a client.</td></tr>
+      <tr><td>Cold email</td><td>An email to someone you haven't spoken to before.</td></tr>
+      <tr><td>Deliverability</td><td>Whether your emails land in the inbox or in spam.</td></tr>
+      <tr><td>Warm-up</td><td>Slowly building a new email address's reputation before real sending.</td></tr>
+      <tr><td>SPF / DKIM / DMARC</td><td>Email settings that prove your messages really come from you.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Fewer, better emails win.</h2>
+    <p>Let Harvey do the searching and the first drafts. You bring the judgement and the human touch, and that's what turns replies into clients.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>

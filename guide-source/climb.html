@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CLIMB: The Claude Prompt That Moves Your Pages Up Google</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><span class="brand-mark">N</span>@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>CLIMB</b></span>
+    <h1>The Claude prompt that<br><span class="grad">climbs your pages<br>up Google</span></h1>
+    <p class="subtitle">Turn Claude into your own SEO agency: every day it checks your website for problems, finds the pages stuck on page 2 of Google, and rewrites them to climb. The full prompt is included, step by step for beginners.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Beginner</strong></div>
+      <div><span>Setup time</span><strong>About 30 minutes</strong></div>
+      <div><span>Cost</span><strong>Free tools</strong></div>
+    </div>
+    <p class="cover-foot">You need your own website, free Google Search Console, and Claude. No SEO experience needed.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>SEO agencies charge hundreds of dollars a month to do something simple: check your website, find pages that are <strong>almost</strong> on page 1 of Google, and improve them until they get there.</p>
+    <p>This guide gives you a prompt that makes Claude do that work for you. Every day it reviews your pages, spots what's broken, finds the pages sitting on <strong>page 2</strong>, and rewrites their content so they can climb. You review everything before it goes live.</p>
+  </div>
+
+  <div class="box warn">
+    <div class="box-title">Be realistic</div>
+    <p>Nothing can guarantee page 1 on Google, and nobody honest will promise it. This method gives your pages their best chance. You must <strong>review everything Claude writes</strong> before you publish it.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>Why page 2 is the secret</li>
+    <li>What you need</li>
+    <li>Set up Google Search Console</li>
+    <li>Export your data</li>
+    <li>Set up your SEO folder</li>
+    <li>The CLIMB prompt</li>
+    <li>Review and publish</li>
+    <li>Make it a daily routine</li>
+    <li>Track results, fixes, glossary</li>
+  </ol>
+
+  <div class="section keep">
+    <h2>Why page 2 is the secret</h2>
+    <p>Almost nobody clicks on page 2 of Google. But a page sitting at <strong>position 11–20</strong> is close: Google already thinks it's relevant. It usually needs only a better title, a clearer answer, or a missing section to jump to page 1.</p>
+    <div class="flow">
+      <div><b>Page 1 (1–10)</b>Where almost all the clicks go. Protect these pages.</div>
+      <i>→</i>
+      <div><b>Page 2 (11–20)</b>Your quick wins. This is where CLIMB focuses.</div>
+      <i>→</i>
+      <div><b>Page 3+ (21+)</b>Needs bigger work. Leave these for later.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+  <h2>What you need</h2>
+  <table>
+    <tr><th style="width:32%">You need</th><th>Details</th></tr>
+    <tr><td>Your own website</td><td>WordPress, Shopify, Wix, Webflow or any other. It should have been live for at least a few weeks.</td></tr>
+    <tr><td>Google Search Console</td><td>Free, from Google. It shows exactly where each page ranks. Step 1 shows how to set it up.</td></tr>
+    <tr><td>Claude</td><td>Best with <strong>Claude Code</strong> (the Code tab in the desktop app, paid plans), because it can visit your pages and keep files. A normal Claude chat also works if you upload the files yourself.</td></tr>
+  </table>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Set up Google Search Console</h3><small>About 10 minutes, then a few days of waiting</small></div></div>
+    <ol>
+      <li>Go to <a href="https://search.google.com/search-console">search.google.com/search-console</a> and sign in with Google.</li>
+      <li>Click <strong>Add property</strong> and enter your website address.</li>
+      <li>Follow Google's steps to <strong>verify</strong> you own it. Most website builders have a simple option for this. If you're stuck, ask Claude: <em>"How do I verify my <span class="fill">WordPress / Shopify / Wix</span> site in Google Search Console?"</em></li>
+      <li>Wait a few days. If your site is brand new to Search Console, it needs time to collect data.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Export your data</h3><small>2 minutes</small></div></div>
+    <ol>
+      <li>In Search Console, open <strong>Performance → Search results</strong>.</li>
+      <li>Set the date range to the <strong>last 28 days</strong>, and click the <strong>Average position</strong> box so positions show.</li>
+      <li>Click <strong>Export</strong> (top right) and download it as a <strong>CSV</strong> file. The download includes your top queries and pages.</li>
+    </ol>
+    <div class="box tip">
+      <div class="box-title">Fresh data, better results</div>
+      <p>Export a new file each time you run CLIMB, so Claude works with your latest positions.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Set up your SEO folder</h3><small>3 minutes</small></div></div>
+    <ol>
+      <li>Create a folder called <code>SEO</code> in Documents, with a folder inside it called <code>data</code>.</li>
+      <li>Put your Search Console export in <code>data</code>. Unzip it if it downloaded as a ZIP.</li>
+      <li>In the Claude desktop app, open the <strong>Code</strong> tab, start a new session, choose <strong>Local</strong>, and select the <code>SEO</code> folder.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>The CLIMB prompt</h3><small>The heart of this guide</small></div></div>
+    <p>Paste this whole prompt. Fill in the yellow parts the first time.</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>CLIMB</span></div>
+<pre>You are my SEO agency. My website is <span class="fill">https://YOURSITE.com</span>
+It's about <span class="fill">WHAT YOUR SITE IS ABOUT</span>, for <span class="fill">WHO YOUR CUSTOMERS ARE</span>.
+My Google Search Console export is in the data folder.
+
+PART 1 - HEALTH CHECK
+Visit my main pages and list anything broken or weak: missing or
+duplicate titles, missing meta descriptions, broken links, very thin
+pages, missing headings, slow or very heavy pages. Rank by importance.
+
+PART 2 - FIND PAGE 2
+From the Search Console data, find pages with an average position
+between 11 and 20 that get impressions. List the top 5 by impressions,
+with the search queries they appear for.
+
+PART 3 - CLIMB
+For each of those 5 pages:
+1. Read the page as it is now.
+2. Search the query and look at what the top 3 results cover that
+   my page doesn't.
+3. Write an improved version: a better title (under 60 characters),
+   a meta description (under 155 characters), the answer in the first
+   paragraph, any missing sections, a short FAQ, and 2-3 links to my
+   other pages.
+Keep my voice. Don't invent facts, stats or reviews. Mark anything
+I need to check with [CHECK].
+
+PART 4 - REPORT
+Save each rewrite as a separate file in a folder called climb/<today's date>.
+Then give me a short report: what's broken, which pages you rewrote and why,
+and what I should publish first.
+
+Do NOT change anything on my live website. Everything is a draft for me to review.</pre>
+    </div>
+    <div class="box note">
+      <div class="box-title">Why "don't change the live site"?</div>
+      <p>You stay in control. Claude prepares the work, and you decide what goes live. That's how you avoid mistakes reaching your customers and Google.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Review and publish</h3><small>15–30 minutes</small></div></div>
+    <p>Open the files in the <code>climb</code> folder and go through each one with this checklist:</p>
+    <ul class="checklist">
+      <li>Every fact, price and number is correct (search for any <code>[CHECK]</code> marks)</li>
+      <li>It sounds like me, not like a robot</li>
+      <li>It answers the search question clearly in the first paragraph</li>
+      <li>No keyword is repeated unnaturally</li>
+      <li>The links go to the right pages</li>
+    </ul>
+    <p>Then copy the new title, description and content into your website editor and publish. Start with the 1–2 pages Claude says are most important.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Make it a daily routine</h3><small>5 minutes a day</small></div></div>
+    <ul>
+      <li><strong>Every day:</strong> run the health check (Part 1) so you catch broken things fast. If your Claude app has <strong>scheduled tasks</strong>, schedule it for each morning. Otherwise open the session and say <em>"Run part 1 of CLIMB."</em></li>
+      <li><strong>Once or twice a week:</strong> export fresh Search Console data and run the full CLIMB prompt.</li>
+      <li><strong>Give pages time.</strong> After you update a page, wait 2–4 weeks before changing it again. Google needs time to notice.</li>
+    </ul>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Follow-up run</span></div>
+<pre>Run CLIMB again with the new Search Console data in the data folder.
+Skip any page I updated in the last 3 weeks (check the climb folders).
+Also compare positions with the last run and tell me which pages moved up or down.</pre>
+    </div>
+  </div>
+
+  <div class="section keep">
+    <h2>Track your results</h2>
+    <p>Keep a simple spreadsheet with one row per page you improve:</p>
+    <table>
+      <tr><th style="width:30%">Column</th><th>What to write</th></tr>
+      <tr><td>Page</td><td>The page address.</td></tr>
+      <tr><td>Main query</td><td>The search it's trying to rank for.</td></tr>
+      <tr><td>Position before</td><td>From Search Console, on the day you updated it.</td></tr>
+      <tr><td>Date updated</td><td>When you published the new version.</td></tr>
+      <tr><td>Position after 4 weeks</td><td>Check Search Console again.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>Search Console shows no data</td><td>New properties need a few days, and new sites may need weeks of traffic. Keep going with the health check meanwhile.</td></tr>
+      <tr><td>No pages in positions 11–20</td><td>Ask Claude to look at positions 8–30 instead, or pick the pages with the most impressions.</td></tr>
+      <tr><td>Claude can't open my pages</td><td>Some sites block automated visits. Copy the page text into a file in the folder and tell Claude to use that.</td></tr>
+      <tr><td>The rewrite doesn't sound like me</td><td>Put 2–3 of your best pages in the folder and add: "Match the writing style of these pages."</td></tr>
+      <tr><td>A page dropped after I changed it</td><td>Small drops are normal for a week or two. If it's still down after 4 weeks, go back to the old version.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">SEO</td><td>Search Engine Optimisation: making your pages show up higher on Google.</td></tr>
+      <tr><td>Search Console</td><td>Google's free tool that shows how your site performs in search.</td></tr>
+      <tr><td>Impressions</td><td>How many times your page appeared in search results.</td></tr>
+      <tr><td>Average position</td><td>Where your page usually ranks. 1 is the top, and 11–20 is page 2.</td></tr>
+      <tr><td>Meta description</td><td>The short text under your title in Google's results.</td></tr>
+      <tr><td>Internal link</td><td>A link from one page on your site to another page on your site.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Small improvements, every day.</h2>
+    <p>That's all an SEO agency really does. Now Claude does the heavy lifting, and you make the final call.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>

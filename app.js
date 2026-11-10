@@ -1,5 +1,5 @@
-(function () {
-  var site = window.SITE || {};
+function startSite(data) {
+  var site = data.site || {};
   var DAY = 86400000;
 
   /* Parse "YYYY-MM-DD" as a local date (no timezone shift). */
@@ -10,7 +10,8 @@
     return isNaN(d) ? null : d;
   }
 
-  var guides = (window.GUIDES || []).map(function (g, i) {
+  // Only guides switched on in the admin panel are shown.
+  var guides = (data.guides || []).filter(function (g) { return g.active !== false; }).map(function (g, i) {
     return Object.assign({ index: i, when: parseDate(g.date) }, g);
   });
 
@@ -299,4 +300,13 @@
   var start = params.get("word") || params.get("q") || decodeURIComponent(location.hash.slice(1));
   if (start) input.value = start;
   render();
-})();
+}
+
+/* Load the content. "no-cache" makes the browser check for the latest version,
+   so guides switched on in the admin panel show up as soon as GitHub publishes them. */
+fetch("guides.json", { cache: "no-cache" })
+  .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(startSite)
+  .catch(function () {
+    document.getElementById("count").textContent = "Couldn't load the guides. Please refresh the page.";
+  });
