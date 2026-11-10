@@ -9,13 +9,13 @@
   },
   "guides": [
     {
-      "active": false,
+      "active": true,
       "word": "SKILL",
       "title": "Agent Reach: give Claude access to the whole internet",
       "description": "A free, open-source tool that lets Claude read YouTube, X, Reddit, LinkedIn, Instagram and more without paying for API keys. Install it with one prompt, then analyse videos, spot trends in your niche and research competitors, safely.",
       "pdf": "skill.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/Dfj-z2LT5_Q/",
+      "date": "2026-11-10"
     },
     {
       "active": false,
