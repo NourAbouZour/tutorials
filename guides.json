@@ -18,13 +18,13 @@
       "date": "2026-11-10"
     },
     {
-      "active": false,
+      "active": true,
       "word": "CLIMB",
       "title": "The Claude prompt that climbs your pages up Google",
       "description": "Turn Claude into your own SEO agency: it checks your site every day, finds the pages stuck on page 2 of Google, and rewrites them to climb. Full prompt included, plus Google Search Console setup.",
       "pdf": "climb.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/Dfmjq-UTe7s/",
+      "date": "2026-11-11"
     },
     {
       "active": false,
