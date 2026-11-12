@@ -27,13 +27,13 @@
       "date": "2026-11-11"
     },
     {
-      "active": false,
+      "active": true,
       "word": "HARVEY",
       "title": "Harvey: the open-source AI agent that finds you clients",
       "description": "Set up Harvey with Claude Code to find businesses that fit your offer, write a personal cold email to each, watch your inbox and draft follow-ups, all on one dashboard. You approve every email.",
       "pdf": "harvey.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/DfpIecxzDz_/",
+      "date": "2026-11-12"
     },
     {
       "active": true,
