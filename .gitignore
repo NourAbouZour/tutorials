@@ -1,3 +1,4 @@
 # local tools, not part of the site
 .claude/
 .impeccable/
+private/
