@@ -9,13 +9,13 @@
   },
   "guides": [
     {
-      "active": false,
+      "active": true,
       "word": "SECRET",
       "title": "The complete AI video editor playbook",
       "description": "The step-by-step version everyone asked for: set up Claude Code with FFmpeg, Whisper, yt-dlp and Hyperframes, teach it your style from reels you love, and turn raw footage into finished reels by chatting. Every prompt, checklist and fix included.",
       "pdf": "secret.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/Df2Ad6cz4HJ/",
+      "date": "2026-11-17"
     },
     {
       "active": false,
