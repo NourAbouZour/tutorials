@@ -8,14 +8,12 @@
   var REPO = "NourAbouZour/tutorials";
   var BRANCH = "main";
   var FILE = "guides.json";
-  var LOCK_FILE = "admin-lock.json";
-  var DRAFTS_REPO = "NourAbouZour/tutorials-drafts";  // PRIVATE repo: drafts + their PDFs
-  var DRAFTS_FILE = "drafts.json";       // the token, encrypted with your password
+  var LOCK_FILE = "admin-lock.json";       // the token, encrypted with your password
   var TOKEN_KEY = "guides-admin-token";
   var ITERATIONS = 600000;                 // slows down password guessing
 
   var $ = function (id) { return document.getElementById(id); };
-  var state = { items: [], lock: null, show: "all", q: "", open: {}, blobs: {} };
+  var state = { data: null, lock: null, show: "all", q: "", open: {} };
 
   /* ---------- Where the unlocked token is kept ----------
      "Stay unlocked" = localStorage (until you press Lock).
@@ -60,8 +58,8 @@
   }
 
   /* ---------- GitHub API ---------- */
-  function gh(path, method, body, token, repo) {
-    var url = "https://api.github.com/repos/" + (repo || REPO) + "/contents/" + path +
+  function gh(path, method, body, token) {
+    var url = "https://api.github.com/repos/" + REPO + "/contents/" + path +
       (method === "GET" ? "?ref=" + BRANCH + "&t=" + Date.now() : "");
     return fetch(url, {
       method: method,
@@ -77,41 +75,6 @@
         if (!r.ok) { var e = new Error(j.message || ("GitHub error " + r.status)); e.status = r.status; throw e; }
         return j;
       });
-    });
-  }
-
-  /* Download a file's raw bytes (works for private repos and files over 1 MB). */
-  function ghRaw(path, repo) {
-    return fetch("https://api.github.com/repos/" + repo + "/contents/" + path + "?ref=" + BRANCH + "&t=" + Date.now(), {
-      cache: "no-store",
-      headers: { "Accept": "application/vnd.github.raw", "Authorization": "Bearer " + getToken(), "X-GitHub-Api-Version": "2022-11-28" }
-    }).then(function (r) {
-      if (!r.ok) { var e = new Error("Couldn't download " + path + " (" + r.status + ")"); e.status = r.status; throw e; }
-      return r.arrayBuffer();
-    });
-  }
-  function shaOf(path, repo) {
-    return gh(path, "GET", null, null, repo).then(function (j) { return j.sha; }, function (e) { if (e.status === 404) return null; throw e; });
-  }
-  function putBytes(path, repo, buffer, message) {
-    return shaOf(path, repo).then(function (sha) {
-      var body = { message: message, content: bytesToB64(new Uint8Array(buffer)), branch: BRANCH };
-      if (sha) body.sha = sha;
-      return gh(path, "PUT", body, null, repo);
-    });
-  }
-  function deleteFile(path, repo, message) {
-    return shaOf(path, repo).then(function (sha) {
-      if (!sha) return null;
-      return gh(path, "DELETE", { message: message, sha: sha, branch: BRANCH }, null, repo);
-    });
-  }
-  /* Read a JSON file, change it, save it back (always from the latest version). */
-  function updateJson(path, repo, mutate, message) {
-    return gh(path, "GET", null, null, repo).then(function (j) {
-      var data = JSON.parse(decode(j.content));
-      mutate(data);
-      return gh(path, "PUT", { message: message, content: encode(JSON.stringify(data, null, 2) + "\n"), sha: j.sha, branch: BRANCH }, null, repo);
     });
   }
 
@@ -150,23 +113,8 @@
 
   function openAdmin() {
     $("loading").hidden = false;
-    var live = gh(FILE, "GET");
-    var drafts = gh(DRAFTS_FILE, "GET", null, null, DRAFTS_REPO).then(null, function (e) { return { error: e }; });
-    return Promise.all([live, drafts]).then(function (res) {
-      var pub = JSON.parse(decode(res[0].content));
-      var items = (pub.guides || []).map(function (g) { return { g: Object.assign({}, g, { active: true }), where: "live" }; });
-      var warn = $("drafts-warn");
-      if (res[1].error) {
-        warn.hidden = false;
-        warn.textContent = res[1].error.status === 404 || res[1].error.status === 403
-          ? "Your private drafts are hidden from this token. On GitHub, edit your Guides admin token → Repository access → also select tutorials-drafts (Contents: Read and write). Then press Lock and unlock again."
-          : "Couldn't load your private drafts: " + res[1].error.message;
-      } else {
-        warn.hidden = true;
-        var priv = JSON.parse(decode(res[1].content));
-        (priv.guides || []).forEach(function (g) { items.push({ g: Object.assign({}, g, { active: false }), where: "draft" }); });
-      }
-      state.items = items;
+    return gh(FILE, "GET").then(function (j) {
+      state.data = JSON.parse(decode(j.content));
       show("conn-panel");
       render();
     }).catch(function (e) {
@@ -224,7 +172,7 @@
 
   $("lock").addEventListener("click", function () {
     setToken("");
-    state.items = []; state.blobs = {}; state.open = {};
+    state.data = null;
     $("items").innerHTML = "";
     start();
   });
@@ -269,76 +217,70 @@
 
   /* ---------- Render ---------- */
   function render() {
-    var items = state.items;
-    var live = items.filter(function (it) { return it.where === "live"; }).length;
-    $("n-all").textContent = items.length;
+    var guides = state.data.guides || [];
+    var live = guides.filter(function (g) { return g.active !== false; }).length;
+    $("n-all").textContent = guides.length;
     $("n-live").textContent = live;
-    $("n-draft").textContent = items.length - live;
+    $("n-draft").textContent = guides.length - live;
 
     var q = state.q.toLowerCase();
-    var rows = items.map(function (it, i) { return { it: it, i: i }; }).filter(function (r) {
-      if (state.show === "live" && r.it.where !== "live") return false;
-      if (state.show === "draft" && r.it.where !== "draft") return false;
-      var g = r.it.g;
-      return !q || (g.word + " " + g.title + " " + g.description).toLowerCase().indexOf(q) > -1;
+    var rows = guides.map(function (g, i) { return { g: g, i: i }; }).filter(function (r) {
+      var isLive = r.g.active !== false;
+      if (state.show === "live" && !isLive) return false;
+      if (state.show === "draft" && isLive) return false;
+      return !q || (r.g.word + " " + r.g.title + " " + r.g.description).toLowerCase().indexOf(q) > -1;
     });
     // Drafts first (they need attention), then live, newest first.
     rows.sort(function (a, b) {
-      if (a.it.where !== b.it.where) return a.it.where === "draft" ? -1 : 1;
-      return String(b.it.g.date || "9999").localeCompare(String(a.it.g.date || "9999")) || a.i - b.i;
+      var la = a.g.active !== false, lb = b.g.active !== false;
+      if (la !== lb) return la ? 1 : -1;
+      return String(b.g.date || "9999").localeCompare(String(a.g.date || "9999")) || a.i - b.i;
     });
-    $("items").innerHTML = rows.length ? rows.map(function (r) { return itemHtml(r.it, r.i); }).join("")
+
+    var connected = true;
+    $("items").innerHTML = rows.length ? rows.map(function (r) { return itemHtml(r.g, r.i, connected); }).join("")
       : '<p class="muted center">Nothing here.</p>';
   }
 
-  function itemHtml(it, i) {
-    var g = it.g, isLive = it.where === "live";
+  function itemHtml(g, i, connected) {
+    var isLive = g.active !== false;
+    var dis = connected ? "" : " disabled";
     var reel = g.video || "";
-    var frameSrc = isLive ? "pdfs/" + encodeURI(g.pdf || "") : (state.blobs[g.word] || "");
+    var pdfUrl = "pdfs/" + encodeURI(g.pdf || "");
     return (
       '<article class="item' + (isLive ? "" : " is-draft") + '" data-i="' + i + '">' +
         '<div class="item-top">' +
-          '<span class="status ' + (isLive ? "live" : "draft") + '">' + (isLive ? "Live" : "Draft · private") + "</span>" +
+          '<span class="status ' + (isLive ? "live" : "draft") + '">' + (isLive ? "Live" : "Draft") + "</span>" +
           '<span class="word">' + esc(g.word) + "</span>" +
-          '<span class="item-date">' + (isLive ? "Posted " + fmtDate(g.date) : "Only you can see this") + "</span>" +
+          '<span class="item-date">' + (isLive ? "Posted " + fmtDate(g.date) : "Not on the site yet") + "</span>" +
         "</div>" +
         '<div class="fields">' +
-          '<div class="field"><label for="t' + i + '">Title</label><input id="t' + i + '" data-k="title" value="' + esc(g.title) + '"></div>' +
-          '<div class="field"><label for="d' + i + '">Description <small>(shown on the site)</small></label><textarea id="d' + i + '" data-k="description" rows="3">' + esc(g.description) + "</textarea></div>" +
+          '<div class="field"><label for="t' + i + '">Title</label><input id="t' + i + '" data-k="title" value="' + esc(g.title) + '"' + dis + "></div>" +
+          '<div class="field"><label for="d' + i + '">Description <small>(shown on the site)</small></label><textarea id="d' + i + '" data-k="description" rows="3"' + dis + ">" + esc(g.description) + "</textarea></div>" +
           '<div class="field-row">' +
             '<div class="field"><label for="v' + i + '">Instagram reel link</label>' +
-              '<input id="v' + i + '" data-k="video" type="url" inputmode="url" placeholder="Paste the reel link from Instagram" value="' + esc(reel) + '">' +
+              '<input id="v' + i + '" data-k="video" type="url" inputmode="url" placeholder="Paste the reel link from Instagram" value="' + esc(reel) + '"' + dis + ">" +
               '<p class="hint" data-hint>' + (reel ? "" : "Add the reel link to switch this guide on.") + "</p></div>" +
-            '<div class="field"><label for="dt' + i + '">Date posted</label><input id="dt' + i + '" data-k="date" type="date" value="' + esc(g.date || "") + '"></div>' +
+            '<div class="field"><label for="dt' + i + '">Date posted</label><input id="dt' + i + '" data-k="date" type="date" value="' + esc(g.date || "") + '"' + dis + "></div>" +
           "</div>" +
           '<div class="field"><label>PDF</label>' +
             '<div class="pdf-row">' +
-              '<button type="button" data-act="open">Open PDF ↗</button>' +
+              '<a href="' + pdfUrl + '" target="_blank" rel="noopener">Open PDF ↗</a>' +
               '<button type="button" data-act="preview">' + (state.open[i] ? "Hide preview" : "Preview here") + "</button>" +
               '<span class="file">' + esc(g.pdf) + "</span>" +
             "</div>" +
-            (state.open[i] && frameSrc ? '<iframe class="pdf-frame" src="' + frameSrc + '" title="' + esc(g.word) + ' PDF"></iframe>' : "") +
+            (state.open[i] ? '<iframe class="pdf-frame" src="' + pdfUrl + '" title="' + esc(g.word) + ' PDF"></iframe>' : "") +
           "</div>" +
         "</div>" +
         '<div class="item-actions">' +
           (isLive
-            ? '<button type="button" data-act="save">Save changes</button>' +
-              '<button type="button" class="stop" data-act="off">Take off the site</button>'
-            : '<button type="button" data-act="save">Save draft</button>' +
-              '<button type="button" class="go" data-act="on">Activate: put it live</button>') +
+            ? '<button type="button" data-act="save"' + dis + ">Save changes</button>" +
+              '<button type="button" class="stop" data-act="off"' + dis + ">Take off the site</button>"
+            : '<button type="button" data-act="save"' + dis + ">Save draft</button>" +
+              '<button type="button" class="go" data-act="on"' + dis + ">Activate: put it live</button>") +
         "</div>" +
       "</article>"
     );
-  }
-
-  /* Draft PDFs live in the private repo, so they're downloaded with the token. */
-  function draftPdfUrl(g) {
-    if (state.blobs[g.word]) return Promise.resolve(state.blobs[g.word]);
-    return ghRaw("pdfs/" + g.pdf, DRAFTS_REPO).then(function (buf) {
-      var url = URL.createObjectURL(new Blob([buf], { type: "application/pdf" }));
-      state.blobs[g.word] = url;
-      return url;
-    });
   }
 
   /* ---------- Save ---------- */
@@ -347,67 +289,29 @@
     card.querySelectorAll("[data-k]").forEach(function (el) { out[el.getAttribute("data-k")] = el.value.trim(); });
     return out;
   }
-  function without(list, word) { return (list || []).filter(function (x) { return x.word !== word; }); }
-  function clean(g) { var c = Object.assign({}, g); delete c.active; return c; }
 
-  function run(steps, okMsg) {
+  function save(index, changes, message, okMsg) {
     var buttons = document.querySelectorAll(".item-actions button");
     buttons.forEach(function (b) { b.disabled = true; });
-    toast("Working… don't close this page.", 60000);
-    return steps().then(function () {
-      toast(okMsg, 5000);
-      return openAdmin();
+    toast("Saving…", 20000);
+
+    // Always start from the latest file on GitHub, so nothing saved elsewhere is lost.
+    return gh(FILE, "GET").then(function (j) {
+      var latest = JSON.parse(decode(j.content));
+      var word = state.data.guides[index].word;
+      var target = latest.guides.filter(function (g) { return g.word === word; })[0];
+      if (!target) throw new Error("This guide no longer exists on GitHub. Refresh the page.");
+      Object.assign(target, changes);
+      var text = JSON.stringify(latest, null, 2) + "\n";
+      return gh(FILE, "PUT", { message: message + " (from admin)", content: encode(text), sha: j.sha, branch: BRANCH })
+        .then(function () { state.data = latest; });
+    }).then(function () {
+      render();
+      toast(okMsg, 4500);
     }).catch(function (err) {
       buttons.forEach(function (b) { b.disabled = false; });
-      toast("Couldn't finish: " + err.message + ". Refresh and check the guide.", 8000);
+      toast("Couldn't save: " + err.message, 6000);
     });
-  }
-
-  function saveDraft(g, ch) {
-    return run(function () {
-      return updateJson(DRAFTS_FILE, DRAFTS_REPO, function (d) {
-        d.guides.forEach(function (x) { if (x.word === g.word) Object.assign(x, ch); });
-      }, "Update draft " + g.word + " (from admin)");
-    }, "Draft saved.");
-  }
-
-  function saveLive(g, ch) {
-    return run(function () {
-      return updateJson(FILE, REPO, function (d) {
-        d.guides.forEach(function (x) { if (x.word === g.word) Object.assign(x, ch); });
-      }, "Update " + g.word + " (from admin)");
-    }, "Saved. The site updates in about a minute.");
-  }
-
-  /* Draft → live: copy the PDF from the private repo to the public site, then move the entry. */
-  function activate(g, ch) {
-    var entry = Object.assign(clean(g), ch, { active: true });
-    return run(function () {
-      return ghRaw("pdfs/" + g.pdf, DRAFTS_REPO)
-        .then(function (buf) { return putBytes("pdfs/" + g.pdf, REPO, buf, "Publish " + g.word + " PDF (from admin)"); })
-        .then(function () {
-          return updateJson(FILE, REPO, function (d) { d.guides = [entry].concat(without(d.guides, g.word)); }, "Activate " + g.word + " (from admin)");
-        })
-        .then(function () {
-          return updateJson(DRAFTS_FILE, DRAFTS_REPO, function (d) { d.guides = without(d.guides, g.word); }, "Move " + g.word + " to live (from admin)");
-        });
-    }, g.word + " is going live. It'll show on the site in about a minute.");
-  }
-
-  /* Live → draft: keep a private copy of the PDF, move the entry back, remove the public PDF. */
-  function deactivate(g, ch) {
-    var entry = Object.assign(clean(g), ch, { active: false });
-    return run(function () {
-      return ghRaw("pdfs/" + g.pdf, REPO)
-        .then(function (buf) { return putBytes("pdfs/" + g.pdf, DRAFTS_REPO, buf, "Keep " + g.word + " PDF private (from admin)"); })
-        .then(function () {
-          return updateJson(DRAFTS_FILE, DRAFTS_REPO, function (d) { d.guides = [entry].concat(without(d.guides, g.word)); }, "Move " + g.word + " back to drafts (from admin)");
-        })
-        .then(function () {
-          return updateJson(FILE, REPO, function (d) { d.guides = without(d.guides, g.word); }, "Take " + g.word + " off the site (from admin)");
-        })
-        .then(function () { return deleteFile("pdfs/" + g.pdf, REPO, "Remove " + g.word + " PDF from the public site (from admin)"); });
-    }, g.word + " is off the site and back in your private drafts.");
   }
 
   $("items").addEventListener("click", function (e) {
@@ -415,56 +319,43 @@
     if (!btn) return;
     var card = btn.closest(".item");
     var i = +card.getAttribute("data-i");
-    var it = state.items[i], g = it.g, isLive = it.where === "live";
+    var g = state.data.guides[i];
     var act = btn.getAttribute("data-act");
 
-    if (act === "open") {
-      if (isLive) { window.open("pdfs/" + encodeURI(g.pdf), "_blank", "noopener"); return; }
-      var w = window.open("", "_blank");
-      draftPdfUrl(g).then(function (url) { if (w) w.location = url; else location.href = url; })
-        .catch(function (er) { if (w) w.close(); toast(er.message, 5000); });
-      return;
-    }
-    if (act === "preview") {
-      state.open[i] = !state.open[i];
-      if (state.open[i] && !isLive && !state.blobs[g.word]) {
-        toast("Loading PDF…", 8000);
-        draftPdfUrl(g).then(function () { toast("PDF loaded.", 1200); render(); })
-          .catch(function (er) { state.open[i] = false; toast(er.message, 5000); });
-        return;
-      }
-      render(); return;
-    }
+    if (act === "preview") { state.open[i] = !state.open[i]; render(); return; }
 
     var f = readForm(card);
-    var ch = { title: f.title, description: f.description, date: f.date };
+    var changes = { title: f.title, description: f.description, date: f.date };
     var reelInput = card.querySelector('[data-k="video"]');
     var hint = card.querySelector("[data-hint]");
 
     if (f.video) {
-      var cl = cleanReel(f.video);
-      if (!cl) {
+      var clean = cleanReel(f.video);
+      if (!clean) {
         hint.textContent = "That doesn't look like an Instagram reel link. It should look like instagram.com/reel/…";
         hint.classList.add("bad"); reelInput.focus(); return;
       }
-      ch.video = cl;
+      changes.video = clean;
     } else {
-      ch.video = "";
+      changes.video = "";
     }
-    if (!ch.title) { toast("The title can't be empty."); return; }
+
+    if (!changes.title) { toast("The title can't be empty."); return; }
 
     if (act === "on") {
-      if (!ch.video) {
+      if (!changes.video) {
         hint.textContent = "Paste the Instagram reel link first. The guide goes live with its reel.";
         hint.classList.add("bad"); reelInput.focus(); return;
       }
-      if (!ch.date) ch.date = today();
-      activate(g, ch);
+      if (!changes.date) changes.date = today();
+      changes.active = true;
+      save(i, changes, "Activate " + g.word, g.word + " is going live. It'll show on the site in about a minute.");
     } else if (act === "off") {
-      if (!confirm("Take " + g.word + " off the live site? It goes back to your private drafts, and you can switch it on again any time.")) return;
-      deactivate(g, ch);
+      if (!confirm("Take " + g.word + " off the live site? You can switch it back on any time.")) return;
+      changes.active = false;
+      save(i, changes, "Deactivate " + g.word, g.word + " is coming off the site (about a minute).");
     } else {
-      (isLive ? saveLive : saveDraft)(g, ch);
+      save(i, changes, "Update " + g.word, "Saved.");
     }
   });
 

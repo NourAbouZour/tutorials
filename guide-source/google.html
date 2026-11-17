@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Turn Claude into a Google Ads Machine</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><img class="brand-mark" src="../brand/logo-icon.svg" alt="">@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>GOOGLE</b></span>
+    <h1>Turn Claude into a<br><span class="grad">Google Ads machine</span></h1>
+    <p class="subtitle">See every ad your competitors are running on Google, then have Claude write better headlines, keywords and landing pages for you, and show you where your budget should go. Step by step, for complete beginners.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Setup time</span><strong>About 30 minutes</strong></div>
+      <div><span>Tools</span><strong>Free</strong></div>
+    </div>
+    <p class="cover-foot">The research and writing tools are free. Running ads on Google always costs money, and you decide exactly how much.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>Most people write their Google ads blind. They guess the headline, guess the keywords and hope for the best. Meanwhile their competitors have already spent months testing what works, and <strong>their ads are public</strong>.</p>
+    <p>In this guide, Claude becomes your ads team. It researches your industry, collects the ads your competitors are running right now (headlines, offers and landing pages), and then writes your ads, keywords and landing page fixes based on what's working. <strong>You stay in charge of every change and every dollar.</strong></p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>How Google search ads work</li>
+    <li>What you need</li>
+    <li>Option A: the Google Ads skill</li>
+    <li>Option B: the free method, no skill needed</li>
+    <li>Research your industry</li>
+    <li>Spy on competitor ads</li>
+    <li>Build your keyword list</li>
+    <li>Write your ads</li>
+    <li>Fix your landing page</li>
+    <li>Budget and a small starter plan</li>
+    <li>Connect your account safely</li>
+    <li>Weekly routine, fixes, glossary</li>
+  </ol>
+
+  <div class="section keep">
+    <h2>How Google search ads work</h2>
+    <p>When someone searches on Google, the first results marked <strong>"Sponsored"</strong> are ads. Businesses pick <strong>keywords</strong> (the searches they want to show up for), write a short <strong>ad</strong>, and choose a <strong>landing page</strong>: the page people arrive on after clicking. You usually pay only when someone clicks.</p>
+    <div class="flow">
+      <div><b>1. Keyword</b>Someone searches "dentist near me".</div>
+      <i>→</i>
+      <div><b>2. Ad</b>Your headline and description show up.</div>
+      <i>→</i>
+      <div><b>3. Click</b>You pay for the click (CPC).</div>
+      <i>→</i>
+      <div><b>4. Landing page</b>The page has to convince them.</div>
+      <i>→</i>
+      <div><b>5. Conversion</b>They call, book or buy.</div>
+    </div>
+    <p>Each step can win or lose you money. That's why we improve all four: keywords, ads, landing page and budget.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>What you need</h2>
+    <table>
+      <tr><th style="width:32%">You need</th><th>Details</th></tr>
+      <tr><td>Claude</td><td><strong>Claude Code</strong> (the Code tab in the Claude desktop app, paid plans) is needed to install the skill in Option A. A normal Claude chat is enough for Option B.</td></tr>
+      <tr><td>A Google Ads account</td><td>Free to create at <a href="https://ads.google.com">ads.google.com</a>. You only pay when your ads run. It also unlocks the free <strong>Keyword Planner</strong>.</td></tr>
+      <tr><td>Your website</td><td>The page you want people to land on after clicking your ad.</td></tr>
+      <tr><td>3–5 competitor names</td><td>Businesses that sell what you sell, to the same customers.</td></tr>
+      <tr><td>A budget you're comfortable with</td><td>Start small. Section 10 shows a simple starter plan.</td></tr>
+    </table>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Option A: install the Google Ads skill</h3><small>About 10 minutes · uses the link from my reel</small></div></div>
+    <p>The skill from my reel bundles three tools into one: an <strong>ad library scraper</strong> (collects competitor ads), an <strong>ad writer</strong>, and a <strong>keyword tool</strong>. Open the Claude desktop app, click the <strong>Code</strong> tab, start a new <strong>Local</strong> session in a new folder called <code>Google Ads</code>, and paste:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Install</span></div>
+<pre>Install this Google Ads skill: <span class="fill">PASTE THE GOOGLE ADS SKILL LINK FROM MY REEL</span>
+
+Read the README first and follow its setup instructions exactly. I'm a beginner on <span class="fill">Windows / Mac</span>, so explain each step in one simple sentence.
+Before you finish, tell me clearly:
+1. Which commands the skill adds (for example /google-ads)
+2. Whether any part uses a paid service or needs an extra account or key
+Never ask me to paste passwords or keys into this chat.</pre>
+    </div>
+    <p>Then try it:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>First run</span></div>
+<pre>/google-ads <span class="fill">https://YOURWEBSITE.com</span></pre>
+    </div>
+    <div class="box warn">
+      <div class="box-title">Check what's really free</div>
+      <p>Many Claude ad tools collect competitor ads through scraping services such as Apify, which can charge per run. Before running anything big, ask Claude: <em>"Does this cost money, and how much per run?"</em> If you'd rather spend nothing, use Option B. It gets you the same insights.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Option B: the free method, no skill needed</h3><small>Works in any Claude chat</small></div></div>
+    <p>You don't need a special tool to see your competitors' ads. Google shows them publicly, and Claude can do all the thinking. These are the two free sources you'll use:</p>
+    <div class="cards">
+      <div class="card"><h3>Google Ads Transparency Center</h3><p>Free and public, at <a href="https://adstransparency.google.com">adstransparency.google.com</a>. Search any advertiser to see the ads they're running, with their headlines and text.</p></div>
+      <div class="card"><h3>Google Keyword Planner</h3><p>Free inside your Google Ads account, under <strong>Tools → Keyword Planner</strong>. It shows what people search and roughly how much clicks cost.</p></div>
+    </div>
+    <p>The steps below work with both options. With the skill, Claude collects the data for you. Without it, you copy the ads and keywords in yourself.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Do the research</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Research your industry</h3><small>5 minutes</small></div></div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Industry research</span></div>
+<pre>I want to run Google search ads for my business.
+Website: <span class="fill">https://YOURWEBSITE.com</span>
+What I sell: <span class="fill">YOUR PRODUCT OR SERVICE</span>
+Where my customers are: <span class="fill">CITY / COUNTRY</span>
+My main competitors: <span class="fill">COMPETITOR 1, 2, 3</span>
+
+Read my website and tell me:
+1. Who my ideal customer is and what they search for on Google
+2. What makes my offer different from the competitors (be honest)
+3. The 3 strongest selling points I should use in my ads
+4. Anything on my website that would make an ad click go to waste</pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Spy on competitor ads</h3><small>15 minutes</small></div></div>
+    <ol>
+      <li><strong>With the skill:</strong> ask Claude to collect the current Google ads for each competitor.</li>
+      <li><strong>Without it:</strong> open <a href="https://adstransparency.google.com">adstransparency.google.com</a>, search each competitor, set the format to <strong>Text</strong> (search ads), and copy their headlines and descriptions into a document. Note which page each ad links to.</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Competitor analysis</span></div>
+<pre>Here are the Google ads my competitors are running right now:
+<span class="fill">PASTE THEIR HEADLINES, DESCRIPTIONS AND LANDING PAGE LINKS</span>
+
+Analyse them like an ads expert:
+1. The offers and hooks they repeat most (these are usually the ones that work)
+2. The words and promises they all use
+3. What none of them say, which is my chance to stand out
+4. How their landing pages compare to mine
+Give me a short summary table, then your top 5 recommendations.</pre>
+    </div>
+    <div class="box tip">
+      <div class="box-title">Long-running ads are clues</div>
+      <p>An ad a competitor has kept running for months is probably making them money. Pay extra attention to those.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Build your keyword list</h3><small>15 minutes</small></div></div>
+    <p>In Google Ads, open <strong>Tools → Keyword Planner → Discover new keywords</strong>, enter your product and website, and download the results as a file. Then give it to Claude:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Keywords</span></div>
+<pre>Here is my Keyword Planner export: <span class="fill">ATTACH THE FILE OR PASTE THE LIST</span>
+
+Build my keyword plan:
+1. Group keywords into 3-5 tight themes (each will be its own ad group)
+2. Keep only keywords from people ready to buy, not just browsing
+3. Suggest the match type for each (phrase or exact for a small budget)
+4. A list of negative keywords to block wasted clicks (like "free", "jobs", "DIY", if they don't fit me)
+5. Flag the keywords that are too expensive for my budget of <span class="fill">$__ per day</span>
+Put it in a table.</pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Write and improve</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Write your ads</h3><small>10 minutes per ad group</small></div></div>
+    <p>Google's main search ad format is the <strong>Responsive Search Ad (RSA)</strong>. You give it up to <strong>15 headlines</strong> (30 characters each) and <strong>4 descriptions</strong> (90 characters each), and Google tests the combinations for you.</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Ad writer</span></div>
+<pre>Write a Responsive Search Ad for the ad group "<span class="fill">THEME</span>", using everything we learned about my business and my competitors.
+
+- 15 headlines, each 30 characters or less (show the count)
+- 4 descriptions, each 90 characters or less (show the count)
+- Include: the main keyword, my top selling points, a clear offer, and a call to action
+- Make at least 3 headlines say something my competitors don't
+- No claims I can't prove, no fake urgency, no ALL CAPS
+Then suggest 4 sitelinks and 4 callouts.</pre>
+    </div>
+    <div class="box warn">
+      <div class="box-title">Stay inside Google's rules</div>
+      <p>Google rejects ads with exaggerated claims, excessive punctuation or misleading offers. Everything in your ad must also be true on your landing page.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">7</span><div><h3>Fix your landing page</h3><small>The step most people skip</small></div></div>
+    <p>A great ad that sends people to a confusing page wastes your money. Before you spend anything, check the page:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Landing page audit</span></div>
+<pre>Audit this landing page for people clicking my Google ad about "<span class="fill">THEME</span>": <span class="fill">PAGE LINK</span>
+
+Score it out of 10 on:
+1. Does the headline match what they searched?
+2. Is the offer and price clear within 5 seconds?
+3. Is there one obvious action (call, book, buy)?
+4. Trust: reviews, photos, guarantees, contact details
+5. Speed and how it looks on a phone
+Then write the exact new text for the headline, the first paragraph and the button, so I can copy them in.</pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">8</span><div><h3>Budget and a small starter plan</h3><small>Start small, learn, then grow</small></div></div>
+    <table class="keep">
+      <tr><th style="width:24%">When</th><th>What to do</th></tr>
+      <tr><td>Week 1–2</td><td>One campaign, 1–2 ad groups, your best keywords only, a small daily budget you can afford to lose while learning.</td></tr>
+      <tr><td>Week 3–4</td><td>Pause keywords that get clicks but no results. Add negative keywords. Keep the best headlines.</td></tr>
+      <tr><td>Month 2</td><td>Move budget toward the ad groups that bring calls, bookings or sales. Test one new landing page change at a time.</td></tr>
+    </table>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Budget plan</span></div>
+<pre>My total budget is <span class="fill">$___ per month</span>. Based on my keyword costs, suggest how to split it between my ad groups, a daily budget, and the number of clicks I can realistically expect. Show the maths and tell me what's too ambitious for this budget.</pre>
+    </div>
+    <div class="box note">
+      <div class="box-title">No guarantees</div>
+      <p>Nobody can promise ad results, not even Claude. Prices per click change all the time, and every market is different. The goal is to spend smarter and learn faster.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">9</span><div><h3>Connect your account safely</h3><small>Let Claude read the results, and you make the changes</small></div></div>
+    <p>To improve your ads, Claude needs to see how they're doing. There are two safe ways:</p>
+    <ul>
+      <li><strong>The easy, safe way:</strong> in Google Ads, open your campaign report, click <strong>Download</strong> (CSV), and give the file to Claude.</li>
+      <li><strong>Through the skill:</strong> if the skill offers a Google Ads connection, set it up only through its official instructions and Google's own login screen. Never paste passwords or keys into the chat.</li>
+    </ul>
+    <div class="box warn">
+      <div class="box-title">You approve every change and every dollar</div>
+      <p>Let Claude analyse and draft. <strong>You</strong> apply the changes in Google Ads. Never let any tool change your budgets or bids without you reviewing it first.</p>
+    </div>
+  </div>
+
+  <div class="keep">
+    <h3>Your weekly 20-minute routine</h3>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Every week</span></div>
+<pre>Here is this week's Google Ads report: <span class="fill">ATTACH THE CSV</span>
+1. Which keywords and ads are wasting money? (clicks but no results)
+2. Which ones are working? Should they get more budget?
+3. New negative keywords from the search terms report
+4. Rewrite the 3 weakest headlines
+5. One landing page change to test next week
+Keep it short, as a to-do list I can apply in 15 minutes.</pre>
+    </div>
+  </div>
+
+  <div class="section keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>Lots of clicks, no customers</td><td>Check the landing page (Step 7) and add negative keywords. The wrong people may be clicking.</td></tr>
+      <tr><td>Hardly any clicks or impressions</td><td>Keywords may be too narrow or bids too low. Ask Claude to suggest broader phrase-match keywords.</td></tr>
+      <tr><td>Ad "disapproved"</td><td>Read Google's reason in the account, then ask Claude: "Rewrite this ad to fix this policy issue: …"</td></tr>
+      <tr><td>Headlines too long</td><td>Ask Claude to count characters for every line and cut anything over 30.</td></tr>
+      <tr><td>Competitor not in the Transparency Center</td><td>Try their website domain or full company name, and check the right country and date range.</td></tr>
+      <tr><td>The skill asks for a paid account</td><td>Use Option B. Everything in this guide works without it.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>I have a Google Ads account and found the Keyword Planner</li>
+      <li>I collected my competitors' current ads, with the skill or the Transparency Center</li>
+      <li>I have 3–5 tight ad groups and a negative keyword list</li>
+      <li>Each ad group has an ad with 15 headlines and 4 descriptions, all within the character limits</li>
+      <li>My landing page matches the ad and has one clear action</li>
+      <li>I set a daily budget I'm comfortable losing while learning</li>
+      <li>I review a report every week and apply the changes myself</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:28%">CPC</td><td>Cost per click: what you pay each time someone clicks your ad.</td></tr>
+      <tr><td>CTR</td><td>Click-through rate: the percentage of people who see your ad and click it.</td></tr>
+      <tr><td>Conversion</td><td>The action you want, like a call, a booking or a sale.</td></tr>
+      <tr><td>RSA</td><td>Responsive Search Ad: you give many headlines and descriptions, and Google mixes them.</td></tr>
+      <tr><td>Match types</td><td>How closely a search must match your keyword: broad, phrase or exact.</td></tr>
+      <tr><td>Negative keyword</td><td>A word you block so your ad doesn't show for it (like "free").</td></tr>
+      <tr><td>Quality Score</td><td>Google's 1–10 rating of how relevant your keyword, ad and landing page are. Higher usually means cheaper clicks.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Stop guessing. Start testing.</h2>
+    <p>Your competitors already paid to learn what works. Learn from them, let Claude do the writing, and keep your hand on the budget.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>

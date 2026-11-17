@@ -44,12 +44,14 @@ You can also tap the small link icon on any card to copy that exact link.
 It's hosted free on GitHub Pages from this repo's `main` branch. Every push to `main`
 updates the live site within about a minute.
 
-## Drafts are private
+## How the guide PDFs are made
 
-Unpublished guides live in the **private** repo `NourAbouZour/tutorials-drafts`
-(drafts, their PDFs, and the sources every guide PDF is built from). Nobody else can see them.
-The admin panel shows drafts and live guides together. **Activate** copies the PDF here and adds
-the guide to `guides.json`, and **Take off the site** moves it back to the private repo.
+Each PDF is written as a web page in `guide-source/` (for example `guide-source/seo.html`)
+using the shared design in `guide-source/guide.css`. To rebuild the PDFs after a change:
 
-Your admin token needs access to **both** repos (`tutorials` and `tutorials-drafts`) with
-Contents: Read and write.
+```
+python guide-source/build.py          # all guides
+python guide-source/build.py seo      # just one
+```
+
+It prints each page with Chrome (or Edge) and saves the result in `pdfs/`.

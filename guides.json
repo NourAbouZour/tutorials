@@ -9,6 +9,60 @@
   },
   "guides": [
     {
+      "active": false,
+      "word": "SECRET",
+      "title": "The complete AI video editor playbook",
+      "description": "The step-by-step version everyone asked for: set up Claude Code with FFmpeg, Whisper, yt-dlp and Hyperframes, teach it your style from reels you love, and turn raw footage into finished reels by chatting. Every prompt, checklist and fix included.",
+      "pdf": "secret.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
+      "active": false,
+      "word": "BACKLINKS",
+      "title": "50 free backlinks for Google and AI search",
+      "description": "The full list of 50 trusted sites where you can list your business for free, from G2 and Crunchbase to Product Hunt, plus a profile kit and the prompt that lets your AI agent do most of the work.",
+      "pdf": "backlinks.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
+      "active": false,
+      "word": "GOOGLE",
+      "title": "Turn Claude into a Google Ads machine",
+      "description": "See every ad your competitors run on Google, then have Claude write better headlines, keywords and landing pages and plan your budget. Includes a fully free method, step by step.",
+      "pdf": "google.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
+      "active": false,
+      "word": "SEOFIX",
+      "title": "Fix your SEO with one free Claude skill",
+      "description": "Install the free Claude SEO skill, get a score out of 100 for Google and for AI search, and let Claude turn both reports into one fix list it helps you apply safely.",
+      "pdf": "seofix.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
+      "active": false,
+      "word": "SEARCH",
+      "title": "Get mentioned when AI answers on Google",
+      "description": "Check how Google's AI sees your business with a 12-point audit, then fix what's missing: reviews, service pages and answers to the questions your clients ask, so AI mentions you instead of your competitors.",
+      "pdf": "search.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
+      "active": false,
+      "word": "COACH",
+      "title": "Build your own AI coach",
+      "description": "How I built an AI coach for Ironman 70.3, and how you can build yours for any goal: a daily plan, meals that match your training, water reminders and one place to track everything. No-code and app versions.",
+      "pdf": "coach.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
       "active": true,
       "word": "SKILL",
       "title": "Agent Reach: give Claude access to the whole internet",

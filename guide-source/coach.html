@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Build Your Own AI Coach with Claude</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><img class="brand-mark" src="../brand/logo-icon.svg" alt="">@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>COACH</b></span>
+    <h1>Build your own<br><span class="grad">AI coach</span></h1>
+    <p class="subtitle">I built an AI coach to get me through Ironman 70.3 training. It plans my days, tells me what to eat, and reminds me to drink water. This guide shows you how to build your own for any goal, with no code or with Claude Code.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Setup time</span><strong>30 min (no code)</strong></div>
+      <div><span>Works for</span><strong>Any goal</strong></div>
+    </div>
+    <p class="cover-foot">Path A needs only a Claude account. Path B uses Claude Code to build a small app or bot that sends you reminders.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+
+  <div class="box note">
+    <div class="box-title">My story</div>
+    <p>I was training for <strong>Ironman 70.3</strong> in Egypt, and I was struggling. Training every day, plus work, clients, content and studies. I didn't know what to eat or when. I kept forgetting to drink water. Every eating plan I made, I dropped after a week.</p>
+    <p>So I thought: I'm a developer, let me build something that helps. I made an app with a bot that learned from the best training and nutrition books. It schedules everything (training, food, work), reminds me to drink water every two hours, tells me what to eat each day based on that day's training, and tracks my health in one place. Now I don't have to think about it. The bot thinks for me.</p>
+    <p><strong>If I built it for an Ironman, you can build it for any goal.</strong></p>
+  </div>
+
+  <div class="summary">
+    <p>By the end of this guide you'll have your own AI coach. It knows your goal, your schedule and your limits. It plans your week, tells you what to do today, adjusts when life gets in the way, and keeps you on track with reminders. It works for a marathon, losing weight, studying for exams, growing a business, or anything else you're working towards.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>Read this first: health and safety</li>
+    <li>Two ways to build it</li>
+    <li>Write your goal sheet</li>
+    <li>Path A: create your coach in Claude</li>
+    <li>Path A: daily and weekly check-ins</li>
+    <li>Path A: food plans and reminders</li>
+    <li>Path B: build a coach app or bot</li>
+    <li>An example day</li>
+    <li>Your 7-day habit tracker</li>
+    <li>Fixes, checklist and glossary</li>
+  </ol>
+
+  <div class="box warn keep">
+    <div class="box-title">Read this first: health and safety</div>
+    <p>Your AI coach is a planning helper, <strong>not a doctor or a dietitian</strong>, and AI can be wrong. Talk to a doctor or a registered dietitian before big changes to your training or diet, especially for endurance events, if you have a medical condition, are pregnant, take medication, or have a history of eating problems. If something hurts or feels wrong, stop and get real medical advice.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Two ways to build it</h2>
+  <div class="cards">
+    <div class="card"><h3>Path A: no code</h3><p>A Claude <strong>Project</strong> that remembers your goal, plans your days and answers your check-ins. Reminders come from your phone. About 30 minutes to set up. Start here.</p></div>
+    <div class="card"><h3>Path B: build an app or bot</h3><p>Use <strong>Claude Code</strong> to build a small app or a Telegram bot that sends you reminders, logs your water, food and training, and makes your daily plan. More setup, more automatic.</p></div>
+  </div>
+  <p>You can start with Path A today and move to Path B later. Your goal sheet works for both.</p>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Write your goal sheet</h3><small>15 minutes · the most important step</small></div></div>
+    <p>Your coach is only as good as what it knows about you. Open a note and fill this in honestly:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>FILL THIS IN</span><span>Goal sheet</span></div>
+<pre>MY GOAL: <span class="fill">e.g. finish Ironman 70.3 / run 10 km / lose 6 kg / pass my exam</span>
+DEADLINE: <span class="fill">DATE</span>
+WHERE I AM NOW: <span class="fill">e.g. I can run 5 km, I weigh 82 kg, I've studied 2 of 10 chapters</span>
+
+MY WEEK:
+- Work / study hours: <span class="fill">e.g. Mon-Fri 9-5</span>
+- Fixed commitments: <span class="fill">e.g. clients Tue/Thu evenings</span>
+- Best time to train or focus: <span class="fill">e.g. 6am</span>
+- Sleep: <span class="fill">e.g. 11pm-6:30am</span>
+
+FOOD:
+- Likes / dislikes: <span class="fill">LIST</span>
+- Allergies or restrictions: <span class="fill">LIST</span>
+- Cooking time per day: <span class="fill">e.g. 30 min</span>
+- Budget: <span class="fill">e.g. normal supermarket food</span>
+
+MY HEALTH NOTES (from my doctor): <span class="fill">ANYTHING IMPORTANT</span>
+WHY I KEEP FAILING: <span class="fill">e.g. I forget, I get bored, I'm too tired after work</span>
+HOW I WANT TO BE COACHED: <span class="fill">e.g. short, direct, a bit of tough love</span></pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Path A: your coach in Claude (no code)</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Create your coach</h3><small>10 minutes</small></div></div>
+    <ol>
+      <li>Open <a href="https://claude.ai">claude.ai</a> or the Claude app and go to <strong>Projects</strong>. Create a new project called <code>My Coach</code>.</li>
+      <li>Open the project's <strong>instructions</strong> and paste the coach instructions below, with your goal sheet at the end.</li>
+      <li>Add your <strong>knowledge files</strong> to the project: your goal sheet, any training plan your coach or doctor gave you, your own notes, and books or guides you own and have the right to use. Use them for yourself only.</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY INTO PROJECT INSTRUCTIONS</span><span>Coach instructions</span></div>
+<pre>You are my personal coach for the goal in my goal sheet below.
+
+How you work:
+- Plan my week around my real schedule, work and sleep.
+- Every day, tell me: today's training or focus task, what to
+  eat (based on today's training or workload), when to drink
+  water, and one small habit to keep.
+- Base advice on the knowledge files in this project and on
+  well-established guidance. If you're not sure, say so.
+- If I miss a day, don't lecture me. Adjust the plan and
+  keep going.
+- Keep messages short and practical. Use simple English.
+- Never give medical advice. If I mention pain, illness,
+  dizziness or anything worrying, tell me to stop and see a
+  professional.
+
+MY GOAL SHEET:
+<span class="fill">PASTE YOUR GOAL SHEET HERE</span></pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Daily and weekly check-ins</h3><small>2 minutes a day</small></div></div>
+    <p>Open a new chat <strong>inside your project</strong> each morning and send your check-in. Once a week, ask for the next week's plan.</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Every morning</span></div>
+<pre>Morning check-in.
+Sleep: <span class="fill">HOURS</span> · Energy: <span class="fill">1-10</span> · Anything sore: <span class="fill">NO / WHAT</span>
+Yesterday I did: <span class="fill">WHAT YOU ACTUALLY DID</span>
+Today I have: <span class="fill">e.g. work 9-5, clients at 7pm</span>
+Give me today's plan: training or focus task, meals and snacks with times, water reminders, and one tip.</pre>
+    </div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Every Sunday</span></div>
+<pre>Weekly review. This week I managed: <span class="fill">WHAT WENT WELL / WHAT I MISSED</span>
+Next week's commitments: <span class="fill">LIST</span>
+Plan my next 7 days in a table (day, training or focus, meals, key tasks). Make it slightly harder than this week only if I did well. Otherwise keep it the same or easier.</pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Food plans that match your day</h3><small>The thing I struggled with most</small></div></div>
+    <p>A hard training day and a rest day need different food. Ask your coach to plan both, then it picks the right one each morning:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Meal templates</span></div>
+<pre>Make me 3 simple day templates of meals I actually like: a hard training day, an easy training day, and a rest day. For each: meal times, what to eat, roughly how much, and pre/post-training snacks. Use only foods from my goal sheet, and keep cooking under <span class="fill">30</span> minutes. Then give me one weekly shopping list.</pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Put it in your calendar, and set reminders</h3><small>10 minutes</small></div></div>
+    <ul>
+      <li><strong>Calendar:</strong> ask <em>"Turn this week's plan into a calendar file (.ics) I can import."</em> Download the file and open it with Google Calendar or your phone's calendar. If your Claude account has a calendar connector, it may be able to add events directly. Check every event before you save.</li>
+      <li><strong>Water every 2 hours:</strong> on iPhone, use the <strong>Reminders</strong> app or a <strong>Shortcuts</strong> automation. On Android, use <strong>Google Tasks</strong> or <strong>Clock</strong> alarms that repeat every day at set times (for example 9:00, 11:00, 13:00, 15:00, 17:00, 19:00).</li>
+      <li><strong>Morning check-in:</strong> set one daily reminder: "Open My Coach and check in".</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Path B: build a coach app or bot</h2>
+  <p>This is closer to what I built for myself: the coach messages <em>you</em>, instead of you remembering to open it. You don't need to know how to code. <strong>Claude Code</strong> writes and runs it, and you describe what you want.</p>
+
+  <div class="keep">
+    <h3>What you need</h3>
+    <table>
+      <tr><th style="width:32%">You need</th><th>Details</th></tr>
+      <tr><td>Claude Code</td><td>The <strong>Code</strong> tab in the Claude desktop app (paid Claude plans).</td></tr>
+      <tr><td>Your goal sheet</td><td>From Step 1, saved as a text file.</td></tr>
+      <tr><td>Telegram <em>(for the bot version)</em></td><td>Free. You'll create a bot with Telegram's official <strong>@BotFather</strong>, which gives you a bot token. Keep that token secret.</td></tr>
+      <tr><td>A computer that stays on, or a small server</td><td>For reminders to arrive on time. Claude can explain your options, including free tiers.</td></tr>
+    </table>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Build it with one prompt</h3><small>1–2 hours, mostly Claude working</small></div></div>
+    <ol>
+      <li>Create a folder called <code>My Coach App</code> and put your goal sheet inside it.</li>
+      <li>In the Claude desktop app, open the <strong>Code</strong> tab, start a <strong>Local</strong> session, and choose that folder.</li>
+      <li>Paste this prompt:</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Build my coach</span></div>
+<pre>I'm a beginner. Build me a personal coach as a <span class="fill">Telegram bot / simple phone web app</span>, using my goal sheet in this folder.
+
+It should:
+1. Every morning at <span class="fill">6:30</span>, send me today's plan: training or focus task,
+   meals for that type of day, and one habit.
+2. Remind me to drink water every 2 hours from <span class="fill">9:00</span> to <span class="fill">21:00</span>.
+3. Let me log water, meals, training and how I feel with short
+   messages (like "water 500" or "ran 5k easy").
+4. Every Sunday, send a weekly summary and next week's plan.
+5. Adjust the plan if I miss days, without guilt-tripping me.
+6. Keep my data private: store it on my computer only, keep
+   secrets (like the bot token) in a settings file that never
+   gets shared, and tell me where everything is stored.
+
+Explain each step in one simple sentence before you do it.
+Tell me exactly when I need to create an account or paste a
+token, and where to paste it. Never ask me to paste secrets
+in this chat. At the end, show me how to start it, stop it,
+and change the reminder times.</pre>
+    </div>
+    <div class="box tip">
+      <div class="box-title">Start small</div>
+      <p>Get the water reminders and morning plan working first. Add logging and the weekly summary once those work. Small steps make problems much easier to fix.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">7</span><div><h3>Optional: connect your watch or health app</h3><small>For training data</small></div></div>
+    <p>If you use <strong>Apple Health</strong>, <strong>Garmin</strong> or <strong>Strava</strong>, most of them let you export your workouts as files. Put an export in your folder and ask: <em>"Read this export and use my real training load when planning food and rest days."</em> Ask Claude to explain how to export from your specific app, and only connect accounts you're comfortable sharing with your own app.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>An example day</h2>
+    <p>Here's the kind of plan a coach like this gives. It's only an example of the <em>format</em>, not advice for you. Your coach builds yours from your own goal sheet.</p>
+    <table>
+      <tr><th style="width:18%">Time</th><th>Plan</th></tr>
+      <tr><td>6:30</td><td>Wake up, glass of water, quick check-in with the coach.</td></tr>
+      <tr><td>7:00</td><td>Training: 45 min easy run (an "easy training day").</td></tr>
+      <tr><td>8:00</td><td>Breakfast from your easy-day template.</td></tr>
+      <tr><td>9:00–17:00</td><td>Work, with water reminders every 2 hours and a planned lunch.</td></tr>
+      <tr><td>17:30</td><td>Snack before evening clients.</td></tr>
+      <tr><td>20:30</td><td>Dinner, then log the day in 30 seconds.</td></tr>
+      <tr><td>22:30</td><td>Screens off and wind down for sleep.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your 7-day habit tracker</h2>
+    <p>Print this page or copy it into your notes. Tick each box when you do it. Aim for progress, not perfection.</p>
+    <table>
+      <tr><th style="width:30%">Habit</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>
+      <tr><td>Morning check-in</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td>Training / focus task</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td>Ate to plan</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td>Drank enough water</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td>Slept on time</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td>Logged the day</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Not training for a race? Use it for any goal</h2>
+    <div class="cards">
+      <div class="card"><h3>Marathon or fitness</h3><p>Training plan, food for hard and easy days, rest days, water.</p></div>
+      <div class="card"><h3>Weight goal</h3><p>Realistic meals you like, daily movement, weekly check-ins. Work with a professional on targets.</p></div>
+      <div class="card"><h3>Exams</h3><p>Study blocks, revision plan, breaks, sleep, and "what to study today".</p></div>
+      <div class="card"><h3>Business or content</h3><p>Daily priorities, content schedule, client follow-ups, weekly review.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>The plan doesn't fit my real life</td><td>Update your goal sheet with your real schedule and say: "This plan is too much. Make it fit my actual week."</td></tr>
+      <tr><td>The coach forgets things</td><td>Keep important details in the project instructions or knowledge files, not only in old chats.</td></tr>
+      <tr><td>I stopped after a week (again)</td><td>Tell the coach why. Ask for a smaller, easier plan for 2 weeks. Consistency beats intensity.</td></tr>
+      <tr><td>Reminders don't arrive (Path B)</td><td>Your computer may be asleep. Ask Claude Code how to keep it running, or how to move it to a small server.</td></tr>
+      <tr><td>Food advice feels off</td><td>Check it with a registered dietitian and add their guidance to your knowledge files.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>I wrote an honest goal sheet</li>
+      <li>I created a "My Coach" project with the instructions and my files</li>
+      <li>I did my first morning check-in and got a plan for today</li>
+      <li>I have meal templates for hard, easy and rest days</li>
+      <li>My plan is in my calendar and my water reminders are set</li>
+      <li>(Path B) My bot or app sends my morning plan and water reminders</li>
+      <li>I checked big changes with a doctor or dietitian</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">Claude Project</td><td>A space in Claude with its own instructions and files that every chat inside it can use.</td></tr>
+      <tr><td>Knowledge files</td><td>Documents you add to a project so Claude can use them in its answers.</td></tr>
+      <tr><td>Telegram bot</td><td>An automated account on Telegram that can send you messages and reply to you.</td></tr>
+      <tr><td>Web app (PWA)</td><td>A website you can add to your phone's home screen so it works like an app.</td></tr>
+      <tr><td>.ics file</td><td>A calendar file you can import into Google Calendar or your phone.</td></tr>
+      <tr><td>Token</td><td>A secret key that lets your app use a service. Never share it.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Stop relying on willpower. Build a system.</h2>
+    <p>Your coach remembers, plans and reminds you, so you can just show up and do the work. Start with Path A today.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Get Mentioned When AI Answers on Google</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><img class="brand-mark" src="../brand/logo-icon.svg" alt="">@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>SEARCH</b></span>
+    <h1>Get mentioned when<br><span class="grad">AI answers<br>on Google</span></h1>
+    <p class="subtitle">Google now writes an AI answer at the top of the page, and most people never scroll past it. This guide shows you how to use Claude to check how AI sees your business, find what's missing, and fix it, so the answer mentions you and not only your competitors.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Audit time</span><strong>About 30 minutes</strong></div>
+      <div><span>Cost</span><strong>Free tools</strong></div>
+    </div>
+    <p class="cover-foot">Made for local and service businesses: clinics, salons, gyms, restaurants, agencies, shops. You need a website or a Google Business Profile, and Claude.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>When someone searches "best dentist in Beirut" or "wedding photographer near me", Google often shows an <strong>AI answer</strong> at the top. It names a few businesses and gives a short reason for each. Lots of people read that answer and stop there.</p>
+    <p>If the AI answer names your competitor and not you, you've lost that client before they ever saw your website. The good news: AI picks businesses based on things you can improve, like your <strong>reviews</strong>, your <strong>service pages</strong> and your <strong>answers to the questions clients ask</strong>. Claude can check all of that for you and help you fix it.</p>
+  </div>
+
+  <div class="box warn">
+    <div class="box-title">Be realistic</div>
+    <p>Nobody controls what Google's AI says, and nothing can guarantee you'll be mentioned. What you <em>can</em> do is give AI every good reason to pick you. That's what this guide covers.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>How AI decides who to mention</li>
+    <li>What you need</li>
+    <li>Install the skill from my reel</li>
+    <li>The 12-check AI visibility audit</li>
+    <li>Read your score</li>
+    <li>Fix 1: get more real reviews</li>
+    <li>Fix 2: one page per service</li>
+    <li>Fix 3: answer your clients' questions</li>
+    <li>Fix 4: polish your Google Business Profile</li>
+    <li>Re-test every month, fixes, glossary</li>
+  </ol>
+
+  <div class="section keep">
+    <h2>How AI decides who to mention</h2>
+    <p>Google doesn't publish exactly how its AI answers are made, and it changes them often. But the AI answer is built from what Google can find and trust about you online. In practice, these are the signals that matter most:</p>
+    <div class="cards">
+      <div class="card"><h3>Reviews</h3><p>How many you have, how good they are, how recent they are, and whether you reply to them.</p></div>
+      <div class="card"><h3>Clear service pages</h3><p>A page for each service, saying exactly what you do and where. AI can't recommend you for something your site doesn't mention.</p></div>
+      <div class="card"><h3>Answers to real questions</h3><p>"How much does it cost?", "Do you take walk-ins?" If your site answers these, AI can quote you.</p></div>
+      <div class="card"><h3>Consistent details everywhere</h3><p>The same name, address and phone number on your site, Google, Facebook, directories and maps.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>What you need</h2>
+    <table>
+      <tr><th style="width:32%">You need</th><th>Details</th></tr>
+      <tr><td>Claude Code</td><td>The <strong>Code</strong> tab in the Claude desktop app (<a href="https://claude.ai/download">claude.ai/download</a>), included in Claude's paid plans. It can visit websites and run several checks at once.</td></tr>
+      <tr><td>Your website <em>(if you have one)</em></td><td>Any builder works: WordPress, Wix, Shopify, Squarespace and others.</td></tr>
+      <tr><td>Your Google Business Profile</td><td>The listing that shows on Google Maps. If you don't have one yet, create it free at <a href="https://business.google.com">business.google.com</a>.</td></tr>
+      <tr><td>Your main service and city</td><td>For example "physiotherapy in Jounieh" or "custom cakes in Dubai".</td></tr>
+      <tr><td>2–3 competitor names</td><td>The businesses you lose clients to. Claude compares you with them.</td></tr>
+    </table>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Install the skill from my reel</h3><small>About 5 minutes</small></div></div>
+    <ol>
+      <li>Open the Claude desktop app, click the <strong>Code</strong> tab, start a new <strong>Local</strong> session, and pick a new folder called <code>AI Search</code> in Documents.</li>
+      <li>Paste this prompt, with the link from my reel:</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Install</span></div>
+<pre>Install this skill: <span class="fill">PASTE THE SKILL LINK FROM MY REEL</span>
+
+Read its README first and follow the install instructions exactly. I'm a beginner, so explain each step in one simple sentence before you do it.
+When you're done, tell me the exact command to run it on my website.</pre>
+    </div>
+    <p>Then type the command it gives you (for example <code>/search</code>) followed by your website address.</p>
+
+    <div class="box note">
+      <div class="box-title">No link? No problem</div>
+      <p>Skills get renamed and moved all the time. If the link doesn't work, or you'd rather see exactly what's being checked, use the <strong>12-check audit prompt</strong> on the next page. It does the same job with plain Claude Code, and you can reuse it every month.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>The 12-check AI visibility audit</h3><small>About 20–30 minutes while Claude works</small></div></div>
+    <p>This prompt asks Claude to send out 12 checks at once, like a team of 12 agents each looking at one thing. Fill in the yellow parts and paste it all.</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>12-check audit</span></div>
+<pre>You are my AI search consultant. Check how AI search sees my business.
+
+My business: <span class="fill">BUSINESS NAME</span>
+Website: <span class="fill">https://YOURSITE.com (or "none")</span>
+Google Business Profile link: <span class="fill">PASTE IT</span>
+Main services: <span class="fill">SERVICE 1, SERVICE 2, SERVICE 3</span>
+City / area: <span class="fill">YOUR CITY</span>
+Competitors: <span class="fill">COMPETITOR 1, COMPETITOR 2, COMPETITOR 3</span>
+
+Run these 12 checks in parallel (use sub-agents if you can).
+Score each one from 0 to 10 and say why:
+
+1. Google Business Profile: categories, hours, services,
+   description, photos, website link. What's missing?
+2. Reviews: count, average rating, how recent, and whether
+   the owner replies. Compare with my competitors.
+3. Service pages: is there one clear page for each service
+   and area? List the missing pages.
+4. FAQ: does my site answer the questions clients really ask
+   (prices, timing, booking, location, parking)? List gaps.
+5. NAP: is my name, address and phone exactly the same on my
+   site, Google, Facebook, Instagram and directories?
+6. Structured data: does my site have LocalBusiness and FAQ
+   schema? Is it correct?
+7. AI answers: ask "best <span class="fill">SERVICE</span> in <span class="fill">CITY</span>" and 2 similar
+   questions. Record which businesses AI search mentions and
+   whether I appear. Say which tool you used for this.
+8. Competitors: what do the businesses that ARE mentioned
+   have that I don't?
+9. First screen: does my homepage say what I do, where,
+   and for whom, within 5 seconds?
+10. Mobile and speed: any obvious problems on a phone?
+11. Mentions: am I mentioned on other trusted sites
+    (local news, directories, blogs, partner sites)?
+12. Freshness: when were my last Google posts and photos?
+
+Then give me:
+- A total score out of 120 and a table of the 12 scores
+- The 10 most important fixes, ranked by impact and effort
+- Which fixes you can do for me, and which I must do myself
+Save the full report as audit-<today's date>.md in this folder.
+Don't change anything on my website or Google profile.</pre>
+    </div>
+    <div class="box tip">
+      <div class="box-title">If Claude can't open something</div>
+      <p>Some sites (and Google Maps) block automated visits. If Claude says it can't see your Google profile or reviews, take screenshots or copy the text into a file in your folder and say: <em>"Use the files in this folder for checks 1, 2 and 12."</em></p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Read your score</h3><small>5 minutes</small></div></div>
+    <p>Don't panic about a low score. Most businesses start low because nobody ever checked. Look at it like this:</p>
+    <table>
+      <tr><th style="width:26%">Score</th><th>What it means</th></tr>
+      <tr><td>90–120</td><td>You're in great shape. Focus on fresh reviews and keeping things updated.</td></tr>
+      <tr><td>60–89</td><td>Good base with clear gaps. The top 3 fixes will make a real difference.</td></tr>
+      <tr><td>Below 60</td><td>Lots of easy wins. Start with reviews and your Google Business Profile.</td></tr>
+    </table>
+    <p>Then pick the <strong>top 3 fixes</strong> from the list and do those first. The next pages show how.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Fix what's missing</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Get more real reviews</h3><small>The strongest signal for most local businesses</small></div></div>
+    <ol>
+      <li>Get your review link: in your Google Business Profile, find <strong>Ask for reviews</strong> (or "Share review form") and copy the link.</li>
+      <li>Ask every happy client, right after a good experience. A short, personal message works best.</li>
+      <li><strong>Reply to every review</strong>, good and bad, within a few days.</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Review requests</span></div>
+<pre>Write 3 short, friendly messages I can send on WhatsApp to happy clients asking for a Google review. My business: <span class="fill">NAME AND SERVICE</span>. Include this link: <span class="fill">REVIEW LINK</span>
+Also write 5 reply templates for reviews: 3 positive, 1 mixed, 1 negative. Keep them warm and personal, with a spot for the client's name and what they mentioned.</pre>
+    </div>
+    <div class="box warn">
+      <div class="box-title">Never fake or buy reviews</div>
+      <p>Fake reviews, paid reviews and reviews from staff or family break Google's rules, and in many countries the law too. Google removes them and can suspend your profile. Only ask real clients, and never offer something in exchange for a <em>positive</em> review.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>One page per service</h3><small>So AI knows exactly what you do</small></div></div>
+    <p>A single "Services" page with a list isn't enough. Each main service deserves its own page that says what it is, who it's for, the price range, how it works, where you offer it, and a few common questions.</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Service page</span></div>
+<pre>Write a service page for "<span class="fill">SERVICE</span> in <span class="fill">CITY</span>" for my business <span class="fill">NAME</span>.
+Include: a clear first sentence saying what we do and where, who it's for, what's included, price range (<span class="fill">YOUR PRICES</span>), how booking works, why clients choose us (only use these real facts: <span class="fill">FACTS</span>), and 5 FAQs with short answers.
+Simple English, under 600 words. Mark anything I need to check with [CHECK]. Save it as a file. Don't publish anything.</pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Answer your clients' questions</h3><small>AI loves quotable answers</small></div></div>
+    <ol>
+      <li>Write down the 10 questions you get most in DMs, calls and WhatsApp.</li>
+      <li>Ask Claude to turn them into a clear <strong>FAQ section</strong>, with a short direct answer to each one.</li>
+      <li>Add it to your website, and ask Claude to add <strong>FAQ schema</strong> (code that helps search engines read it). If you're not technical, ask: <em>"Give me the schema code and tell me exactly where to paste it in <span class="fill">WordPress / Wix / Shopify</span>."</em></li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">7</span><div><h3>Polish your Google Business Profile</h3><small>30 minutes, then 10 minutes a week</small></div></div>
+    <ul>
+      <li>Choose the most accurate <strong>main category</strong>, then add secondary ones.</li>
+      <li>Fill in <strong>every</strong> field: services, hours, description, area served, booking link.</li>
+      <li>Add real <strong>photos</strong>: your place, your team, your work. Add new ones every month.</li>
+      <li>Post an <strong>update</strong> every week or two: an offer, a tip, or a recent job.</li>
+      <li>Make sure your name, address and phone match your website exactly.</li>
+    </ul>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Google profile content</span></div>
+<pre>Using my audit report, write: a new Google Business Profile description (under 750 characters, no keyword stuffing), a list of services with one-line descriptions, and 4 weekly post ideas with the text ready to copy.</pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step keep">
+    <div class="step-head"><span class="step-num">8</span><div><h3>Re-test every month</h3><small>10 minutes</small></div></div>
+    <p>Changes take time to show up in AI answers. Run the audit again once a month and compare:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Monthly re-test</span></div>
+<pre>Run the 12-check AI visibility audit again. Compare it with my last audit file in this folder. Show what improved, what got worse, and whether AI answers mention me now. Then give me the next 5 fixes.</pre>
+    </div>
+  </div>
+
+  <div class="section keep">
+    <h2>Want to go further?</h2>
+    <p>There are free, open-source Claude skill collections built for SEO and local search. They're worth exploring once you're comfortable. I haven't tested every feature, so read each README before you install:</p>
+    <ul>
+      <li><strong>Claude SEO:</strong> <a href="https://github.com/AgriciDaniel/claude-seo">github.com/AgriciDaniel/claude-seo</a>. A large SEO toolkit for Claude Code that includes local SEO and AI search checks.</li>
+      <li><strong>Local SEO Skills:</strong> <a href="https://github.com/garrettjsmith/localseoskills">github.com/garrettjsmith/localseoskills</a>. A collection of skills focused on local search. Some of its integrations need paid tools.</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>The skill link doesn't work</td><td>Use the 12-check audit prompt in Step 2 instead. It needs no install.</td></tr>
+      <tr><td>Claude can't see my Google profile</td><td>Copy your profile details and reviews into a text file, or add screenshots to the folder.</td></tr>
+      <tr><td>Claude can't check AI answers</td><td>Ask the questions yourself in Google, ChatGPT and Perplexity, paste what they say into a file, and ask Claude to analyse it.</td></tr>
+      <tr><td>I don't have a website</td><td>Start with your Google Business Profile and reviews. Later, ask Claude to build a simple site with one page per service.</td></tr>
+      <tr><td>I fixed everything but I'm still not mentioned</td><td>Give it 1–3 months. Keep reviews coming and posts fresh. AI answers change slowly, and sometimes they don't include you no matter what.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>I ran the audit (skill or 12-check prompt) and saved the report</li>
+      <li>I know my score and my top 3 fixes</li>
+      <li>I sent review requests to real, happy clients, and I reply to every review</li>
+      <li>Each main service has its own page</li>
+      <li>My site has a FAQ answering real client questions</li>
+      <li>My Google Business Profile is complete, with fresh photos and posts</li>
+      <li>My name, address and phone match everywhere</li>
+      <li>I put a monthly re-test in my calendar</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">AI Overview</td><td>The AI-written answer Google shows at the top of some searches.</td></tr>
+      <tr><td>Google Business Profile (GBP)</td><td>Your free business listing on Google Search and Maps.</td></tr>
+      <tr><td>Local pack</td><td>The map with 3 businesses that appears for local searches.</td></tr>
+      <tr><td>NAP</td><td>Name, Address, Phone. It should be identical everywhere online.</td></tr>
+      <tr><td>Schema</td><td>Hidden code on your site that tells search engines facts about you (like your address or FAQs).</td></tr>
+      <tr><td>Agent / sub-agent</td><td>A helper Claude starts to do one task while others run at the same time.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Be the answer, not the one they scroll past.</h2>
+    <p>Reviews, clear pages and honest answers. Do a little every week and give AI every reason to mention you.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>

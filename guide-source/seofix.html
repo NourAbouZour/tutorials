@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fix Your SEO with One Free Claude Skill</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><img class="brand-mark" src="../brand/logo-icon.svg" alt="">@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>SEOFIX</b></span>
+    <h1>Fix your SEO with<br><span class="grad">one free Claude skill</span></h1>
+    <p class="subtitle">Scan every page of your website, get a score out of 100 for Google and for AI search, and let Claude turn both reports into one fix list it helps you apply. Step by step, for complete beginners.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Setup time</span><strong>About 15 minutes</strong></div>
+      <div><span>Skill cost</span><strong>Free, open source</strong></div>
+    </div>
+    <p class="cover-foot">You need Claude Code (included in Claude's paid plans) and a website you own. No SEO knowledge needed.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>Your website might be losing visitors because of problems you can't see: slow pages, missing titles, confusing structure, or content Google doesn't trust. And now there's a second test: when people ask <strong>ChatGPT or Google's AI</strong>, does your site get mentioned at all?</p>
+    <p><strong>Claude SEO</strong> is a free, open-source skill that checks all of this. It scans every page, gives you a score out of 100, tells you exactly what's holding you back, and helps you fix it.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>SEO vs GEO, explained simply</li>
+    <li>What you need</li>
+    <li>Install the Claude SEO skill</li>
+    <li>Run the SEO audit</li>
+    <li>Run the AI-search (GEO) check</li>
+    <li>Merge both into one fix list</li>
+    <li>Apply the fixes safely</li>
+    <li>Re-check every month</li>
+    <li>Fixes, checklist and glossary</li>
+  </ol>
+
+  <div class="section keep">
+    <h2>SEO vs GEO, explained simply</h2>
+    <div class="cards">
+      <div class="card"><h3>SEO: for Google results</h3><p>Search Engine Optimisation. It helps your pages show up higher in Google's normal list of links.</p></div>
+      <div class="card"><h3>GEO: for AI answers</h3><p>Generative Engine Optimisation. It helps AI tools like ChatGPT and Google's AI answers understand your site, trust it, and mention it.</p></div>
+    </div>
+    <p>They overlap a lot. Clear, trustworthy, well-built pages win at both. The skill gives you a separate score for each, so you know where to focus.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>What you need</h2>
+    <table>
+      <tr><th style="width:32%">You need</th><th>Details</th></tr>
+      <tr><td>Claude Code</td><td>The <strong>Code</strong> tab in the Claude desktop app (<a href="https://claude.ai/download">claude.ai/download</a>), included in Claude's paid plans.</td></tr>
+      <tr><td>Your website address</td><td>Any site: WordPress, Shopify, Wix, Webflow, or one you built yourself.</td></tr>
+      <tr><td>The Claude SEO skill</td><td>Free and open source, by AgriciDaniel: <a href="https://github.com/AgriciDaniel/claude-seo">github.com/AgriciDaniel/claude-seo</a></td></tr>
+      <tr><td>Access to edit your site</td><td>To apply the fixes at the end. You can do the audit without it.</td></tr>
+    </table>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Install the Claude SEO skill</h3><small>About 5 minutes</small></div></div>
+    <ol>
+      <li>Open the Claude desktop app and click the <strong>Code</strong> tab.</li>
+      <li>Start a new <strong>Local</strong> session and pick a new folder called <code>SEO Fix</code>.</li>
+      <li>Paste this prompt and click <strong>Allow</strong> when Claude asks for permission:</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Install</span></div>
+<pre>Install the Claude SEO skill from https://github.com/AgriciDaniel/claude-seo
+
+Read the README first and follow its install instructions exactly. I'm a beginner on <span class="fill">Windows / Mac</span>, so explain each step in one simple sentence.
+When you're done, list the /seo commands I can use and what each one does.</pre>
+    </div>
+    <div class="box note">
+      <div class="box-title">Commands can change</div>
+      <p>The skill is updated often, so command names may change between versions. If a command in this guide doesn't work, type <code>/seo</code> to see the current list, or ask Claude <em>"Which command does the SEO audit now?"</em></p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Run the SEO audit</h3><small>5–15 minutes, depending on your site's size</small></div></div>
+    <p>Start a new chat so the skill loads, then type:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>TYPE THIS</span><span>Full audit</span></div>
+<pre>/seo audit <span class="fill">https://YOURWEBSITE.com</span></pre>
+    </div>
+    <p>The skill sends several specialist "agents" to check your site at the same time. You'll get an <strong>SEO Health Score out of 100</strong> and a report. Here's what the main areas mean:</p>
+    <table>
+      <tr><th style="width:30%">Area</th><th>What it checks, in plain English</th></tr>
+      <tr><td>Technical</td><td>Can Google find and read every page? Broken links, a missing sitemap, pages blocked by mistake.</td></tr>
+      <tr><td>Content quality (E-E-A-T)</td><td>Does your content show experience and expertise, and can it be trusted? Thin or copied pages score low.</td></tr>
+      <tr><td>On-page</td><td>Page titles, meta descriptions and headings: the basics Google reads first.</td></tr>
+      <tr><td>Schema</td><td>Hidden labels that tell Google what things are: your business, products, reviews, FAQs.</td></tr>
+      <tr><td>Speed and mobile</td><td>How fast pages load, and how they work on a phone.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Run the AI-search (GEO) check</h3><small>5 minutes</small></div></div>
+    <div class="prompt">
+      <div class="prompt-label"><span>TYPE THIS</span><span>AI search check</span></div>
+<pre>/seo geo <span class="fill">https://YOURWEBSITE.com</span></pre>
+    </div>
+    <p>This gives you a score for how ready your site is for <strong>AI search</strong>. It checks things like:</p>
+    <ul>
+      <li><strong>Clear answers:</strong> does each page answer real questions directly, in the first lines?</li>
+      <li><strong>Structured data:</strong> can AI easily understand who you are, what you sell and where you are?</li>
+      <li><strong>llms.txt:</strong> a simple file that tells AI tools what your site is about and which pages matter.</li>
+      <li><strong>Trust signals:</strong> author details, reviews, contact info, and mentions of you on other sites.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Merge both into one fix list</h3><small>2 minutes · this is the magic step</small></div></div>
+    <p>Two long reports are overwhelming. Ask Claude to combine them:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>One fix list</span></div>
+<pre>Combine the SEO audit and the GEO report into ONE prioritised fix list.
+For each fix, show:
+- What's wrong (in simple words) and which page(s)
+- Why it matters for Google, for AI search, or both
+- How hard it is: quick (under 10 min) / medium / big
+- Expected impact: high / medium / low
+Sort by impact first, then by how quick it is. Put the quick, high-impact wins at the top.
+Save it as fix-list.md in this folder.</pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Apply the fixes safely</h3><small>Claude writes them, you check them</small></div></div>
+    <div class="box warn">
+      <div class="box-title">Back up first, review always</div>
+      <p>Before you change anything, make a <strong>backup</strong> of your website (most hosts and website builders have a backup button). Review every change before it goes live. Never let any tool publish to your live site without you checking it first.</p>
+    </div>
+    <h4>If you built your site yourself (code in a folder)</h4>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Fix the code</span></div>
+<pre>My website's code is in this folder: <span class="fill">FOLDER NAME</span>
+Work through fix-list.md from the top. Make the changes in the code, one fix at a time. After each one, show me what you changed and wait for my OK before the next.
+Don't publish anything. I'll check the changes and upload them myself.</pre>
+    </div>
+    <h4>If you use WordPress, Shopify, Wix or Webflow</h4>
+    <p>Claude can't click inside your website builder for you, but it can prepare everything so you just copy and paste:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Copy-paste fixes</span></div>
+<pre>My site is built with <span class="fill">WordPress / Shopify / Wix / Webflow</span>.
+For each fix in fix-list.md, give me:
+1. Exactly where to click in <span class="fill">my builder</span> to find the setting
+2. The exact text or code to paste (new titles, descriptions, FAQ, schema, llms.txt)
+Start with the top 5 quick wins.</pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Re-check every month</h3><small>10 minutes a month</small></div></div>
+    <ul>
+      <li>Run <code>/seo audit</code> and <code>/seo geo</code> again once a month.</li>
+      <li>Ask Claude: <em>"Compare these scores with last month's and tell me what improved, what got worse, and what to fix next."</em></li>
+      <li>Keep each month's reports in the folder so you can see your progress over time.</li>
+    </ul>
+    <div class="box note">
+      <div class="box-title">Be patient and realistic</div>
+      <p>A higher score means your site is healthier. It doesn't guarantee a top spot on Google or a mention in ChatGPT. Google can take weeks to notice changes, and results depend on your competition too. Keep improving month after month.</p>
+    </div>
+  </div>
+
+  <div class="section keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>/seo isn't recognised</td><td>Start a new chat (or restart the app). If it's still missing, repeat Step 1.</td></tr>
+      <tr><td>The audit stops or times out</td><td>Big sites take a while. Ask it to audit your 20 most important pages first.</td></tr>
+      <tr><td>It can't open my site</td><td>Check the address works in your browser. Some hosts block automated visits. Try again later, or ask your host.</td></tr>
+      <tr><td>Too many fixes, I feel lost</td><td>Only do the top 5 quick wins this week. Then the next 5.</td></tr>
+      <tr><td>I don't understand a fix</td><td>Ask: "Explain fix number 3 like I'm a complete beginner, and show me an example."</td></tr>
+      <tr><td>My score didn't change</td><td>Make sure the fixes are actually live (open the page and check), then re-run the audit.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>The Claude SEO skill is installed and /seo shows its commands</li>
+      <li>I ran the SEO audit and noted my score out of 100</li>
+      <li>I ran the GEO check and noted my AI-search score</li>
+      <li>Claude merged both into one prioritised fix-list.md</li>
+      <li>I backed up my website before changing anything</li>
+      <li>I applied the top 5 quick wins and checked them live</li>
+      <li>I set a monthly reminder to re-run and compare</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:28%">SEO</td><td>Search Engine Optimisation: helping your pages rank higher on Google.</td></tr>
+      <tr><td>GEO</td><td>Generative Engine Optimisation: helping AI tools understand and mention your site.</td></tr>
+      <tr><td>Meta tags</td><td>The page title and short description Google shows in its results.</td></tr>
+      <tr><td>Schema</td><td>Hidden labels in your page that tell search engines what things are.</td></tr>
+      <tr><td>E-E-A-T</td><td>Experience, Expertise, Authoritativeness, Trust: how Google judges content quality.</td></tr>
+      <tr><td>Crawl</td><td>When Google's robot visits and reads your pages.</td></tr>
+      <tr><td>Sitemap</td><td>A list of all your pages that helps Google find them.</td></tr>
+      <tr><td>llms.txt</td><td>A simple text file that tells AI tools what your site is about.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>One skill. Two scores. One fix list.</h2>
+    <p>Most websites never get checked properly. Yours just did, and now you know exactly what to fix first.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>
