@@ -27,13 +27,13 @@
       "date": ""
     },
     {
-      "active": false,
+      "active": true,
       "word": "GOOGLE",
       "title": "Turn Claude into a Google Ads machine",
       "description": "See every ad your competitors run on Google, then have Claude write better headlines, keywords and landing pages and plan your budget. Includes a fully free method, step by step.",
       "pdf": "google.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/Df4ng1lzzfE/",
+      "date": "2026-11-18"
     },
     {
       "active": false,
