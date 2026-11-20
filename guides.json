@@ -54,13 +54,13 @@
       "date": ""
     },
     {
-      "active": false,
+      "active": true,
       "word": "COACH",
       "title": "Build your own AI coach",
       "description": "How I built an AI coach for Ironman 70.3, and how you can build yours for any goal: a daily plan, meals that match your training, water reminders and one place to track everything. No-code and app versions.",
       "pdf": "coach.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/Df9uzgmzHFl/",
+      "date": "2026-11-20"
     },
     {
       "active": true,
