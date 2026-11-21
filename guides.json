@@ -36,13 +36,13 @@
       "date": "2026-11-18"
     },
     {
-      "active": false,
+      "active": true,
       "word": "SEOFIX",
       "title": "Fix your SEO with one free Claude skill",
       "description": "Install the free Claude SEO skill, get a score out of 100 for Google and for AI search, and let Claude turn both reports into one fix list it helps you apply safely.",
       "pdf": "seofix.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/DgATks3zTKp/",
+      "date": "2026-11-21"
     },
     {
       "active": false,
