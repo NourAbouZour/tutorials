@@ -302,10 +302,20 @@ function startSite(data) {
   render();
 }
 
-/* Load the content. "no-cache" makes the browser check for the latest version,
-   so guides switched on in the admin panel show up as soon as GitHub publishes them. */
-fetch("guides.json", { cache: "no-cache" })
-  .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+/* Load the content. The admin panel saves guides.json to GitHub, so on nourabz.com
+   the live list is read straight from GitHub Pages (with the local copy as a backup).
+   "no-cache" makes the browser check for the latest version every time. */
+var GUIDE_SOURCES = /(^|\.)nourabz\.com$/.test(location.hostname)
+  ? ["https://nourabouzour.github.io/tutorials/guides.json", "guides.json"]
+  : ["guides.json"];
+
+function loadGuides(i) {
+  return fetch(GUIDE_SOURCES[i], { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .catch(function (e) { if (i + 1 < GUIDE_SOURCES.length) return loadGuides(i + 1); throw e; });
+}
+
+loadGuides(0)
   .then(startSite)
   .catch(function () {
     document.getElementById("count").textContent = "Couldn't load the guides. Please refresh the page.";

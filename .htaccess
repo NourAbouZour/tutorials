@@ -1,0 +1,21 @@
+# nourabz.com (Hostinger)
+RewriteEngine On
+
+# Always use https and the main domain (no www)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://nourabz.com/$1 [R=301,L]
+
+# Old GitHub-style links: /tutorials/... -> /...
+RewriteRule ^tutorials/?(.*)$ /$1 [R=301,L]
+
+# Don't serve the guide sources or repo files
+RewriteRule ^(guide-source|\.github)(/|$) - [F,L]
+<FilesMatch "^(README\.md|\.gitignore|\.gitattributes)$">
+  Require all denied
+</FilesMatch>
+
+# Always fetch fresh content, so guides switched on in the admin show up quickly
+<FilesMatch "\.json$">
+  Header set Cache-Control "no-cache"
+</FilesMatch>

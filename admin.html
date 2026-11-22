@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>
+    /* The site moved to nourabz.com: send old GitHub links to the same page there. */
+    if (/github\.io$/.test(location.hostname)) {
+      location.replace("https://nourabz.com" + location.pathname.replace(/^\/tutorials/, "") + location.search + location.hash);
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
   <title>Guides Admin</title>

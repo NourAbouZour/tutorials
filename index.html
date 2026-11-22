@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>
+    /* The site moved to nourabz.com: send old GitHub links to the same page there. */
+    if (/github\.io$/.test(location.hostname)) {
+      location.replace("https://nourabz.com" + location.pathname.replace(/^\/tutorials/, "") + location.search + location.hash);
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Nour Abou Zour · Guides</title>
   <meta name="description" content="Free PDF guides from @nour_abou_zour's reels. Search the word you commented to find yours.">
   <meta name="theme-color" content="#f7f8fc">
   <meta property="og:title" content="Nour Abou Zour · Guides">
-  <meta property="og:image" content="https://nourabouzour.github.io/tutorials/brand/instagram-profile-1080.png">
+  <meta property="og:image" content="https://nourabz.com/brand/instagram-profile-1080.png">
   <meta property="og:description" content="Free PDF guides from my reels. Search the word you commented to find yours.">
   <link rel="icon" type="image/svg+xml" href="brand/favicon.svg">
   <link rel="apple-touch-icon" href="brand/instagram-profile-1080.png">
@@ -87,6 +93,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
