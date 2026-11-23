@@ -45,13 +45,13 @@
       "date": "2026-11-21"
     },
     {
-      "active": false,
+      "active": true,
       "word": "SEARCH",
       "title": "Get mentioned when AI answers on Google",
       "description": "Check how Google's AI sees your business with a 12-point audit, then fix what's missing: reviews, service pages and answers to the questions your clients ask, so AI mentions you instead of your competitors.",
       "pdf": "search.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/DgFdKsTTQZg/",
+      "date": "2026-11-23"
     },
     {
       "active": true,
