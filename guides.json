@@ -27,13 +27,13 @@
       "date": "2026-11-24"
     },
     {
-      "active": false,
+      "active": true,
       "word": "WIFI",
       "title": "Speed up your Wi-Fi with Claude",
       "description": "Let Claude find everything slowing your Wi-Fi down, from background apps to neighbours on your channel, approve the fixes, and test again. Then find unknown devices on your network, block them and lock your Wi-Fi down.",
       "pdf": "wifi.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/DgICAQlTBGV/",
+      "date": "2026-11-25"
     },
     {
       "active": true,
