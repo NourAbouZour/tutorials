@@ -18,13 +18,13 @@
       "date": ""
     },
     {
-      "active": false,
+      "active": true,
       "word": "MOTION",
       "title": "Turn any file into an animated video with Claude Motion",
       "description": "Turn reports, slides and data into short animated explainers. Change one word, one number or the timing without redoing anything, export as MP4, and finish it in CapCut or Runway. Ready-to-use prompts included.",
       "pdf": "motion.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/DgIB-XKzqZ3/",
+      "date": "2026-11-24"
     },
     {
       "active": false,
