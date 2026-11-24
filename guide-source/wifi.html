@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Speed Up Your Wi-Fi with Claude</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><img class="brand-mark" src="../brand/logo-icon.svg" alt="">@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>WIFI</b></span>
+    <h1>Speed up your Wi-Fi<br><span class="grad">with Claude</span></h1>
+    <p class="subtitle">I asked Claude to find everything slowing my Wi-Fi down. It found 12 fixes, and my speed went from 22 Mbps to 45 in under 10 minutes. Then it found 2 devices on my Wi-Fi I didn't recognize. Here's how to do the same, step by step.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Time</span><strong>10–20 min</strong></div>
+      <div><span>Works on</span><strong>Windows and Mac</strong></div>
+    </div>
+    <p class="cover-foot">You need the Claude desktop app with the Code tab, and the password printed on the sticker on your router.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>Claude checks your computer and your router like a network technician would. It tests your speed, finds apps eating your internet in the background, checks if your neighbours' Wi-Fi is clashing with yours, and lists every fix with a simple explanation. You say yes or no to each one. Then it finds every device connected to your Wi-Fi, so you can kick out the ones that shouldn't be there.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>Read this first: your network, your rules</li>
+    <li>What you need</li>
+    <li>Test your speed now</li>
+    <li>Ask Claude to find what's slowing you down</li>
+    <li>Log in to your router</li>
+    <li>Say yes to the fixes</li>
+    <li>Test again and compare</li>
+    <li>Find and block unknown devices</li>
+    <li>Lock your Wi-Fi down</li>
+    <li>Fixes, checklist and glossary</li>
+  </ol>
+
+  <div class="box warn keep">
+    <div class="box-title">Read this first: your network, your rules</div>
+    <ul>
+      <li>Only do this on <strong>your own Wi-Fi and router</strong>, or with the owner's permission.</li>
+      <li>Some router changes make your internet drop for a minute while it restarts. Do this when nobody's on an important call.</li>
+      <li>Claude should <strong>explain every change and ask you first</strong>. Never let it change something you don't understand. Just ask, "What does this do?"</li>
+      <li>Wi-Fi can't go faster than the internet plan you pay for. If you pay for 50 Mbps, 45 is already great.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>What you need</h2>
+    <table>
+      <tr><th style="width:32%">You need</th><th>Details</th></tr>
+      <tr><td>Claude desktop app</td><td>With the <strong>Code</strong> tab (Claude Code). It comes with paid Claude plans. Download it from <a href="https://claude.ai/download">claude.ai/download</a>.</td></tr>
+      <tr><td>A computer on your Wi-Fi</td><td>Windows or Mac, connected to the Wi-Fi you want to fix.</td></tr>
+      <tr><td>Your router's admin password</td><td>Usually printed on the sticker on the back or bottom of the router, often called "Admin password" or "Router password". It's different from your Wi-Fi password. If you changed it and forgot it, your internet provider can help.</td></tr>
+      <tr><td>10–20 minutes</td><td>Most of it is Claude working.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Part 1: make your Wi-Fi faster</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Test your speed now</h3><small>2 minutes</small></div></div>
+    <p>You need a "before" number to know if the fixes worked.</p>
+    <ol>
+      <li>Sit where you normally use the internet.</li>
+      <li>Go to <a href="https://www.speedtest.net">speedtest.net</a> or <a href="https://fast.com">fast.com</a> and run a test.</li>
+      <li>Write down your <strong>download</strong> speed, <strong>upload</strong> speed and <strong>ping</strong>.</li>
+    </ol>
+    <p>Claude also runs its own speed test in the next step, but your own number is a good check.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Ask Claude to find what's slowing you down</h3><small>5 minutes · Claude does the work</small></div></div>
+    <ol>
+      <li>Create a folder on your computer called <code>WiFi Check</code>.</li>
+      <li>Open the Claude desktop app, click the <strong>Code</strong> tab, start a <strong>Local</strong> session, and choose that folder.</li>
+      <li>Paste this prompt. The first line is the one from the reel. The rest makes sure Claude explains everything and asks before changing anything.</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Find what's slowing my Wi-Fi</span></div>
+<pre>Connect to my router and find everything that's slowing my Wi-Fi down.
+
+I'm a beginner. Please:
+1. Find my router's address and tell me how to open its page.
+2. Run a speed test and check my Wi-Fi signal strength and
+   which band I'm on (2.4 GHz or 5 GHz).
+3. Find every app on this computer using the internet in the
+   background, and how much each one uses.
+4. Check the Wi-Fi networks around me and whether my
+   neighbours' Wi-Fi is on the same channel as mine.
+5. Check my Wi-Fi driver, DNS and router settings.
+6. Give me a numbered list of fixes, easiest first. For each:
+   what it does in one simple sentence, and how much it should help.
+
+Don't change anything yet. When you need my router password,
+tell me and I'll type it myself in the router's login page.</pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Log in to your router</h3><small>1 minute</small></div></div>
+    <p>Your router has its own settings page, like a small website inside your home. Claude finds its address (usually something like <code>192.168.1.1</code> or <code>192.168.0.1</code>).</p>
+    <ol>
+      <li>Open that address in your browser. If Claude is connected to Chrome (the <strong>Claude in Chrome</strong> extension), it can open the page for you.</li>
+      <li>When the login box appears, type the <strong>admin password from the sticker</strong> yourself. That's the only thing you have to do.</li>
+      <li>Tell Claude "I'm logged in", and it carries on.</li>
+    </ol>
+    <div class="box tip">
+      <div class="box-title">Keep your password out of the chat</div>
+      <p>Type passwords only into the router's own login page, never into the chat. And if your router still uses the password from the sticker, change it in Part 3.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Say yes to the fixes</h3><small>5 minutes</small></div></div>
+    <p>Claude shows you its list. For me it found 12 fixes. Yours will be different. Read each one and say yes or no. If you're not sure, ask "What does this do?" first. These are the most common fixes and what they mean:</p>
+    <table class="keep">
+      <tr><th style="width:34%">Fix</th><th>What it does</th></tr>
+      <tr><td>Change the Wi-Fi channel</td><td>If your neighbours use the same channel, your Wi-Fi signals bump into each other. Moving to a quieter channel can make a big difference. On 2.4 GHz, the best channels are usually 1, 6 or 11.</td></tr>
+      <tr><td>Use the 5 GHz band</td><td>5 GHz is much faster at short range and less crowded. 2.4 GHz goes further through walls but is slower.</td></tr>
+      <tr><td>Stop background apps</td><td>Cloud sync, updates, game launchers and video apps can use your internet without you knowing. Claude pauses them or limits them.</td></tr>
+      <tr><td>Update the router firmware</td><td>The router's own software. Updates fix bugs and security problems.</td></tr>
+      <tr><td>Update the Wi-Fi driver</td><td>The software that runs your computer's Wi-Fi card. Old drivers can be slow.</td></tr>
+      <tr><td>Change DNS</td><td>DNS turns website names into addresses. A faster DNS makes pages start loading sooner.</td></tr>
+      <tr><td>Restart the router</td><td>Clears out problems that build up over weeks. Simple, but it often helps.</td></tr>
+      <tr><td>Move the router</td><td>Put it high, central and in the open, away from thick walls, mirrors and microwaves. Not inside a cupboard.</td></tr>
+    </table>
+    <div class="box note">
+      <div class="box-title">Write down the old settings</div>
+      <p>Before you say yes, ask: <em>"Save a note in this folder of every setting you change, with the old value, so I can undo it."</em> Then you can always go back.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Test again and compare</h3><small>2 minutes</small></div></div>
+    <p>Ask Claude: <em>"Run the speed test again and compare it with before, in a table."</em> Then run your own test on speedtest.net from the same spot as before.</p>
+    <table class="keep">
+      <tr><th style="width:34%"></th><th>Before</th><th>After</th></tr>
+      <tr><td>Download</td><td><span class="fill">___ Mbps</span></td><td><span class="fill">___ Mbps</span></td></tr>
+      <tr><td>Upload</td><td><span class="fill">___ Mbps</span></td><td><span class="fill">___ Mbps</span></td></tr>
+      <tr><td>Ping</td><td><span class="fill">___ ms</span></td><td><span class="fill">___ ms</span></td></tr>
+    </table>
+    <p>Mine went from <strong>22 Mbps to 45 Mbps</strong>. Your result depends on your plan, your router and your home.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Part 2: the privacy trick</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Find every device on your Wi-Fi</h3><small>3 minutes</small></div></div>
+    <p>Someone using your Wi-Fi without permission slows it down and can be a security risk. Paste this:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Who's on my Wi-Fi</span></div>
+<pre>Now show me every device connected to my Wi-Fi and flag anything you don't recognize.
+
+For each device, show its name, its type if you can tell
+(phone, laptop, TV...), its maker, and when it was last seen.
+Put the ones you can't identify at the top.</pre>
+    </div>
+    <p>Claude found <strong>2 devices</strong> on my Wi-Fi that weren't identified. Before you block anything, check it isn't yours:</p>
+    <ul>
+      <li>Walk around your home and list everything that uses Wi-Fi: phones, laptops, TVs, consoles, speakers, cameras, smart plugs, printers.</li>
+      <li>Phones often use a <strong>private Wi-Fi address</strong> that changes, so your own phone can look unknown. On your phone, open the Wi-Fi network's details to see its address and compare.</li>
+      <li>Turn a device off. If an "unknown" one disappears from the list, you found it.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">7</span><div><h3>Keep yours, block the rest</h3><small>2 minutes</small></div></div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Block unknown devices</span></div>
+<pre>These devices are mine: <span class="fill">LIST THE ONES YOU KNOW</span>.
+Block every other device from my Wi-Fi in my router settings.
+Tell me where the setting is, so I can unblock one later.</pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">8</span><div><h3>Lock your Wi-Fi down</h3><small>5 minutes · the most important step</small></div></div>
+    <p>Blocking a device works, but a determined person can get around it. If someone was on your Wi-Fi, they know your password. Fix the cause:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Secure my Wi-Fi</span></div>
+<pre>Help me secure my Wi-Fi, one step at a time, asking before each change:
+1. Change my Wi-Fi password to a strong new one. I'll type it myself.
+2. Use WPA3 security if my router supports it, or WPA2 if not.
+3. Turn off WPS (the push-button connection).
+4. Change the router admin password from the one on the sticker.
+   I'll type it myself.
+5. Check for a router firmware update.
+Then tell me which devices will need the new Wi-Fi password.</pre>
+    </div>
+    <p>After you change the Wi-Fi password, every device needs to reconnect with the new one. Write it down somewhere safe.</p>
+  </div>
+
+  <div class="section keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>Claude can't find the router</td><td>Make sure your computer is on that Wi-Fi (not on a phone hotspot or a VPN). Turn off any VPN and try again.</td></tr>
+      <tr><td>The sticker password doesn't work</td><td>Someone may have changed it. Ask your internet provider, or find "reset router" in its manual (this erases all settings).</td></tr>
+      <tr><td>The internet dropped after a change</td><td>Wait 2 minutes for the router to restart. If it doesn't come back, ask Claude to undo the last change using your saved note.</td></tr>
+      <tr><td>Speed didn't improve</td><td>Test with a cable plugged into the router. If that's also slow, the problem is your internet plan or provider, not Wi-Fi. Call them.</td></tr>
+      <tr><td>A device won't connect anymore</td><td>Check that you didn't block it by mistake, then forget the network on that device and reconnect with the new password.</td></tr>
+      <tr><td>My router page looks different</td><td>Every brand is different. Tell Claude your router's brand and model (it's on the sticker) and ask where the setting is.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>I wrote down my speed before</li>
+      <li>Claude listed every fix and explained each one</li>
+      <li>I saved a note of the old settings</li>
+      <li>I said yes only to fixes I understood</li>
+      <li>I tested again and compared</li>
+      <li>I checked every device on my Wi-Fi</li>
+      <li>I blocked the devices that aren't mine</li>
+      <li>I changed my Wi-Fi password and router admin password</li>
+      <li>WPA2 or WPA3 is on, and WPS is off</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">Router</td><td>The box that creates your Wi-Fi and connects your home to the internet.</td></tr>
+      <tr><td>Mbps</td><td>Megabits per second: how fast data downloads. Higher is better.</td></tr>
+      <tr><td>Ping</td><td>How fast your connection responds, in milliseconds. Lower is better, especially for calls and games.</td></tr>
+      <tr><td>Channel</td><td>A lane your Wi-Fi uses. Neighbours on the same lane slow each other down.</td></tr>
+      <tr><td>2.4 GHz / 5 GHz</td><td>The two Wi-Fi bands. 2.4 reaches further, 5 is faster.</td></tr>
+      <tr><td>Firmware</td><td>The software running inside your router.</td></tr>
+      <tr><td>DNS</td><td>The internet's phone book: it turns website names into addresses.</td></tr>
+      <tr><td>MAC address</td><td>A device's network ID. Routers use it to recognize or block devices.</td></tr>
+      <tr><td>WPA2 / WPA3</td><td>Wi-Fi security types. WPA3 is newest and strongest.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Faster Wi-Fi in 10 minutes.</h2>
+    <p>Test, fix, test again, then lock it down so it stays fast and private.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>

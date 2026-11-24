@@ -9,6 +9,33 @@
   },
   "guides": [
     {
+      "active": false,
+      "word": "DREAMINA",
+      "title": "One product photo, a full ad campaign with Claude and Dreamina",
+      "description": "Connect the Dreamina CLI to Claude, turn one product photo into 10 ads, test them on 10,000 simulated customers, then resize and translate the winners for every platform and country with Marketing Studio. Both prompts included.",
+      "pdf": "dreamina.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
+      "active": false,
+      "word": "MOTION",
+      "title": "Turn any file into an animated video with Claude Motion",
+      "description": "Turn reports, slides and data into short animated explainers. Change one word, one number or the timing without redoing anything, export as MP4, and finish it in CapCut or Runway. Ready-to-use prompts included.",
+      "pdf": "motion.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
+      "active": false,
+      "word": "WIFI",
+      "title": "Speed up your Wi-Fi with Claude",
+      "description": "Let Claude find everything slowing your Wi-Fi down, from background apps to neighbours on your channel, approve the fixes, and test again. Then find unknown devices on your network, block them and lock your Wi-Fi down.",
+      "pdf": "wifi.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
       "active": true,
       "word": "SECRET",
       "title": "The complete AI video editor playbook",

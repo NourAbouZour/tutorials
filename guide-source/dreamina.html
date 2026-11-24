@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Turn One Product Photo into a Full Ad Campaign with Claude and Dreamina</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><img class="brand-mark" src="../brand/logo-icon.svg" alt="">@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>DREAMINA</b></span>
+    <h1>One product photo.<br><span class="grad">A full ad campaign.</span></h1>
+    <p class="subtitle">Connect Dreamina to Claude, give it your website and one product photo, and Claude makes your ads, tests them on 10,000 simulated customers, then resizes and translates the winners for every platform and country you sell in.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Setup time</span><strong>About 45 min</strong></div>
+      <div><span>You need</span><strong>Claude + Dreamina</strong></div>
+    </div>
+    <p class="cover-foot">Part 1 makes and tests your ads with Claude Code and the Dreamina CLI. Part 2 uses Claude in Chrome and Dreamina's Marketing Studio to resize and localize the winners.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>Normally you make a few ads, pay to run them all, and wait a week to see which one works. Here, Claude does the first round for you. It reads your website, makes 10 ads from one product photo with Dreamina, and predicts how your kind of customer would react to each one. You start spending only on the ads most likely to win, already sized for every platform and translated for every market.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>Read this first: what "simulated customers" really means</li>
+    <li>What you need</li>
+    <li>Create your Dreamina account</li>
+    <li>Install the Dreamina CLI and connect it to Claude</li>
+    <li>Get your folder ready</li>
+    <li>Prompt 1: make and test 10 ads</li>
+    <li>Read your results and pick the winners</li>
+    <li>Connect Claude to Chrome</li>
+    <li>Prompt 2: resize and localize in Marketing Studio</li>
+    <li>Launch, fixes, checklist and glossary</li>
+  </ol>
+
+  <div class="box warn keep">
+    <div class="box-title">Read this first: what "simulated customers" really means</div>
+    <p>The 10,000 customers are <strong>imagined by Claude</strong>, based on your website and your audience. They are not real people, and the scores are <strong>predictions, not real results</strong>. They're very good for one job: deciding which few ads deserve real money first, instead of paying to test all ten. Always confirm the winners with a small real test before you put a big budget behind them.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>What you need</h2>
+    <table>
+      <tr><th style="width:30%">You need</th><th>Details</th></tr>
+      <tr><td>Claude desktop app</td><td>With the <strong>Code</strong> tab (Claude Code). It comes with paid Claude plans. Download it from <a href="https://claude.ai/download">claude.ai/download</a>.</td></tr>
+      <tr><td>A Dreamina account</td><td>Dreamina is an AI image and video tool from CapCut. Making images and videos uses Dreamina <strong>credits</strong>. In the reel I mention a Black Friday offer of 29 cents a month. Check the current price on the <a href="https://dreamina.capcut.com/pricing/dreamina-price">pricing page</a> before you pay, because offers change.</td></tr>
+      <tr><td>Google Chrome</td><td>With the <strong>Claude in Chrome</strong> extension, for Part 2.</td></tr>
+      <tr><td>One good product photo</td><td>Sharp, well lit, the product clearly visible. A plain background works best.</td></tr>
+      <tr><td>Your website link</td><td>Claude reads it to learn your offer, your audience and your brand voice.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Part 1: make and test your ads</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Create your Dreamina account</h3><small>5 minutes</small></div></div>
+    <ol>
+      <li>Go to <a href="https://dreamina.capcut.com">dreamina.capcut.com</a> and sign up (Google or email works).</li>
+      <li>Open your account and check how many <strong>credits</strong> you have. You'll need credits for 10 images.</li>
+      <li>If you want a paid plan, open the pricing page and pick one. Look for current deals like the Black Friday offer.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Install the Dreamina CLI and connect it to Claude</h3><small>10 minutes · Claude does most of it</small></div></div>
+    <p>The <strong>Dreamina CLI</strong> is a small program that lets Claude use Dreamina for you: it can make images and videos, check your credits and download the results. When it installs, it also adds an instruction file (a <strong>skill</strong>) that teaches AI assistants like Claude how to use it.</p>
+    <ol>
+      <li>Open Dreamina's official CLI page: <a href="https://dreamina.capcut.com/tools/dreamina-cli">dreamina.capcut.com/tools/dreamina-cli</a>. It links to the official install page with the command to copy.</li>
+      <li>Create a folder on your computer called <code>My Ads</code>.</li>
+      <li>In the Claude desktop app, open the <strong>Code</strong> tab, start a <strong>Local</strong> session and choose that folder.</li>
+      <li>Paste this prompt, with the install command from the official page:</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Install the Dreamina CLI</span></div>
+<pre>I'm a beginner. Help me install the Dreamina CLI on this computer.
+Here is the install command from Dreamina's official install page:
+<span class="fill">PASTE THE COMMAND FROM THE OFFICIAL PAGE</span>
+
+1. Check if it works on my computer (Windows / Mac). If my system
+   needs something extra first, explain it simply and set it up.
+2. Run the install and tell me when it's done.
+3. When it's time to log in, tell me exactly what to do. I'll do
+   the login myself in my browser.
+4. Then check it works: show me the version and my credits.
+5. Read the Dreamina skill file it installed so you know every
+   command and option. Tell me in 3 lines what you can now do.</pre>
+    </div>
+    <div class="box tip">
+      <div class="box-title">Do the login yourself</div>
+      <p>Dreamina's own page says to finish the login yourself rather than letting the AI do it. When the login page opens, sign in with your Dreamina account in your browser, then come back to Claude and say <em>"done"</em>.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Get your folder ready</h3><small>5 minutes</small></div></div>
+    <p>Put these in your <code>My Ads</code> folder:</p>
+    <ul>
+      <li><strong>Your product photo</strong>, named simply, like <code>product.jpg</code>. You can add 2–3 more angles if you have them.</li>
+      <li><strong>Your logo</strong> (optional), so ads can include it.</li>
+      <li><strong>A short brand note</strong> (optional): your brand colours, words you always use, words you never use, and who your customer is.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Prompt 1: make and test 10 ads</h3><small>15–30 minutes · Claude works on its own</small></div></div>
+    <p>This is the prompt from the reel, with a few extra lines so it works smoothly for beginners. Paste it into the same Claude Code session:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Prompt 1 · Make and test</span></div>
+<pre>You are my performance-marketing team.
+My website: <span class="fill">YOUR WEBSITE LINK</span>
+My product photo: product.jpg (in this folder)
+I sell in: <span class="fill">e.g. Lebanon, UAE, Saudi Arabia</span>
+
+1. Read my website: pull the offer, audience, brand voice and
+   top 3 selling points.
+2. Use the Dreamina CLI to turn this product photo into 10 ads:
+   5 hooks × 2 styles, 9:16. Keep the product looking exactly
+   like the real one. Save them in a folder called ads/.
+3. Simulate 10,000 customers that match my real audience. Show
+   every ad to all of them.
+4. Score each ad: scroll-stop rate, click intent, purchase
+   intent, top objection.
+5. Rank them in a table. Name the 3 winners, say why they won,
+   fix the losers.
+
+Before you spend credits, tell me roughly how many this will
+use and wait for my OK. Remind me the scores are predictions.</pre>
+    </div>
+    <div class="box note">
+      <div class="box-title">What "5 hooks × 2 styles" means</div>
+      <p>A <strong>hook</strong> is the first message people see, like "Glowing skin in 7 days" or "Stop wasting money on serums". A <strong>style</strong> is the look, like a clean studio shot or a real-life lifestyle scene. 5 hooks in 2 styles gives you 10 different ads, so you learn both which message and which look work best.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Read your results and pick the winners</h3><small>10 minutes</small></div></div>
+    <p>Claude gives you a table like this. Here's what each score means:</p>
+    <table class="keep">
+      <tr><th style="width:30%">Score</th><th>What it tells you</th></tr>
+      <tr><td>Scroll-stop rate</td><td>How many people would stop scrolling to look. This is your hook and your image.</td></tr>
+      <tr><td>Click intent</td><td>How many would tap to learn more. This is your message and your offer.</td></tr>
+      <tr><td>Purchase intent</td><td>How many would actually buy. An ad can stop people and still not sell. This is the score that matters most.</td></tr>
+      <tr><td>Top objection</td><td>The main reason people wouldn't buy, like "too expensive" or "does it really work?". Use it to improve the ad and your product page.</td></tr>
+    </table>
+    <p>Look at each ad yourself before you trust the table. Check that the product looks real, the text has no spelling mistakes, and nothing promises something your product can't do. If something's wrong, just say: <em>"Ad 4 changed the bottle shape. Remake it with the real product."</em></p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Part 2: resize and translate the winners</h2>
+  <p>Now Claude opens Dreamina's <strong>Marketing Studio</strong> in Chrome. It's Dreamina's tool for product ads. It can resize images and videos for different formats, translate the text inside them, and make versions in different languages.</p>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Connect Claude to Chrome</h3><small>5 minutes</small></div></div>
+    <ol>
+      <li>In Google Chrome, open the Chrome Web Store and install the official <strong>Claude</strong> extension (Claude in Chrome), made by Anthropic.</li>
+      <li>Sign in with the same Claude account you use in the desktop app, and follow the setup steps it shows.</li>
+      <li>In Chrome, open <a href="https://dreamina.capcut.com">dreamina.capcut.com</a> and make sure you're signed in to Dreamina.</li>
+    </ol>
+    <div class="box tip">
+      <div class="box-title">Stay in control</div>
+      <p>Claude works in your real browser, with your Dreamina account. Watch the first few steps, and stop it any time. It should never buy credits or change your account without asking you.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">7</span><div><h3>Prompt 2: every platform, every country</h3><small>20–40 minutes · Claude works on its own</small></div></div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Prompt 2 · Resize and localize</span></div>
+<pre>Open Dreamina's Marketing Studio in Chrome and take the 3 winning ads.
+
+1. Resize each ad for every platform: Reels, Stories, TikTok,
+   Shorts (9:16), Feed (4:5), Facebook (1:1). Reframe the
+   product, don't just crop.
+2. Localize each ad for these countries: <span class="fill">YOUR MARKETS</span>.
+   Translate the hook, switch currency and CTA, keep my brand voice.
+3. Export every version named country_platform_size, plus a
+   launch checklist.
+
+Ask me before you spend credits or download anything.</pre>
+    </div>
+    <p>Replace <span class="fill">YOUR MARKETS</span> with your countries, for example: <em>UAE, Saudi Arabia, Lebanon, France</em>.</p>
+    <table class="keep">
+      <tr><th style="width:34%">Shape</th><th style="width:22%">Size (pixels)</th><th>Where it's used</th></tr>
+      <tr><td>9:16 (tall)</td><td>1080 × 1920</td><td>Instagram Reels and Stories, TikTok, YouTube Shorts</td></tr>
+      <tr><td>4:5 (portrait)</td><td>1080 × 1350</td><td>Instagram and Facebook feed</td></tr>
+      <tr><td>1:1 (square)</td><td>1080 × 1080</td><td>Facebook feed and right-column placements</td></tr>
+    </table>
+  </div>
+
+  <div class="box warn keep">
+    <div class="box-title">Check every translation</div>
+    <p>AI translations can sound strange or miss local slang. Ask someone who speaks the language to read each version. For Arabic, also check the text reads right to left and the prices use the right currency (AED, SAR, LBP or USD).</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step">
+    <div class="step-head"><span class="step-num">8</span><div><h3>Launch the winners with a small real test</h3><small>The step that makes it real</small></div></div>
+    <ol>
+      <li>In Meta Ads Manager (Instagram and Facebook) or TikTok Ads Manager, create one campaign with your <strong>3 winning ads</strong>.</li>
+      <li>Give each ad the same small budget for 3–5 days.</li>
+      <li>Compare the real numbers: cost per click and cost per purchase.</li>
+      <li>Put more money behind the real winner. Give the results to Claude and ask: <em>"Here are my real results. Make 5 new versions of the winner."</em></li>
+    </ol>
+    <p>Every round, your ads get better, and you spend money only on what's working.</p>
+  </div>
+
+  <div class="section keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>The install command doesn't work</td><td>Copy the command again from the official install page. Tell Claude the exact error message and ask it to fix it.</td></tr>
+      <tr><td>Login doesn't open or keeps failing</td><td>Do the login yourself in your browser, then tell Claude "done". Make sure you're using the same Dreamina account.</td></tr>
+      <tr><td>"Not enough credits"</td><td>Check your credits on Dreamina, then ask Claude to make fewer ads (for example 3 hooks × 2 styles).</td></tr>
+      <tr><td>The product looks different in the ads</td><td>Use a sharper photo and say: "Keep the product exactly the same. Only change the background and text."</td></tr>
+      <tr><td>A task is stuck on "querying"</td><td>Dreamina makes images in the background. Wait a minute, then ask Claude to check the result again.</td></tr>
+      <tr><td>Claude can't find Marketing Studio</td><td>Open it yourself in Chrome first, then tell Claude to continue from that page.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>I have a Dreamina account and enough credits</li>
+      <li>The Dreamina CLI is installed and I logged in myself</li>
+      <li>My folder has my product photo (and logo)</li>
+      <li>Claude made 10 ads and ranked them in a table</li>
+      <li>I checked every ad with my own eyes</li>
+      <li>Claude in Chrome is installed and connected</li>
+      <li>The 3 winners are resized and translated for my markets</li>
+      <li>A native speaker checked the translations</li>
+      <li>I ran a small real test before spending big</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">CLI</td><td>Command line interface: a program you control by typing commands. Here, Claude types them for you.</td></tr>
+      <tr><td>Credits</td><td>What Dreamina charges for each image or video it makes.</td></tr>
+      <tr><td>Skill</td><td>An instruction file that teaches Claude how to use a tool.</td></tr>
+      <tr><td>Hook</td><td>The first line or image that makes people stop scrolling.</td></tr>
+      <tr><td>CTA</td><td>Call to action: what you ask people to do, like "Shop now".</td></tr>
+      <tr><td>Localize</td><td>Adapt an ad for a country: language, currency and local style.</td></tr>
+      <tr><td>Aspect ratio</td><td>The shape of an image or video, like 9:16 (tall) or 1:1 (square).</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Stop guessing which ad will work.</h2>
+    <p>Let Claude make them, test them and adapt them, and spend your money only on the winners.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>

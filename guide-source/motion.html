@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Turn Any File into an Animated Video with Claude Motion</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><img class="brand-mark" src="../brand/logo-icon.svg" alt="">@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>MOTION</b></span>
+    <h1>Turn any file into<br><span class="grad">an animated video</span></h1>
+    <p class="subtitle">Claude Motion turns your reports, slides, data and images into short animated explainers. It isn't AI video: Claude builds every scene with code, so you can change one word, one number or the timing, and everything else stays exactly the same.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>First video</span><strong>About 15 min</strong></div>
+      <div><span>Export</span><strong>MP4</strong></div>
+    </div>
+    <p class="cover-foot">Claude Motion is in beta. At the time of writing it's on Claude Team and Enterprise plans.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>By the end of this guide you'll have made your first animated video from one of your own files, edited it in plain English, exported it as an MP4, and opened it in an editing app like CapCut or Runway to add your voice and music. You'll also have a set of ready prompts for reports, product launches, lessons and social posts.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>What Claude Motion is (and isn't)</li>
+    <li>Who can use it</li>
+    <li>Open Motion and make your first video</li>
+    <li>Write a great request</li>
+    <li>Change one word, one number, or the timing</li>
+    <li>Export as MP4 and finish it in CapCut or Runway</li>
+    <li>Share it</li>
+    <li>Ready-to-use prompts</li>
+    <li>Fixes, checklist and glossary</li>
+  </ol>
+
+  <div class="keep">
+    <h3>What Claude Motion is (and isn't)</h3>
+    <div class="cards">
+      <div class="card"><h3>What it is</h3><p>Animated <strong>text, charts, shapes and images</strong> that move and play like a real video. Perfect for explainers, reports, walkthroughs and announcements.</p></div>
+      <div class="card"><h3>What it isn't</h3><p>Not an AI video generation model. <strong>No fake footage and no AI-generated people.</strong> If you need realistic scenes or a presenter, film them or use another tool, then combine them in an editor.</p></div>
+    </div>
+    <p>Because Claude writes the animation as <strong>code</strong>, every part of it is precise and editable. Ask for one change, and only that thing changes. With AI video, a small change usually means regenerating the whole clip and hoping it comes out the same.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>Who can use it</h2>
+    <table>
+      <tr><th style="width:30%">Your plan</th><th>What to do</th></tr>
+      <tr><td>Claude Team</td><td>Motion is <strong>on by default</strong>. Skip to Step 1.</td></tr>
+      <tr><td>Claude Enterprise</td><td>It's <strong>off by default</strong>. An owner turns it on in <strong>Organization settings → Artifacts</strong>. Ask your admin if you don't see it.</td></tr>
+      <tr><td>Other plans</td><td>Check Anthropic's help article "Get started with Claude Motion" at <a href="https://support.claude.com/en/articles/17454997">support.claude.com</a>. Beta features often reach more plans over time.</td></tr>
+    </table>
+    <p>Motion counts toward your plan's usage limits. Longer and more detailed animations use more than a normal message.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Make your first video</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Open Motion</h3><small>1 minute</small></div></div>
+    <p>There are two ways in. Use whichever you see:</p>
+    <ul>
+      <li><strong>From a chat:</strong> start a new chat, click <strong>Output</strong> in the message box, and choose <strong>Motion</strong>. In the reel I type <code>/motion</code>. If your app offers that command, it does the same thing.</li>
+      <li><strong>From the Artifacts tab:</strong> open the <strong>Artifacts</strong> tab and pick a <strong>Motion template</strong>.</li>
+    </ul>
+    <p>Every animation you make is saved in the <strong>Artifacts</strong> tab, so you can come back and edit it later.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Drop in your file and say what you want</h3><small>2 minutes</small></div></div>
+    <p>Attach the file you want to turn into a video: a report, a slide deck, a spreadsheet, a document, or some images. Then describe the video. The example from the reel:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Your first video</span></div>
+<pre>Turn this report into a 30 second explainer for our team meeting.</pre>
+    </div>
+    <p>That works. But the more you tell Claude, the better the first version. Use this formula:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>FILL THIS IN</span><span>The 5-part request</span></div>
+<pre>Turn <span class="fill">this report / these slides / this data</span> into a <span class="fill">30</span> second
+animated explainer.
+
+Who will watch it: <span class="fill">e.g. our sales team / new customers / my followers</span>
+Where it will play: <span class="fill">e.g. on a big screen in a meeting / Instagram Reels (9:16)</span>
+The one thing they should remember: <span class="fill">e.g. revenue is up 42%</span>
+Style: <span class="fill">e.g. clean and calm, our brand colours #6a4cf5 and white</span>
+Scenes: one idea per scene, short text, big numbers.</pre>
+    </div>
+    <div class="box tip">
+      <div class="box-title">Say who, where and how long</div>
+      <p>Anthropic's own tip: tell Claude who will watch it, where it will play, and roughly how long it should be. Those three details change everything: the text size, the speed and the shape of the video.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Watch the first version</h3><small>2 minutes</small></div></div>
+    <p>Play it from start to finish once, and check:</p>
+    <ul>
+      <li><strong>The numbers.</strong> Are they exactly right, compared with your file?</li>
+      <li><strong>The text.</strong> Can you read every line before it disappears?</li>
+      <li><strong>The order.</strong> Does the story make sense from scene to scene?</li>
+      <li><strong>The ending.</strong> Does it end on the one thing people should remember?</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Change one thing, keep everything else</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Edit with plain English</h3><small>Seconds per change</small></div></div>
+    <p>This is the magic part. Just say what to change:</p>
+    <table class="keep">
+      <tr><th style="width:30%">To change</th><th>Say something like</th></tr>
+      <tr><td>One word</td><td><em>"In scene 2, change 'growth' to 'record growth'."</em></td></tr>
+      <tr><td>One number</td><td><em>"Change the Q3 number to 18%."</em></td></tr>
+      <tr><td>The timing</td><td><em>"Slow down the second scene."</em> or <em>"Hold the final number for 2 more seconds."</em></td></tr>
+      <tr><td>The order</td><td><em>"Swap scenes 3 and 4."</em></td></tr>
+      <tr><td>The look</td><td><em>"Use our brand purple for every chart."</em></td></tr>
+      <tr><td>The shape</td><td><em>"Make a 9:16 version for Instagram Reels."</em></td></tr>
+    </table>
+    <p>You can also choose <strong>Edit directly</strong> and adjust the animation yourself in the editor.</p>
+    <div class="box note">
+      <div class="box-title">Why this is so useful</div>
+      <p>Your report changes every month, but the video doesn't have to be rebuilt. Next month, attach the new numbers and say: <em>"Update every number from this new report. Keep everything else the same."</em></p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Export as MP4</h3><small>1 minute</small></div></div>
+    <p>When you're happy, click <strong>Export</strong> and choose <strong>MP4</strong>. That gives you a normal video file you can play anywhere, send on WhatsApp, upload to YouTube, or post on Instagram.</p>
+    <p>Before a big presentation, export once and play the file on the screen you'll actually use, to check the size and quality.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Finish it in CapCut or Runway (optional)</h3><small>10 minutes</small></div></div>
+    <p>Claude Motion makes the visuals. An editor adds the rest:</p>
+    <ol>
+      <li>Open <strong>CapCut</strong> (free, on phone and computer) or <strong>Runway</strong>, and start a new project.</li>
+      <li>Import your MP4.</li>
+      <li>Add your <strong>voiceover</strong>, background <strong>music</strong>, and <strong>captions</strong>.</li>
+      <li>Add real footage if you want: you on camera, your product, your team. Then export again.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">7</span><div><h3>Share it</h3><small>Your choice</small></div></div>
+    <p>New animations are <strong>private to you</strong>. To show your team, open the animation and click <strong>Share</strong>. Or simply send the MP4.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Ready-to-use prompts</h2>
+
+  <div class="prompt">
+    <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Monthly report</span></div>
+<pre>Turn this report into a 45 second explainer for our team meeting.
+Show the 3 most important numbers as animated charts, one per
+scene. End with one sentence: what we do next month.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Product launch</span></div>
+<pre>Use these product images to make a 20 second launch video for
+Instagram Reels (9:16). Scene 1: the problem. Scenes 2–3: the
+product and 3 benefits. Last scene: price <span class="fill">PRICE</span> and "<span class="fill">YOUR CTA</span>".</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Customer walkthrough</span></div>
+<pre>Make a short walkthrough of the setup steps in this document for
+new customers. One step per scene, with a big step number and
+one short line of text. Calm, friendly, about 40 seconds.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Lesson or class</span></div>
+<pre>Turn these notes into a 60 second animated lesson for <span class="fill">STUDENTS' AGE / LEVEL</span>.
+Explain one idea at a time, use simple diagrams, and end with
+a 3-question recap.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Blog post to Reel</span></div>
+<pre>Turn this article into a 30 second 9:16 video for Reels and
+TikTok. Hook in the first 2 seconds, 5 short scenes, big bold
+text, and end with "Follow for more".</pre>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>Tips for great results</h2>
+    <ul>
+      <li><strong>One idea per scene.</strong> If a scene needs two sentences, split it in two.</li>
+      <li><strong>Fewer words, bigger text.</strong> People watch, they don't read.</li>
+      <li><strong>Give exact brand colours and fonts</strong>, so every video looks like yours.</li>
+      <li><strong>Start short.</strong> Get a great 20–30 second version, then make it longer if you need to.</li>
+      <li><strong>Always check numbers</strong> against your file before you share.</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>I don't see Motion</td><td>Check your plan (Team or Enterprise). On Enterprise, ask your admin to turn it on in Organization settings → Artifacts.</td></tr>
+      <tr><td>The text goes by too fast</td><td>"Make every scene at least 3 seconds, and hold the last scene for 3 seconds."</td></tr>
+      <tr><td>A number is wrong</td><td>"Change <span class="fill">X</span> to <span class="fill">Y</span> in scene <span class="fill">N</span>. Keep everything else the same."</td></tr>
+      <tr><td>It looks cluttered</td><td>"Cut the text in every scene by half and make it bigger."</td></tr>
+      <tr><td>Wrong shape for Instagram</td><td>"Make a 9:16 vertical version, with everything inside the safe area."</td></tr>
+      <tr><td>I want a real person in it</td><td>Motion doesn't make people. Film yourself, then combine both clips in CapCut or Runway.</td></tr>
+      <tr><td>I'm hitting usage limits</td><td>Make shorter, simpler versions, and edit one thing at a time instead of rebuilding.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>I can see Motion (Output → Motion, or the Artifacts tab)</li>
+      <li>I made my first video from one of my own files</li>
+      <li>I told Claude who will watch, where it plays, and how long</li>
+      <li>I checked every number and line of text</li>
+      <li>I changed one thing and everything else stayed the same</li>
+      <li>I exported it as an MP4</li>
+      <li>(Optional) I added my voice and music in CapCut or Runway</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">Claude Motion</td><td>Claude's beta feature that turns your content into short animated videos, built with code.</td></tr>
+      <tr><td>Artifact</td><td>Something Claude makes that you can open, edit and share, like a document, app or animation.</td></tr>
+      <tr><td>Explainer</td><td>A short video that explains one idea simply.</td></tr>
+      <tr><td>MP4</td><td>The most common video file type. It plays almost everywhere.</td></tr>
+      <tr><td>9:16</td><td>The tall video shape used by Reels, TikTok and Shorts.</td></tr>
+      <tr><td>AI video model</td><td>A tool that generates footage from prompts. Claude Motion is <em>not</em> one.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Your boring report is now a video.</h2>
+    <p>Start with one file you already have, make it a 30-second explainer, and change it as much as you want.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>
