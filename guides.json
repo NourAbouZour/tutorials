@@ -9,13 +9,13 @@
   },
   "guides": [
     {
-      "active": false,
+      "active": true,
       "word": "LEVEL",
       "title": "The 3 levels of AI: from chatbots to agent teams",
       "description": "Find out which level you're on, connect Claude to Gmail, HubSpot and Slack so it does the work itself, then build your first AI team: a lead qualifier, a call booker, a campaign runner and a supervisor that checks their work.",
       "pdf": "level.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/DgPwYx5z4YY/",
+      "date": "2026-11-27"
     },
     {
       "active": true,
