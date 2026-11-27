@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The 3 Levels of AI: From Chatbots to Agent Teams</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><img class="brand-mark" src="../brand/logo-icon.svg" alt="">@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>LEVEL</b></span>
+    <h1>The 3 levels of AI<br><span class="grad">and how to level up</span></h1>
+    <p class="subtitle">Level 1 is chatbots: you ask, it answers, you copy-paste. Level 2 is agents: the AI connects to Gmail, HubSpot and Slack and does the work itself. Level 3 is agent teams: a group of AI agents running a whole department, with a supervisor checking their work. This guide takes you from level 1 to level 3, step by step.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Complete beginner</strong></div>
+      <div><span>Time</span><strong>1 afternoon</strong></div>
+      <div><span>You need</span><strong>A Claude account</strong></div>
+    </div>
+    <p class="cover-foot">Level 2 works in the normal Claude app. Level 3 uses Claude Code, in the Code tab of the Claude desktop app. No coding needed.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>Find out which level you're on, then climb. You'll connect Claude to the tools you already use so it stops being a chat window and starts doing real work. Then you'll build your first AI team for one department (sales is the example), with one agent that qualifies leads, one that books calls, one that runs campaigns, and a supervisor above them that checks everything before it reaches you.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>The 3 levels, explained simply</li>
+    <li>Which level are you on? (quick test)</li>
+    <li>Level 1: get more out of chatbots</li>
+    <li>Level 2: connect Claude to your tools</li>
+    <li>Level 2: your first agent tasks</li>
+    <li>Level 3: plan your AI team</li>
+    <li>Level 3: build the team in Claude Code</li>
+    <li>Level 3: run it every day</li>
+    <li>Safety rules for agents</li>
+    <li>Fixes, checklist and glossary</li>
+  </ol>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>The 3 levels, explained simply</h2>
+    <table>
+      <tr><th style="width:22%">Level</th><th style="width:39%">What it does</th><th>Who does the work</th></tr>
+      <tr><td><strong>1. Chatbots</strong><br>ChatGPT, Gemini, Claude</td><td>You ask, it answers. You copy the answer into Gmail, your CRM or Instagram yourself.</td><td><strong>You.</strong> The AI only thinks. You do every click.</td></tr>
+      <tr><td><strong>2. Agents</strong></td><td>Same brain, now with hands and legs. It connects to Gmail, HubSpot, Slack and more, reads your inbox, updates your CRM and drafts your posts.</td><td><strong>The AI does the clicks.</strong> You give the task and approve the result.</td></tr>
+      <tr><td><strong>3. Agent teams</strong></td><td>Several agents, each with one job, working together on a whole department. A supervisor agent checks their work.</td><td><strong>The team runs the process.</strong> You manage it like a boss: set goals, review, decide.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Which level are you on?</h2>
+    <p>Answer honestly. Count your "yes" answers.</p>
+    <table>
+      <tr><th>Question</th><th style="width:16%">Yes / No</th></tr>
+      <tr><td>I copy answers from an AI chat into other apps every day.</td><td>☐ / ☐</td></tr>
+      <tr><td>My AI can read my email or calendar without me pasting anything.</td><td>☐ / ☐</td></tr>
+      <tr><td>My AI updates my CRM, spreadsheet or task list by itself.</td><td>☐ / ☐</td></tr>
+      <tr><td>I have AI tasks that run on a schedule without me starting them.</td><td>☐ / ☐</td></tr>
+      <tr><td>I have more than one AI agent, each with its own job.</td><td>☐ / ☐</td></tr>
+    </table>
+    <p><strong>Only the first one is yes?</strong> You're on level 1. Start at Step 1. <strong>Yes to 2 or 3?</strong> You're on level 2. Check Steps 3–5, then start Level 3 at Step 6. <strong>Yes to the last two?</strong> You're on level 3. Use Steps 6–8 and the safety rules to make your team better.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Level 1: chatbots, done right</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Give the AI context, not just questions</h3><small>10 minutes · do this once</small></div></div>
+    <p>Most people stay stuck on level 1 because the AI doesn't know anything about them. Fix that first. In Claude, create a <strong>Project</strong> called <code>My Business</code> and paste this into its instructions:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>FILL THIS IN</span><span>Business brief</span></div>
+<pre>MY BUSINESS: <span class="fill">what you sell, to whom, and your price range</span>
+MY CUSTOMERS: <span class="fill">who they are, what they want, what stops them buying</span>
+MY TOOLS: <span class="fill">e.g. Gmail, HubSpot, Slack, Instagram, Google Sheets</span>
+MY VOICE: <span class="fill">e.g. friendly, direct, short sentences, no jargon</span>
+MY GOAL THIS QUARTER: <span class="fill">e.g. 30 new clients</span>
+WHAT TAKES MOST OF MY TIME: <span class="fill">e.g. replying to leads, follow-ups, posting</span></pre>
+    </div>
+    <p>Every chat inside that project now starts with this knowledge. You'll reuse this brief for levels 2 and 3.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Find your copy-paste jobs</h3><small>10 minutes</small></div></div>
+    <p>These are the tasks to hand to agents in level 2. Ask:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Find what to automate</span></div>
+<pre>Based on my business brief, list the 10 tasks I most likely do every
+week by copying and pasting between AI and other apps. For each:
+how much time it probably takes, which tool it touches, and whether
+an AI agent could do it with my approval. Rank them by time saved.</pre>
+    </div>
+    <p>Pick the top 3. Those are your first agent tasks.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Level 2: give your AI hands and legs</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Connect Claude to your tools</h3><small>10 minutes</small></div></div>
+    <p><strong>Connectors</strong> let Claude read and work in your other apps, safely, with your permission.</p>
+    <ol>
+      <li>Open Claude (web or desktop app) and go to <strong>Settings → Connectors</strong>.</li>
+      <li>Browse the list and connect the tools you use: for example <strong>Gmail</strong> and <strong>Google Calendar</strong>, <strong>Slack</strong>, and your CRM such as <strong>HubSpot</strong>. If a tool isn't listed, search the connector directory for it.</li>
+      <li>Each one asks you to sign in and approve what Claude can access. Read it before you click Allow.</li>
+      <li>In a chat, open the tools menu in the message box to turn connectors on or off for that chat.</li>
+    </ol>
+    <div class="box tip">
+      <div class="box-title">Start with read-only jobs</div>
+      <p>For your first week, ask Claude to <em>read and summarize</em>, and to <em>draft</em> but not send. Once you trust its work, let it do more.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Your first agent tasks</h3><small>5 minutes each</small></div></div>
+    <p>Same AI, no copy-paste. Try these inside your <code>My Business</code> project:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Inbox</span></div>
+<pre>Read my Gmail from the last 24 hours. Group the emails into: needs my
+reply today, can wait, and newsletters or spam. For each one that needs
+a reply, write a draft in my voice and save it in Gmail drafts. Don't send anything.</pre>
+    </div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>CRM</span></div>
+<pre>Check HubSpot for leads that haven't been contacted in 7 days. List them
+with their last activity, and draft a short follow-up for each. Update the
+"next step" field for each lead after I approve the list.</pre>
+    </div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Team update</span></div>
+<pre>Summarize this week's new leads, booked calls and deals from HubSpot,
+and write a short team update. Show it to me first, then post it in
+the <span class="fill">#sales</span> channel on Slack once I say OK.</pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Make it run without you</h3><small>Optional · 10 minutes</small></div></div>
+    <p>Level 2 becomes real when tasks happen on their own. In the Claude desktop app you can create <strong>scheduled tasks</strong> that run a prompt every morning or every week. Ask Claude: <em>"Turn my inbox prompt into a scheduled task that runs every weekday at 8am."</em> Then you just check the results with your coffee.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Level 3: build your AI team</h2>
+  <p>One agent doing everything gets confused, like one employee doing sales, marketing and support at the same time. A <strong>team</strong> splits the work: each agent has one job, its own instructions and only the tools it needs. A supervisor checks their work before anything reaches a customer or you.</p>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Plan your team on paper</h3><small>15 minutes · the step most people skip</small></div></div>
+    <p>Pick <strong>one department</strong> to start with. Here's the sales team from the reel:</p>
+    <table class="keep">
+      <tr><th style="width:24%">Agent</th><th style="width:40%">Its one job</th><th>Tools it may use</th></tr>
+      <tr><td>🎯 Lead qualifier</td><td>Reads new leads and scores each one: hot, warm or cold, and why.</td><td>CRM (read, add notes), forms</td></tr>
+      <tr><td>📞 Call booker</td><td>Writes to hot leads and offers times for a sales call.</td><td>Gmail (drafts), Calendar</td></tr>
+      <tr><td>📣 Campaign runner</td><td>Plans and drafts the campaign for warm leads: emails and posts.</td><td>Gmail (drafts), social drafts</td></tr>
+      <tr><td>👑 Supervisor</td><td>Gives out the work, checks every result against your rules, and sends you one daily report.</td><td>Reads everything, sends nothing without you</td></tr>
+    </table>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Design my team</span></div>
+<pre>Using my business brief, design an AI agent team for my <span class="fill">sales / marketing / support</span>
+department. For each agent: its one job, what it reads, what it can
+change, what it must never do, and what "good work" looks like.
+Add a supervisor that checks their work and reports to me daily.
+Keep it to 3–4 agents.</pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">7</span><div><h3>Build the team in Claude Code</h3><small>30–60 minutes · Claude builds it</small></div></div>
+    <p><strong>Claude Code</strong> lets you create <strong>subagents</strong>: helper agents, each with its own instructions and tools, that a main agent hands work to. Your main session becomes the supervisor.</p>
+    <ol>
+      <li>Create a folder called <code>Sales Team</code> and put your business brief and your team plan inside it as text files.</li>
+      <li>In the Claude desktop app, open the <strong>Code</strong> tab, start a <strong>Local</strong> session and choose that folder.</li>
+      <li>Paste this prompt:</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Build my agent team</span></div>
+<pre>I'm a beginner. Build my AI sales team from the team plan in this folder.
+
+1. Create one subagent for each role (lead qualifier, call booker,
+   campaign runner), each with clear instructions, only the tools
+   it needs, and the rules it must never break.
+2. You are the supervisor. Hand each job to the right subagent,
+   check its work against my business brief, and fix or reject
+   anything that doesn't meet the rules.
+3. Connect to my tools (<span class="fill">Gmail, Calendar, HubSpot, Slack</span>) and tell me
+   step by step how to give access. Never ask me to paste
+   passwords in this chat.
+4. Nothing goes to a customer without my approval: emails stay as
+   drafts and bookings wait for my OK.
+5. Write a file called HOW-IT-WORKS.md that explains the team in
+   simple words, and how to start, pause and change it.
+
+Explain each step in one sentence before you do it.</pre>
+    </div>
+    <div class="box note">
+      <div class="box-title">Where the agents live</div>
+      <p>Claude Code saves each subagent as a small text file in a <code>.claude/agents</code> folder inside your project. Open one to read or change its instructions. It's plain English, not code.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">8</span><div><h3>Run it every day</h3><small>10 minutes a day</small></div></div>
+    <p>Each morning, open your <code>Sales Team</code> folder in Claude Code and say:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Daily run</span></div>
+<pre>Run today's sales cycle. Have the qualifier score new leads, the call
+booker draft replies to hot leads with 3 call times from my calendar,
+and the campaign runner prepare today's emails for warm leads.
+Check all of it, then give me one report: what's ready for my
+approval, what you rejected and why, and today's numbers.</pre>
+    </div>
+    <p>Approve the drafts you like, and give feedback on the rest: <em>"The call booker is too pushy. Make it friendlier and update its instructions."</em> Every piece of feedback makes the team better. Once you trust it, ask Claude to make the daily run a scheduled task.</p>
+  </div>
+
+  <div class="keep">
+    <h3>The same idea works for every department</h3>
+    <div class="cards">
+      <div class="card"><h3>Marketing</h3><p>Researcher, content writer, designer brief, post scheduler. The supervisor checks brand voice.</p></div>
+      <div class="card"><h3>Customer support</h3><p>Inbox sorter, answer drafter, refund checker. The supervisor flags angry customers to you.</p></div>
+      <div class="card"><h3>Recruiting</h3><p>CV screener, interview scheduler, follow-up writer. The supervisor checks fairness rules.</p></div>
+      <div class="card"><h3>Finance admin</h3><p>Invoice reader, reminder drafter, monthly summary. The supervisor checks every number.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="box warn keep">
+    <div class="box-title">Safety rules for agents</div>
+    <ul>
+      <li><strong>Approve before anything goes out.</strong> Emails, posts, bookings and CRM changes that customers see should wait for your OK until you fully trust them.</li>
+      <li><strong>Give each agent only the access it needs.</strong> The campaign runner doesn't need your calendar.</li>
+      <li><strong>Test on yourself first.</strong> Send test emails to your own address before real customers.</li>
+      <li><strong>Respect privacy and the law.</strong> Only email people who agreed to hear from you, and follow your country's data and marketing rules.</li>
+      <li><strong>Never paste passwords or API keys into a chat.</strong> Use the connector sign-in screens.</li>
+      <li><strong>Check the numbers.</strong> AI can make mistakes. Your supervisor agent helps, but you're still the boss.</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>I can't find a connector for my tool</td><td>Search the connector directory in Settings → Connectors. If it's not there, ask Claude Code to help you connect it another way, or export the data to a sheet.</td></tr>
+      <tr><td>The agent did something I didn't want</td><td>Undo it, then add a rule: "Never do X without asking me." Put rules in the agent's instructions, not only in the chat.</td></tr>
+      <tr><td>The emails don't sound like me</td><td>Give it 5 emails you wrote yourself and say: "Write exactly like these."</td></tr>
+      <tr><td>Agents step on each other's work</td><td>Make each job smaller and clearer, and let only the supervisor hand out work.</td></tr>
+      <tr><td>It's too much at once</td><td>Go back to one agent and one task. Add the next agent only when the first works well.</td></tr>
+      <tr><td>Scheduled tasks don't run</td><td>Your computer may be asleep or the app closed. Ask Claude how to keep it running at that time.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>I know which level I'm on</li>
+      <li>I wrote my business brief in a Claude Project</li>
+      <li>I listed my top 3 copy-paste jobs</li>
+      <li>I connected Claude to my main tools</li>
+      <li>Claude drafted my emails and updated my CRM with my approval</li>
+      <li>I planned a 3–4 agent team for one department</li>
+      <li>Claude Code built the team with a supervisor</li>
+      <li>Nothing reaches a customer without my approval</li>
+      <li>I ran the team for a week and improved its instructions</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">Chatbot</td><td>An AI you talk to. It answers, but it can't act in your other apps.</td></tr>
+      <tr><td>Agent</td><td>An AI that can use tools and take actions, like reading email or updating a CRM.</td></tr>
+      <tr><td>Agent team</td><td>Several agents, each with one job, working together under a supervisor.</td></tr>
+      <tr><td>Supervisor agent</td><td>The agent that hands out work and checks it before it reaches you.</td></tr>
+      <tr><td>Subagent</td><td>A helper agent in Claude Code with its own instructions and tools.</td></tr>
+      <tr><td>Connector</td><td>A secure link that lets Claude work inside another app, like Gmail or HubSpot.</td></tr>
+      <tr><td>CRM</td><td>Customer relationship management: where you track leads and customers, like HubSpot.</td></tr>
+      <tr><td>Lead qualification</td><td>Deciding how likely a lead is to buy, so you spend time on the best ones.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Stop copy-pasting. Start managing.</h2>
+    <p>Level 1 makes you faster. Level 2 does the work. Level 3 runs the department. Pick one task today and move up one level.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>

@@ -9,6 +9,15 @@
   },
   "guides": [
     {
+      "active": false,
+      "word": "LEVEL",
+      "title": "The 3 levels of AI: from chatbots to agent teams",
+      "description": "Find out which level you're on, connect Claude to Gmail, HubSpot and Slack so it does the work itself, then build your first AI team: a lead qualifier, a call booker, a campaign runner and a supervisor that checks their work.",
+      "pdf": "level.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
       "active": true,
       "word": "DREAMINA",
       "title": "One product photo, a full ad campaign with Claude and Dreamina",
