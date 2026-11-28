@@ -9,6 +9,33 @@
   },
   "guides": [
     {
+      "active": false,
+      "word": "JARVIS",
+      "title": "Turn your computer into a real Jarvis",
+      "description": "Install an open-source Jarvis with Claude Code from one GitHub link, give it a voice with ElevenLabs, connect your calendar, inbox and revenue, and get a spoken briefing every morning. Almost free, and you own it.",
+      "pdf": "jarvis.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
+      "active": false,
+      "word": "RANK",
+      "title": "Find the keywords your website can actually rank for",
+      "description": "Use Semrush's Keyword Magic Tool with your own website to see Personal Keyword Difficulty, skip the keywords you can't win, pick the easy ones, and use Claude to plan and write the pages that rank.",
+      "pdf": "rank.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
+      "active": false,
+      "word": "PLUGINS",
+      "title": "3 free plugins that turn Claude Code into an SEO expert",
+      "description": "Connect Claude Code to Google Search Console, add OpenSEO (an open-source Semrush alternative) and the GEO Optimizer skill for AI search. Step-by-step setup, ready prompts and a weekly SEO routine.",
+      "pdf": "plugins.pdf",
+      "video": "",
+      "date": ""
+    },
+    {
       "active": true,
       "word": "LEVEL",
       "title": "The 3 levels of AI: from chatbots to agent teams",

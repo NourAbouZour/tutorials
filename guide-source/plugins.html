@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>3 Plugins That Turn Claude Code into an SEO Expert</title>
+  <meta name="author" content="Nour Abou Zour (@nour_abou_zour)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<section class="cover">
+  <div class="brand"><img class="brand-mark" src="../brand/logo-icon.svg" alt="">@nour_abou_zour</div>
+  <div class="cover-main">
+    <span class="kicker">Comment word <b>PLUGINS</b></span>
+    <h1>3 plugins that turn Claude Code<br><span class="grad">into an SEO expert</span></h1>
+    <p class="subtitle">Stop paying for expensive SEO tools. Connect Claude Code to your Google Search Console, give it a free open-source alternative to Semrush, and add a skill that gets your site seen by ChatGPT, Claude and Google AI Overviews.</p>
+  </div>
+  <div>
+    <div class="cover-meta">
+      <div><span>Level</span><strong>Beginner</strong></div>
+      <div><span>Setup time</span><strong>About 1 hour</strong></div>
+      <div><span>Software</span><strong>Free, open source</strong></div>
+    </div>
+    <p class="cover-foot">You need the Claude desktop app with the Code tab, a website, and access to its Google Search Console.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this guide will help you do</h2>
+  <div class="summary">
+    <p>You'll install three free, open-source tools into Claude Code. Then you can ask Claude, in plain English, which keywords you're close to ranking for, what to fix to climb higher, what your competitors rank for, and how to make AI assistants recommend your site. Claude does the setup for you; you mostly sign in and click Allow.</p>
+  </div>
+
+  <h3>What's inside</h3>
+  <ol class="toc">
+    <li>The 3 tools at a glance</li>
+    <li>Before you start</li>
+    <li>Plugin 1: Google Search Console MCP</li>
+    <li>Prompts for your Search Console data</li>
+    <li>Plugin 2: OpenSEO</li>
+    <li>Prompts for keywords, rankings and backlinks</li>
+    <li>Plugin 3: GEO Optimizer Skill</li>
+    <li>Prompts for AI search visibility</li>
+    <li>Your weekly SEO routine</li>
+    <li>Fixes, checklist and glossary</li>
+  </ol>
+
+  <div class="keep">
+    <h2>The 3 tools at a glance</h2>
+    <table>
+      <tr><th style="width:24%">Tool</th><th style="width:44%">What it gives Claude</th><th>Cost</th></tr>
+      <tr><td><strong>GSC MCP</strong></td><td>Direct access to your Google Search Console: your real clicks, keywords, positions and indexing problems.</td><td>Free and open source.</td></tr>
+      <tr><td><strong>OpenSEO</strong></td><td>An open-source alternative to Semrush: keyword research, rank tracking, backlinks and full site audits.</td><td>Free software. The SEO data comes from DataForSEO, which you pay for per use (or use OpenSEO's hosted plan).</td></tr>
+      <tr><td><strong>GEO Optimizer Skill</strong></td><td>Audits and fixes your site so ChatGPT, Claude and Google AI Overviews can find, understand and cite it.</td><td>Free and open source.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
+    <h2>Before you start</h2>
+    <ul>
+      <li><strong>Claude desktop app with the Code tab</strong> (Claude Code), from <a href="https://claude.ai/download">claude.ai/download</a>. It comes with paid Claude plans.</li>
+      <li><strong>Your website in Google Search Console.</strong> If it isn't there yet, go to <a href="https://search.google.com/search-console">search.google.com/search-console</a>, add your site and verify it. Claude can walk you through it.</li>
+      <li><strong>A folder</strong> called <code>SEO</code> on your computer. Open the Claude desktop app, click <strong>Code</strong>, start a <strong>Local</strong> session and choose that folder. You'll do everything in this guide from there.</li>
+    </ul>
+    <div class="box tip">
+      <div class="box-title">Let Claude do the technical part</div>
+      <p>Each tool has a GitHub page with its install steps. You don't need to understand them: give Claude the link and ask it to install it and explain each step. Never paste passwords or API keys into the chat. Claude will tell you which file or screen to put them in.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Plugin 1: Google Search Console MCP</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><div><h3>Install it</h3><small>20 minutes · the longest setup</small></div></div>
+    <p>An <strong>MCP</strong> is a connector that lets Claude use another tool. This one (<strong>mcp-gsc</strong>, by Amin Foroutan) gives Claude read access to your Search Console. Paste this into Claude Code:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Install GSC MCP</span></div>
+<pre>Install the Google Search Console MCP from
+https://github.com/AminForou/mcp-gsc for Claude Code on this computer.
+
+I'm a beginner. Read the README, then guide me step by step through:
+1. Installing what it needs (it uses "uv").
+2. Creating a Google Cloud project, turning on the Search Console API,
+   and creating an OAuth client ID (Desktop app). Tell me exactly
+   which buttons to click. I'll do the Google screens myself.
+3. Where to save the credentials file, and adding the MCP to Claude Code.
+4. Testing it by listing my Search Console properties.
+Keep it read-only.</pre>
+    </div>
+    <p>The first time you use it, a browser window opens to sign in to Google. Use the account that has access to your Search Console, and click Allow.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><div><h3>Ask about your real Google data</h3><small>Minutes</small></div></div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Almost on page 1</span></div>
+<pre>Using my Search Console data for <span class="fill">YOURWEBSITE.COM</span> from the last 90 days,
+find the keywords where I rank between position 8 and 20 with good
+impressions. These are the ones I'm close to winning. For each one,
+show the page that ranks, and tell me exactly what to fix on that
+page to move it up. Rank them by easiest win first.</pre>
+    </div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Low clicks, high views</span></div>
+<pre>Find pages with lots of impressions but a low click-through rate.
+For each, write a better title and meta description that would
+make people click.</pre>
+    </div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Health check</span></div>
+<pre>Check my site's indexing problems and sitemaps, and compare this
+month's clicks with last month. Explain any big drops in simple words.</pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Plugin 2: OpenSEO</h2>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><div><h3>Choose how to run it</h3><small>5 minutes</small></div></div>
+    <p><strong>OpenSEO</strong> (by Every App) is an open-source alternative to Semrush and Ahrefs. The software is free. The SEO data (search volumes, rankings, backlinks) comes from a data provider called <strong>DataForSEO</strong>, which charges per use, usually much less than a monthly Semrush plan. You have two options:</p>
+    <table class="keep">
+      <tr><th style="width:28%">Option</th><th>Good for</th></tr>
+      <tr><td><strong>Hosted</strong> at openseo.so</td><td>The easiest. You can try it for free, then there's a low monthly plan. Data use is included at a small markup. No technical setup.</td></tr>
+      <tr><td><strong>Self-hosted</strong></td><td>The cheapest if you use it a lot. You run it in your own account and pay DataForSEO directly. Claude Code can set it up for you.</td></tr>
+    </table>
+    <p>Check current prices on <a href="https://openseo.so">openseo.so</a> and <a href="https://dataforseo.com">dataforseo.com</a> before you start.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><div><h3>Connect it to Claude Code</h3><small>10–20 minutes</small></div></div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Install OpenSEO</span></div>
+<pre>I want to use OpenSEO (https://github.com/every-app/open-seo) with
+Claude Code. I chose the <span class="fill">hosted / self-hosted</span> option.
+
+Read the README and its MCP and skills docs, then guide me step by step:
+1. What account(s) I need to create, and what each one costs.
+2. Setting it up, and where I paste my DataForSEO key (in a settings
+   file or their website, never in this chat).
+3. Connecting its MCP server and skills to Claude Code.
+4. A test: research 10 keywords for my site <span class="fill">YOURWEBSITE.COM</span>.</pre>
+    </div>
+    <div class="box note">
+      <div class="box-title">Set a spending limit</div>
+      <p>In your DataForSEO account, add a small amount of credit first (for example $5–10) and watch how fast you use it. Every search Claude runs uses a little.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">5</span><div><h3>Do your keyword research by chatting</h3><small>Minutes</small></div></div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Keyword research</span></div>
+<pre>Using OpenSEO, find 30 keywords for <span class="fill">YOUR TOPIC</span> in <span class="fill">COUNTRY</span>.
+Show volume, difficulty and intent. Group them into page ideas,
+and mark the easiest wins for my site.</pre>
+    </div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Competitors and backlinks</span></div>
+<pre>Compare my site with <span class="fill">COMPETITOR.COM</span>: which keywords they rank for that I
+don't, and which sites link to them but not to me. Give me the top 10
+of each, ranked by how easy they'd be for me.</pre>
+    </div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Site audit</span></div>
+<pre>Run a full site audit on <span class="fill">YOURWEBSITE.COM</span>. List the problems from most to
+least important, explain each in one sentence, and tell me how to fix it.</pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Plugin 3: GEO Optimizer Skill</h2>
+  <p><strong>GEO</strong> means generative engine optimization: making your site easy for AI assistants to find, understand and recommend. When someone asks ChatGPT, Claude or Google's AI Overviews about your topic, you want your site in the answer instead of your competitors'.</p>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">6</span><div><h3>Install it</h3><small>5 minutes</small></div></div>
+    <p>This is <strong>geo-optimizer-skill</strong> by Auriti Labs. It installs as a Claude Code plugin. In Claude Code, type these two commands one at a time:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>TYPE IN CLAUDE CODE</span><span>Install the plugin</span></div>
+<pre>/plugin marketplace add Auriti-Labs/geo-optimizer-skill
+/plugin install geo-optimizer@geoready</pre>
+    </div>
+    <p>It needs <strong>uv</strong> and <strong>Python 3.10 or newer</strong>. If you installed the GSC MCP in Step 1, you already have uv. If something's missing, just say: <em>"Install whatever the GEO Optimizer plugin needs, and check it works."</em></p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">7</span><div><h3>Audit and fix your site for AI search</h3><small>10 minutes</small></div></div>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>GEO audit</span></div>
+<pre>Run a GEO audit on <span class="fill">YOURWEBSITE.COM</span>. Give me the score out of 100, what's
+holding it back, and the fixes in order of impact. Explain each one simply.</pre>
+    </div>
+    <p>It checks things like whether AI crawlers are allowed in your <code>robots.txt</code>, whether you have an <code>llms.txt</code> file, your structured data (schema) and meta tags, and how easy your content is to quote. Then:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Make the fixes</span></div>
+<pre>Prepare the fixes (robots.txt rules, llms.txt, schema and meta tags).
+Show me a preview first. After I approve, save the files and tell me
+exactly where to upload them on my website.</pre>
+    </div>
+    <div class="box warn">
+      <div class="box-title">No tool can guarantee AI citations</div>
+      <p>GEO Optimizer makes your site technically ready for AI search. It improves your chances, but the AI decides what to cite. Great, clear, useful content still matters most.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="step keep">
+    <div class="step-head"><span class="step-num">8</span><div><h3>Your weekly SEO routine</h3><small>15 minutes a week</small></div></div>
+    <p>Once all three are installed, one prompt uses them together:</p>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Every Monday</span></div>
+<pre>Weekly SEO check for <span class="fill">YOURWEBSITE.COM</span>:
+1. Search Console: what changed this week, wins and drops.
+2. My 5 easiest keyword wins right now, and what to fix on each page.
+3. OpenSEO: my tracked rankings, and one competitor gap to go after.
+4. GEO: anything that hurts my AI visibility.
+Finish with my top 3 tasks for this week.</pre>
+    </div>
+  </div>
+
+  <div class="section keep">
+    <h2>Fixes</h2>
+    <table>
+      <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
+      <tr><td>"No properties found" in Search Console</td><td>You signed in with the wrong Google account. Ask Claude to re-authenticate and pick the account that owns the site.</td></tr>
+      <tr><td>"uv" or "uvx" not found</td><td>Ask Claude: "Install uv on this computer and add it to my PATH." Then restart the Claude app.</td></tr>
+      <tr><td>The MCP doesn't show up in Claude Code</td><td>Restart the Claude app, then ask Claude to list its connected MCP servers.</td></tr>
+      <tr><td>OpenSEO returns no data</td><td>Check your DataForSEO key and credit balance.</td></tr>
+      <tr><td>The /plugin command isn't recognized</td><td>Update the Claude desktop app to the latest version and try again.</td></tr>
+      <tr><td>I uploaded the GEO files but the score didn't change</td><td>Check they're live (open yoursite.com/llms.txt in a browser), then run the audit again.</td></tr>
+    </table>
+  </div>
+
+  <div class="section keep">
+    <h2>Your checklist</h2>
+    <ul class="checklist">
+      <li>My site is verified in Google Search Console</li>
+      <li>The GSC MCP is installed and lists my properties</li>
+      <li>I found keywords where I'm on positions 8–20</li>
+      <li>OpenSEO is connected and I set a DataForSEO spending limit</li>
+      <li>I did keyword research and a competitor check by chatting</li>
+      <li>The GEO Optimizer plugin is installed</li>
+      <li>I ran a GEO audit and uploaded the fixes</li>
+      <li>I saved my weekly SEO prompt</li>
+    </ul>
+  </div>
+
+  <div class="section keep">
+    <h2>Mini glossary</h2>
+    <table>
+      <tr><td style="width:30%">Google Search Console</td><td>Google's free tool that shows how your site performs in Google Search.</td></tr>
+      <tr><td>MCP</td><td>Model Context Protocol: a standard way to connect Claude to other tools and data.</td></tr>
+      <tr><td>Plugin / skill</td><td>An add-on that gives Claude Code new abilities and instructions.</td></tr>
+      <tr><td>DataForSEO</td><td>A paid-per-use provider of SEO data that OpenSEO uses.</td></tr>
+      <tr><td>GEO</td><td>Generative engine optimization: getting your site cited by AI assistants.</td></tr>
+      <tr><td>llms.txt</td><td>A file that gives AI assistants a clear summary of your site.</td></tr>
+      <tr><td>Schema</td><td>Hidden labels on your pages that tell search engines what things are.</td></tr>
+      <tr><td>CTR</td><td>Click-through rate: how many people click your result after seeing it.</td></tr>
+    </table>
+  </div>
+
+  <div class="outro">
+    <h2>Your own SEO team, inside Claude Code.</h2>
+    <p>Real Google data, real keyword research, and a site AI assistants can recommend.</p>
+    <p>More free guides every week:</p>
+    <span class="handle">Instagram · @nour_abou_zour</span>
+  </div>
+</section>
+
+</body>
+</html>
