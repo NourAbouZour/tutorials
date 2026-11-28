@@ -9,13 +9,13 @@
   },
   "guides": [
     {
-      "active": false,
+      "active": true,
       "word": "JARVIS",
       "title": "Turn your computer into a real Jarvis",
       "description": "Install OpenJarvis, the free open-source assistant, with Claude Code from one GitHub link. Give it a voice with ElevenLabs, connect Gmail and Google Calendar, and get a spoken briefing every morning. Almost free, and you own it.",
       "pdf": "jarvis.pdf",
-      "video": "",
-      "date": ""
+      "video": "https://www.instagram.com/reel/DgSZQA0oEso/",
+      "date": "2026-11-28"
     },
     {
       "active": false,
