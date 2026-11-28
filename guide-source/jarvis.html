@@ -14,7 +14,7 @@
   <div class="cover-main">
     <span class="kicker">Comment word <b>JARVIS</b></span>
     <h1>Build your own<br><span class="grad">real Jarvis</span></h1>
-    <p class="subtitle">A voice assistant that talks to you, briefs you every morning, reads your calendar and inbox, and does the work for you. It's open source, so you own it and nobody can switch it off. Claude Code installs the whole thing for you.</p>
+    <p class="subtitle">OpenJarvis is a free, open-source AI assistant that runs on your own computer. It reads your calendar and inbox and speaks you a morning briefing in the voice you choose. You own it, and nobody can switch it off. Claude Code installs the whole thing for you.</p>
   </div>
   <div>
     <div class="cover-meta">
@@ -22,38 +22,52 @@
       <div><span>Setup time</span><strong>30–45 min</strong></div>
       <div><span>Cost</span><strong>Almost nothing</strong></div>
     </div>
-    <p class="cover-foot">You need the Claude desktop app with the Code tab, a free ElevenLabs account, and a computer with a microphone and speakers.</p>
+    <p class="cover-foot">You need the Claude desktop app with the Code tab, a free ElevenLabs account, and a Mac, Windows or Linux computer with speakers.</p>
   </div>
 </section>
 
 <section>
   <h2>What this guide will help you do</h2>
   <div class="summary">
-    <p>You'll install an open-source Jarvis on your own computer without writing any code: you give Claude Code the GitHub link, and it downloads and installs everything. Then you give Jarvis a voice with ElevenLabs, connect your calendar, inbox and revenue, and start every day with a spoken briefing like <em>"Four items, sir, and a quieter morning."</em></p>
+    <p>You'll install OpenJarvis without writing any code: you give Claude Code the GitHub link, and it downloads and installs everything. Then you give Jarvis a voice with ElevenLabs, connect your Gmail and Google Calendar, and start every day with a spoken briefing like <em>"Four items, sir, and a quieter morning."</em></p>
   </div>
 
   <h3>What's inside</h3>
   <ol class="toc">
+    <li>What OpenJarvis is</li>
     <li>What you need</li>
-    <li>Get the Jarvis project link</li>
     <li>Let Claude Code set it up</li>
     <li>Give Jarvis a voice with ElevenLabs</li>
-    <li>Connect your calendar, inbox and revenue</li>
+    <li>Connect your calendar, inbox and more</li>
     <li>Your first morning briefing</li>
-    <li>Make it yours</li>
+    <li>Use it every day, and make it yours</li>
     <li>Stay safe with open-source tools</li>
     <li>Fixes, checklist and glossary</li>
   </ol>
 
   <div class="keep">
+    <h2>What OpenJarvis is</h2>
+    <div class="cards">
+      <div class="card"><h3>Open source</h3><p>Free, with the Apache 2.0 license. The code is public on GitHub, so you can read it, change it and keep it forever.</p></div>
+      <div class="card"><h3>Local first</h3><p>It runs AI models on your own computer by default (through a free tool called <strong>Ollama</strong>), and only uses the cloud when you choose to.</p></div>
+    </div>
+    <div class="prompt">
+      <div class="prompt-label"><span>THE PROJECT</span><span>GitHub link</span></div>
+<pre>https://github.com/open-jarvis/openjarvis</pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="keep">
     <h2>What you need</h2>
     <table>
       <tr><th style="width:30%">You need</th><th>Details</th></tr>
       <tr><td>Claude desktop app</td><td>With the <strong>Code</strong> tab (Claude Code). It comes with paid Claude plans. Download it from <a href="https://claude.ai/download">claude.ai/download</a>.</td></tr>
-      <tr><td>The Jarvis GitHub link</td><td>The open-source project from the reel. You get it in Step 1.</td></tr>
+      <tr><td>A computer with free space</td><td>Mac, Windows or Linux. OpenJarvis downloads AI models to run locally: the first one is about 1.5 GB, and bigger ones download in the background. Keep at least 10 GB free.</td></tr>
       <tr><td>An ElevenLabs account</td><td>For Jarvis's voice. ElevenLabs has a free plan with a small monthly allowance. Upgrade only if you use it a lot.</td></tr>
-      <tr><td>Mic and speakers</td><td>Your laptop's built-in ones are fine. Headphones stop Jarvis from hearing itself.</td></tr>
-      <tr><td>45 minutes</td><td>Most of it is Claude working while you watch.</td></tr>
+      <tr><td>A Google account</td><td>For Gmail and Google Calendar.</td></tr>
+      <tr><td>Speakers</td><td>Your laptop's built-in ones are fine.</td></tr>
     </table>
   </div>
 </section>
@@ -62,17 +76,7 @@
   <h2>Set it up</h2>
 
   <div class="step">
-    <div class="step-head"><span class="step-num">1</span><div><h3>Get the Jarvis project link</h3><small>1 minute</small></div></div>
-    <p>The project lives on <strong>GitHub</strong>, a website where developers share code. Open the link and copy it from your browser's address bar:</p>
-    <div class="prompt">
-      <div class="prompt-label"><span>THE PROJECT</span><span>GitHub link</span></div>
-<pre><span class="fill">GITHUB LINK FROM THE REEL / MY DM</span></pre>
-    </div>
-    <p>On the project page, scroll down to the <strong>README</strong>. It explains what this Jarvis can do and what it needs. You don't have to understand all of it. Claude will read it for you.</p>
-  </div>
-
-  <div class="step">
-    <div class="step-head"><span class="step-num">2</span><div><h3>Let Claude Code set it up</h3><small>15–30 minutes · Claude does the work</small></div></div>
+    <div class="step-head"><span class="step-num">1</span><div><h3>Let Claude Code set it up</h3><small>15–30 minutes · Claude does the work</small></div></div>
     <ol>
       <li>Create a folder on your computer called <code>Jarvis</code>.</li>
       <li>Open the Claude desktop app, click the <strong>Code</strong> tab, start a <strong>Local</strong> session, and choose that folder.</li>
@@ -80,21 +84,22 @@
     </ol>
     <div class="prompt">
       <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Set up Jarvis</span></div>
-<pre><span class="fill">PASTE THE GITHUB LINK</span>
+<pre>https://github.com/open-jarvis/openjarvis
 Set this up on my machine.
 
 I'm a beginner, so:
-1. Read the README first and tell me in 5 lines what this
-   project does and what it will install.
-2. Check the code for anything that looks unsafe (sending my
-   data somewhere unexpected, deleting files, hidden downloads)
-   and tell me what you find before installing.
-3. Download it into this folder and install everything it needs.
-   Explain each step in one simple sentence.
-4. When it needs an API key, tell me which file to put it in.
-   I'll paste keys there myself, never in this chat.
-5. At the end, show me how to start Jarvis, stop it, and update it.</pre>
+1. Read the README first and tell me in 5 lines what OpenJarvis
+   does and what it will install on my computer.
+2. Use the official installer for my system (Mac, Windows or
+   Linux) from the README. Explain each step in one simple sentence.
+3. When it's done, run "jarvis doctor" and tell me if anything
+   is missing.
+4. When something needs an API key, tell me exactly where to put
+   it. I'll paste keys there myself, never in this chat.
+5. At the end, show me how to start Jarvis, update it, and
+   uninstall it if I ever want to.</pre>
     </div>
+    <p>The installer sets up everything OpenJarvis needs (Python, uv, Ollama) and downloads a first AI model. It takes a few minutes on good internet. Then type <code>jarvis</code> to chat with it.</p>
     <div class="box tip">
       <div class="box-title">Let it ask, then say yes</div>
       <p>Claude asks before it installs things. Read what it says, and if something isn't clear, ask <em>"What is that and why does Jarvis need it?"</em> before you approve.</p>
@@ -102,39 +107,46 @@ I'm a beginner, so:
   </div>
 
   <div class="step">
-    <div class="step-head"><span class="step-num">3</span><div><h3>Give Jarvis a voice with ElevenLabs</h3><small>10 minutes</small></div></div>
+    <div class="step-head"><span class="step-num">2</span><div><h3>Give Jarvis a voice with ElevenLabs</h3><small>10 minutes</small></div></div>
     <ol>
       <li>Go to <a href="https://elevenlabs.io">elevenlabs.io</a> and create a free account.</li>
-      <li>Open the <strong>Voices</strong> section (the Voice Library) and listen to a few. Pick one you like: calm and British if you want the classic Jarvis feel.</li>
-      <li>Open the voice's options and copy its <strong>Voice ID</strong>.</li>
-      <li>Open your account settings, find <strong>API Keys</strong>, and create a new key. Name it <code>Jarvis</code>.</li>
-      <li>Paste the key and the Voice ID into the settings file Claude showed you (often called <code>.env</code>). Save the file.</li>
-      <li>Tell Claude: <em>"I added my ElevenLabs key and voice ID. Set up the voice and play a test sentence."</em></li>
+      <li>Open the <strong>Voices</strong> section and listen to a few. Pick one you like: calm and British if you want the classic Jarvis feel. Make sure it's available on your plan.</li>
+      <li>Copy the voice's <strong>Voice ID</strong> from its options.</li>
+      <li>In your account settings, find <strong>API Keys</strong> and create a new key. Name it <code>Jarvis</code>.</li>
+      <li>Tell Claude Code:</li>
     </ol>
+    <div class="prompt">
+      <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Set up the voice</span></div>
+<pre>Set up ElevenLabs as Jarvis's voice for the morning digest.
+My voice ID is <span class="fill">PASTE THE VOICE ID</span>.
+Set tts_backend to "elevenlabs" and my voice ID in the [digest]
+section of ~/.openjarvis/config.toml.
+Then tell me where to put my ELEVENLABS_API_KEY so it's saved
+safely. I'll paste the key there myself.</pre>
+    </div>
     <div class="box warn">
       <div class="box-title">Your API key is like a password</div>
-      <p>Anyone with your key can use your ElevenLabs credits. Never paste it in a chat, a screenshot or a public file. If you leak it, delete it in ElevenLabs and create a new one.</p>
+      <p>Anyone with your key can use your ElevenLabs credits. Never paste it in a chat, a screenshot or a public file. If you leak it, delete it in ElevenLabs and create a new one. Also know that with a cloud voice, the text of your briefing is sent to ElevenLabs to be spoken. If you want everything to stay on your computer, OpenJarvis also has a free local voice called <strong>Kokoro</strong>.</p>
     </div>
   </div>
 
   <div class="step">
-    <div class="step-head"><span class="step-num">4</span><div><h3>Connect your calendar, inbox and revenue</h3><small>10–15 minutes</small></div></div>
-    <p>This is what turns a talking toy into a real assistant. Every Jarvis project supports different tools, so ask Claude first:</p>
+    <div class="step-head"><span class="step-num">3</span><div><h3>Connect your calendar, inbox and more</h3><small>10–15 minutes</small></div></div>
+    <p>This is what turns a talking toy into a real assistant. OpenJarvis connects to Google with one sign-in that covers <strong>Gmail, Google Calendar, Tasks, Contacts and Drive</strong>. Ask Claude to walk you through it:</p>
     <div class="prompt">
       <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Connect my tools</span></div>
-<pre>Which tools can this Jarvis connect to? I want:
-- my calendar: <span class="fill">Google Calendar / Outlook / Apple Calendar</span>
-- my inbox: <span class="fill">Gmail / Outlook</span>
-- my revenue: <span class="fill">Stripe / Shopify / a Google Sheet</span>
+<pre>Connect Jarvis to my Google account (Gmail and Calendar) with
+"jarvis connect gdrive". Walk me through creating the Google
+client ID and secret step by step. I'll do the Google screens and
+paste the values myself. Then show me "jarvis connect --list".
 
-Connect them one at a time. Use read-only access wherever you can.
-Walk me through every sign-in screen, and tell me exactly what
-Jarvis will be able to see and do with each one.</pre>
+After that, tell me what else OpenJarvis can connect to (weather,
+news, GitHub, health apps...) and help me add <span class="fill">WEATHER / NEWS / ...</span></pre>
     </div>
-    <ul>
-      <li><strong>Calendar and email:</strong> you'll usually sign in with Google or Microsoft in your browser and click Allow. Read what access it asks for.</li>
-      <li><strong>Revenue:</strong> for Stripe or Shopify, Claude may ask you to create a <strong>restricted, read-only</strong> key in their dashboard. Read-only means Jarvis can see your numbers but can't move money.</li>
-    </ul>
+    <div class="box note">
+      <div class="box-title">What about my revenue?</div>
+      <p>At the time of writing, OpenJarvis has no built-in Stripe or Shopify connector. Two easy options: keep your revenue in a <strong>Google Sheet</strong> on your Drive (Jarvis can already read Drive), or, because it's open source, ask Claude Code: <em>"Add my daily revenue from <span class="fill">Stripe / Shopify</span> to the morning digest, with a read-only key."</em></p>
+    </div>
   </div>
 </section>
 
@@ -142,41 +154,43 @@ Jarvis will be able to see and do with each one.</pre>
   <h2>Use it every day</h2>
 
   <div class="step">
-    <div class="step-head"><span class="step-num">5</span><div><h3>Your first morning briefing</h3><small>2 minutes</small></div></div>
-    <p>Start Jarvis the way Claude showed you, and ask for your briefing. Then ask Claude to make it automatic:</p>
+    <div class="step-head"><span class="step-num">4</span><div><h3>Your first morning briefing</h3><small>5 minutes</small></div></div>
+    <p>OpenJarvis has a ready-made <strong>morning digest</strong>. Ask Claude Code to set it up:</p>
     <div class="prompt">
       <div class="prompt-label"><span>COPY THIS PROMPT</span><span>Morning briefing</span></div>
-<pre>Set up a spoken morning briefing that runs every weekday at <span class="fill">8:00</span>.
-It should tell me, in under a minute:
-1. How many items I have today, and anything that clashes.
-2. Emails I haven't replied to that matter.
-3. Yesterday's revenue compared with my usual day.
-4. The one thing I should do first.
-Speak like Jarvis: calm, short, a little dry humour, and call me "<span class="fill">sir / boss / your name</span>".</pre>
+<pre>Set up the OpenJarvis morning digest for my computer, using the
+right preset (morning-digest-mac, morning-digest-linux or
+morning-digest-minimal). Then:
+1. Run "jarvis digest --fresh" so I can hear my first briefing.
+2. Schedule it every weekday at <span class="fill">8:00</span> in my time zone.
+3. Make the style like Jarvis: calm, short, a little dry humour,
+   and call me "<span class="fill">sir / boss / your name</span>".
+4. Tell me if my computer needs to stay on for the schedule to work.</pre>
     </div>
-    <p>This is how you get lines like: <em>"The call at half one collides with the accelerator sync, and you have not yet replied to it."</em></p>
+    <p>That's how you get lines like: <em>"The call at half one collides with the accelerator sync, and you have not yet replied to it."</em></p>
   </div>
 
   <div class="step">
-    <div class="step-head"><span class="step-num">6</span><div><h3>Let it do the work</h3><small>Every day</small></div></div>
-    <p>Instead of opening apps, just ask. Examples to try:</p>
+    <div class="step-head"><span class="step-num">5</span><div><h3>Everyday commands</h3><small>Seconds</small></div></div>
     <table class="keep">
-      <tr><th style="width:38%">You say</th><th>Jarvis does</th></tr>
-      <tr><td>"What's my day look like?"</td><td>Reads your calendar and summarizes it out loud.</td></tr>
-      <tr><td>"Move the 1:30 call to tomorrow afternoon."</td><td>Finds a free slot and proposes the change. You confirm.</td></tr>
-      <tr><td>"Who's waiting for a reply?"</td><td>Lists the important unanswered emails.</td></tr>
-      <tr><td>"Draft a reply to Sarah saying yes."</td><td>Writes the draft and reads it to you. You approve before it sends.</td></tr>
-      <tr><td>"How did we do this week?"</td><td>Gives you this week's revenue against last week's.</td></tr>
+      <tr><th style="width:40%">Type this</th><th>What it does</th></tr>
+      <tr><td><code>jarvis</code></td><td>Starts a chat with Jarvis. Ask it about your day, your emails or anything else.</td></tr>
+      <tr><td><code>jarvis digest</code></td><td>Plays today's briefing again.</td></tr>
+      <tr><td><code>jarvis digest --fresh</code></td><td>Makes a new briefing right now.</td></tr>
+      <tr><td><code>jarvis digest --history</code></td><td>Shows past briefings.</td></tr>
+      <tr><td><code>jarvis doctor</code></td><td>Checks that everything is working.</td></tr>
+      <tr><td><code>jarvis self-update</code></td><td>Updates OpenJarvis to the latest version.</td></tr>
     </table>
+    <p>Not comfortable typing commands? Just ask Claude Code in your <code>Jarvis</code> folder: <em>"Run my digest"</em>, and it types them for you.</p>
   </div>
 
   <div class="step">
-    <div class="step-head"><span class="step-num">7</span><div><h3>Make it yours</h3><small>Optional</small></div></div>
+    <div class="step-head"><span class="step-num">6</span><div><h3>Make it yours</h3><small>Optional</small></div></div>
     <p>It's open source, so you can change anything. Open your <code>Jarvis</code> folder in Claude Code and ask, for example:</p>
     <ul>
-      <li><em>"Add a wake word, so it only listens when I say 'Jarvis'."</em></li>
-      <li><em>"Add the weather and my to-do list to the morning briefing."</em></li>
-      <li><em>"Make it start automatically when I turn on my computer."</em></li>
+      <li><em>"Add the weather and my Google Tasks to the morning briefing."</em></li>
+      <li><em>"Use Claude as Jarvis's brain instead of the local model."</em> (This needs an Anthropic API key, which is paid per use. The local model is free.)</li>
+      <li><em>"Make Jarvis start automatically when I turn on my computer."</em></li>
       <li><em>"Always ask me before sending an email or changing my calendar."</em></li>
     </ul>
   </div>
@@ -186,10 +200,10 @@ Speak like Jarvis: calm, short, a little dry humour, and call me "<span class="f
   <div class="box warn keep">
     <div class="box-title">Stay safe with open-source tools</div>
     <ul>
-      <li><strong>Only install projects you trust.</strong> Look at the GitHub page: is it active, does it have many stars, are there recent updates? Ask Claude to check the code before installing (Step 2 does this).</li>
+      <li><strong>Install from the official source only:</strong> github.com/open-jarvis/openjarvis and the installer linked in its README. Not from copies or random links.</li>
       <li><strong>You own it, so you protect it.</strong> Your keys and data stay on your computer. Keep your computer locked and updated.</li>
-      <li><strong>Read-only first.</strong> Give Jarvis permission to send emails or change your calendar only when you trust it, and keep "ask me first" on.</li>
-      <li><strong>Watch your usage.</strong> Voice and AI use small amounts of credits. Check your ElevenLabs and Claude usage in the first week.</li>
+      <li><strong>Read-only first.</strong> Only give Jarvis permission to send emails or change your calendar when you trust it, and keep "ask me first" on.</li>
+      <li><strong>Watch your usage.</strong> The local model is free. Cloud voices and cloud AI models use credits. Check your ElevenLabs usage in the first week.</li>
     </ul>
   </div>
 
@@ -198,11 +212,11 @@ Speak like Jarvis: calm, short, a little dry humour, and call me "<span class="f
     <table>
       <tr><th style="width:36%">Problem</th><th>What to do</th></tr>
       <tr><td>The install fails</td><td>Copy the exact error and tell Claude: "This failed. Explain why in simple words and fix it."</td></tr>
-      <tr><td>Jarvis can't hear me</td><td>Allow microphone access for the app in your computer's privacy settings, and check the right mic is selected.</td></tr>
-      <tr><td>It answers itself in a loop</td><td>Use headphones, or ask Claude to add a wake word.</td></tr>
-      <tr><td>No voice, or a robotic voice</td><td>Check your ElevenLabs key, voice ID and remaining credits, then ask Claude to test the voice.</td></tr>
-      <tr><td>It can't see my calendar or email</td><td>The sign-in may have expired. Ask Claude to reconnect it.</td></tr>
-      <tr><td>The project changed after an update</td><td>Ask Claude: "Update Jarvis to the latest version and tell me what changed."</td></tr>
+      <tr><td>"jarvis: command not found"</td><td>Close and reopen your terminal (or the Claude app), then try again. Ask Claude to check the install if it still fails.</td></tr>
+      <tr><td>It's slow</td><td>The local model runs on your computer's power. Ask Claude to switch to a smaller model, or to a cloud model.</td></tr>
+      <tr><td>No voice in the briefing</td><td>Check your ElevenLabs key, voice ID and remaining credits, then run <code>jarvis digest --fresh</code> again.</td></tr>
+      <tr><td>It can't see my calendar or email</td><td>Run <code>jarvis connect --list</code>. If Google isn't connected, run <code>jarvis connect gdrive</code> again.</td></tr>
+      <tr><td>The briefing didn't play at 8:00</td><td>Your computer may have been asleep. Ask Claude how to keep the schedule running.</td></tr>
     </table>
   </div>
 
@@ -210,12 +224,12 @@ Speak like Jarvis: calm, short, a little dry humour, and call me "<span class="f
     <h2>Your checklist</h2>
     <ul class="checklist">
       <li>I have the Claude desktop app with the Code tab</li>
-      <li>I copied the Jarvis GitHub link</li>
-      <li>Claude checked the code and installed Jarvis</li>
+      <li>Claude installed OpenJarvis and "jarvis doctor" is happy</li>
       <li>I created an ElevenLabs key and picked a voice</li>
-      <li>My keys are in the settings file, not in the chat</li>
-      <li>My calendar, inbox and revenue are connected (read-only first)</li>
-      <li>I got my first spoken morning briefing</li>
+      <li>My key is saved in the right place, not in the chat</li>
+      <li>Gmail and Google Calendar are connected</li>
+      <li>I heard my first spoken morning briefing</li>
+      <li>The briefing is scheduled every weekday</li>
       <li>Jarvis asks me before sending or changing anything</li>
     </ul>
   </div>
@@ -226,10 +240,11 @@ Speak like Jarvis: calm, short, a little dry humour, and call me "<span class="f
       <tr><td style="width:30%">Open source</td><td>Software whose code is public. You can download it, change it and run it yourself.</td></tr>
       <tr><td>GitHub</td><td>The website where developers share code projects.</td></tr>
       <tr><td>README</td><td>The page that explains what a project does and how to install it.</td></tr>
+      <tr><td>Ollama</td><td>A free tool that runs AI models on your own computer.</td></tr>
+      <tr><td>Local model</td><td>An AI model that runs on your computer, so it's free and private.</td></tr>
       <tr><td>API key</td><td>A secret key that lets an app use a service, like ElevenLabs. Treat it like a password.</td></tr>
       <tr><td>Voice ID</td><td>The code for the exact voice you chose in ElevenLabs.</td></tr>
-      <tr><td>.env file</td><td>A settings file where apps keep secret keys on your computer.</td></tr>
-      <tr><td>Read-only</td><td>Access that can look at data but can't change it.</td></tr>
+      <tr><td>Digest</td><td>Your daily briefing: calendar, emails and more, summarized and spoken.</td></tr>
     </table>
   </div>
 
